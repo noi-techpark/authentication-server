@@ -2,7 +2,12 @@ version: "3.4"
 
 services:
   keycloak:
-    image: jboss/keycloak:8.0.0
+    build:
+      context: ./
+      dockerfile: docker/keycloak/Dockerfile
+      # target: dev
+    volumes:
+      - ./themes/noi:/opt/jboss/keycloak/themes/noi
     ports:
       - 8080:8080
     environment:
@@ -29,5 +34,4 @@ services:
   mailhog:
     image: mailhog/mailhog
     ports:
-      - 1025:1025
       - 8025:8025
