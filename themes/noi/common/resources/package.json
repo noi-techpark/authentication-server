@@ -1,0 +1,11 @@
+{
+  "name": "authentication-server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tailwind build tailwind.css -o css/style.css"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.1"
+  }
+}
