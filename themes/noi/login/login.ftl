@@ -1,12 +1,10 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers??); section>
-    <#if section = "header">
-        ${msg("doLogIn")}
-    <#elseif section = "form">
+    <#if section = "form">
     <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
-      <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
+      <div id="kc-form-wrapper" class="p-5 flex justify-center bg-gray-300">
         <#if realm.password>
-            <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+            <form id="kc-form-login" class="mx-2 my-4 xl:mx-0 w-full max-w-2xl p-5 border-3 border-black bg-white" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
 
                 <div class="mb-5">
                     <img src="${url.resourcesPath}/img/login.png" alt="Login" class="h-5" />
