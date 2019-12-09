@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
-                    <div id="kc-form-options">
+                    <div class="mt-4">
                         <#if realm.rememberMe && !usernameEditDisabled??>
                             <div class="checkbox">
                                 <label>
