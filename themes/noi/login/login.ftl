@@ -7,6 +7,11 @@
       <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#if realm.password>
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+
+                <div class="mb-5">
+                    <img src="${url.resourcesPath}/img/login.png" alt="Login" class="h-5" />
+                </div>
+
                 <div class="flex flex-col">
                     <label for="username" class="font-bold text-primary-500""><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
