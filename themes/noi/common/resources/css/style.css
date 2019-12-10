@@ -809,6 +809,42 @@ video {
   background-color: #D20707;
 }
 
+.group:hover .group-hover\:bg-transparent {
+  background-color: transparent;
+}
+
+.group:hover .group-hover\:bg-white {
+  background-color: #FFF;
+}
+
+.group:hover .group-hover\:bg-black {
+  background-color: #000;
+}
+
+.group:hover .group-hover\:bg-gray-100 {
+  background-color: #FCFCFC;
+}
+
+.group:hover .group-hover\:bg-gray-300 {
+  background-color: #F4F4F4;
+}
+
+.group:hover .group-hover\:bg-gray-400 {
+  background-color: #C8C8C8;
+}
+
+.group:hover .group-hover\:bg-gray-500 {
+  background-color: #707070;
+}
+
+.group:hover .group-hover\:bg-primary-500 {
+  background-color: #C1CA01;
+}
+
+.group:hover .group-hover\:bg-error-500 {
+  background-color: #D20707;
+}
+
 .bg-bottom {
   background-position: bottom;
 }
@@ -1436,6 +1472,44 @@ video {
 }
 
 .hidden {
+  display: none;
+}
+
+.group:hover .group-hover\:block {
+  display: block;
+}
+
+.group:hover .group-hover\:inline-block {
+  display: inline-block;
+}
+
+.group:hover .group-hover\:inline {
+  display: inline;
+}
+
+.group:hover .group-hover\:flex {
+  display: -webkit-box;
+  display: flex;
+}
+
+.group:hover .group-hover\:inline-flex {
+  display: -webkit-inline-box;
+  display: inline-flex;
+}
+
+.group:hover .group-hover\:table {
+  display: table;
+}
+
+.group:hover .group-hover\:table-row {
+  display: table-row;
+}
+
+.group:hover .group-hover\:table-cell {
+  display: table-cell;
+}
+
+.group:hover .group-hover\:hidden {
   display: none;
 }
 
@@ -2449,6 +2523,10 @@ video {
 
 .min-w-0 {
   min-width: 0;
+}
+
+.min-w-sm {
+  min-width: 10rem;
 }
 
 .min-w-full {
@@ -3632,6 +3710,42 @@ video {
   color: #D20707;
 }
 
+.group:hover .group-hover\:text-transparent {
+  color: transparent;
+}
+
+.group:hover .group-hover\:text-white {
+  color: #FFF;
+}
+
+.group:hover .group-hover\:text-black {
+  color: #000;
+}
+
+.group:hover .group-hover\:text-gray-100 {
+  color: #FCFCFC;
+}
+
+.group:hover .group-hover\:text-gray-300 {
+  color: #F4F4F4;
+}
+
+.group:hover .group-hover\:text-gray-400 {
+  color: #C8C8C8;
+}
+
+.group:hover .group-hover\:text-gray-500 {
+  color: #707070;
+}
+
+.group:hover .group-hover\:text-primary-500 {
+  color: #C1CA01;
+}
+
+.group:hover .group-hover\:text-error-500 {
+  color: #D20707;
+}
+
 .text-xs {
   font-size: 0.75rem;
 }
@@ -4049,6 +4163,12 @@ video {
   z-index: auto;
 }
 
+.vertical-center {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -4255,6 +4375,42 @@ video {
   }
 
   .sm\:disabled\:bg-error-500:disabled {
+    background-color: #D20707;
+  }
+
+  .group:hover .sm\:group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .group:hover .sm\:group-hover\:bg-white {
+    background-color: #FFF;
+  }
+
+  .group:hover .sm\:group-hover\:bg-black {
+    background-color: #000;
+  }
+
+  .group:hover .sm\:group-hover\:bg-gray-100 {
+    background-color: #FCFCFC;
+  }
+
+  .group:hover .sm\:group-hover\:bg-gray-300 {
+    background-color: #F4F4F4;
+  }
+
+  .group:hover .sm\:group-hover\:bg-gray-400 {
+    background-color: #C8C8C8;
+  }
+
+  .group:hover .sm\:group-hover\:bg-gray-500 {
+    background-color: #707070;
+  }
+
+  .group:hover .sm\:group-hover\:bg-primary-500 {
+    background-color: #C1CA01;
+  }
+
+  .group:hover .sm\:group-hover\:bg-error-500 {
     background-color: #D20707;
   }
 
@@ -4885,6 +5041,44 @@ video {
   }
 
   .sm\:hidden {
+    display: none;
+  }
+
+  .group:hover .sm\:group-hover\:block {
+    display: block;
+  }
+
+  .group:hover .sm\:group-hover\:inline-block {
+    display: inline-block;
+  }
+
+  .group:hover .sm\:group-hover\:inline {
+    display: inline;
+  }
+
+  .group:hover .sm\:group-hover\:flex {
+    display: -webkit-box;
+    display: flex;
+  }
+
+  .group:hover .sm\:group-hover\:inline-flex {
+    display: -webkit-inline-box;
+    display: inline-flex;
+  }
+
+  .group:hover .sm\:group-hover\:table {
+    display: table;
+  }
+
+  .group:hover .sm\:group-hover\:table-row {
+    display: table-row;
+  }
+
+  .group:hover .sm\:group-hover\:table-cell {
+    display: table-cell;
+  }
+
+  .group:hover .sm\:group-hover\:hidden {
     display: none;
   }
 
@@ -5898,6 +6092,10 @@ video {
 
   .sm\:min-w-0 {
     min-width: 0;
+  }
+
+  .sm\:min-w-sm {
+    min-width: 10rem;
   }
 
   .sm\:min-w-full {
@@ -7081,6 +7279,42 @@ video {
     color: #D20707;
   }
 
+  .group:hover .sm\:group-hover\:text-transparent {
+    color: transparent;
+  }
+
+  .group:hover .sm\:group-hover\:text-white {
+    color: #FFF;
+  }
+
+  .group:hover .sm\:group-hover\:text-black {
+    color: #000;
+  }
+
+  .group:hover .sm\:group-hover\:text-gray-100 {
+    color: #FCFCFC;
+  }
+
+  .group:hover .sm\:group-hover\:text-gray-300 {
+    color: #F4F4F4;
+  }
+
+  .group:hover .sm\:group-hover\:text-gray-400 {
+    color: #C8C8C8;
+  }
+
+  .group:hover .sm\:group-hover\:text-gray-500 {
+    color: #707070;
+  }
+
+  .group:hover .sm\:group-hover\:text-primary-500 {
+    color: #C1CA01;
+  }
+
+  .group:hover .sm\:group-hover\:text-error-500 {
+    color: #D20707;
+  }
+
   .sm\:text-xs {
     font-size: 0.75rem;
   }
@@ -7705,6 +7939,42 @@ video {
   }
 
   .md\:disabled\:bg-error-500:disabled {
+    background-color: #D20707;
+  }
+
+  .group:hover .md\:group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .group:hover .md\:group-hover\:bg-white {
+    background-color: #FFF;
+  }
+
+  .group:hover .md\:group-hover\:bg-black {
+    background-color: #000;
+  }
+
+  .group:hover .md\:group-hover\:bg-gray-100 {
+    background-color: #FCFCFC;
+  }
+
+  .group:hover .md\:group-hover\:bg-gray-300 {
+    background-color: #F4F4F4;
+  }
+
+  .group:hover .md\:group-hover\:bg-gray-400 {
+    background-color: #C8C8C8;
+  }
+
+  .group:hover .md\:group-hover\:bg-gray-500 {
+    background-color: #707070;
+  }
+
+  .group:hover .md\:group-hover\:bg-primary-500 {
+    background-color: #C1CA01;
+  }
+
+  .group:hover .md\:group-hover\:bg-error-500 {
     background-color: #D20707;
   }
 
@@ -8335,6 +8605,44 @@ video {
   }
 
   .md\:hidden {
+    display: none;
+  }
+
+  .group:hover .md\:group-hover\:block {
+    display: block;
+  }
+
+  .group:hover .md\:group-hover\:inline-block {
+    display: inline-block;
+  }
+
+  .group:hover .md\:group-hover\:inline {
+    display: inline;
+  }
+
+  .group:hover .md\:group-hover\:flex {
+    display: -webkit-box;
+    display: flex;
+  }
+
+  .group:hover .md\:group-hover\:inline-flex {
+    display: -webkit-inline-box;
+    display: inline-flex;
+  }
+
+  .group:hover .md\:group-hover\:table {
+    display: table;
+  }
+
+  .group:hover .md\:group-hover\:table-row {
+    display: table-row;
+  }
+
+  .group:hover .md\:group-hover\:table-cell {
+    display: table-cell;
+  }
+
+  .group:hover .md\:group-hover\:hidden {
     display: none;
   }
 
@@ -9348,6 +9656,10 @@ video {
 
   .md\:min-w-0 {
     min-width: 0;
+  }
+
+  .md\:min-w-sm {
+    min-width: 10rem;
   }
 
   .md\:min-w-full {
@@ -10531,6 +10843,42 @@ video {
     color: #D20707;
   }
 
+  .group:hover .md\:group-hover\:text-transparent {
+    color: transparent;
+  }
+
+  .group:hover .md\:group-hover\:text-white {
+    color: #FFF;
+  }
+
+  .group:hover .md\:group-hover\:text-black {
+    color: #000;
+  }
+
+  .group:hover .md\:group-hover\:text-gray-100 {
+    color: #FCFCFC;
+  }
+
+  .group:hover .md\:group-hover\:text-gray-300 {
+    color: #F4F4F4;
+  }
+
+  .group:hover .md\:group-hover\:text-gray-400 {
+    color: #C8C8C8;
+  }
+
+  .group:hover .md\:group-hover\:text-gray-500 {
+    color: #707070;
+  }
+
+  .group:hover .md\:group-hover\:text-primary-500 {
+    color: #C1CA01;
+  }
+
+  .group:hover .md\:group-hover\:text-error-500 {
+    color: #D20707;
+  }
+
   .md\:text-xs {
     font-size: 0.75rem;
   }
@@ -11155,6 +11503,42 @@ video {
   }
 
   .lg\:disabled\:bg-error-500:disabled {
+    background-color: #D20707;
+  }
+
+  .group:hover .lg\:group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .group:hover .lg\:group-hover\:bg-white {
+    background-color: #FFF;
+  }
+
+  .group:hover .lg\:group-hover\:bg-black {
+    background-color: #000;
+  }
+
+  .group:hover .lg\:group-hover\:bg-gray-100 {
+    background-color: #FCFCFC;
+  }
+
+  .group:hover .lg\:group-hover\:bg-gray-300 {
+    background-color: #F4F4F4;
+  }
+
+  .group:hover .lg\:group-hover\:bg-gray-400 {
+    background-color: #C8C8C8;
+  }
+
+  .group:hover .lg\:group-hover\:bg-gray-500 {
+    background-color: #707070;
+  }
+
+  .group:hover .lg\:group-hover\:bg-primary-500 {
+    background-color: #C1CA01;
+  }
+
+  .group:hover .lg\:group-hover\:bg-error-500 {
     background-color: #D20707;
   }
 
@@ -11785,6 +12169,44 @@ video {
   }
 
   .lg\:hidden {
+    display: none;
+  }
+
+  .group:hover .lg\:group-hover\:block {
+    display: block;
+  }
+
+  .group:hover .lg\:group-hover\:inline-block {
+    display: inline-block;
+  }
+
+  .group:hover .lg\:group-hover\:inline {
+    display: inline;
+  }
+
+  .group:hover .lg\:group-hover\:flex {
+    display: -webkit-box;
+    display: flex;
+  }
+
+  .group:hover .lg\:group-hover\:inline-flex {
+    display: -webkit-inline-box;
+    display: inline-flex;
+  }
+
+  .group:hover .lg\:group-hover\:table {
+    display: table;
+  }
+
+  .group:hover .lg\:group-hover\:table-row {
+    display: table-row;
+  }
+
+  .group:hover .lg\:group-hover\:table-cell {
+    display: table-cell;
+  }
+
+  .group:hover .lg\:group-hover\:hidden {
     display: none;
   }
 
@@ -12798,6 +13220,10 @@ video {
 
   .lg\:min-w-0 {
     min-width: 0;
+  }
+
+  .lg\:min-w-sm {
+    min-width: 10rem;
   }
 
   .lg\:min-w-full {
@@ -13981,6 +14407,42 @@ video {
     color: #D20707;
   }
 
+  .group:hover .lg\:group-hover\:text-transparent {
+    color: transparent;
+  }
+
+  .group:hover .lg\:group-hover\:text-white {
+    color: #FFF;
+  }
+
+  .group:hover .lg\:group-hover\:text-black {
+    color: #000;
+  }
+
+  .group:hover .lg\:group-hover\:text-gray-100 {
+    color: #FCFCFC;
+  }
+
+  .group:hover .lg\:group-hover\:text-gray-300 {
+    color: #F4F4F4;
+  }
+
+  .group:hover .lg\:group-hover\:text-gray-400 {
+    color: #C8C8C8;
+  }
+
+  .group:hover .lg\:group-hover\:text-gray-500 {
+    color: #707070;
+  }
+
+  .group:hover .lg\:group-hover\:text-primary-500 {
+    color: #C1CA01;
+  }
+
+  .group:hover .lg\:group-hover\:text-error-500 {
+    color: #D20707;
+  }
+
   .lg\:text-xs {
     font-size: 0.75rem;
   }
@@ -14605,6 +15067,42 @@ video {
   }
 
   .xl\:disabled\:bg-error-500:disabled {
+    background-color: #D20707;
+  }
+
+  .group:hover .xl\:group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .group:hover .xl\:group-hover\:bg-white {
+    background-color: #FFF;
+  }
+
+  .group:hover .xl\:group-hover\:bg-black {
+    background-color: #000;
+  }
+
+  .group:hover .xl\:group-hover\:bg-gray-100 {
+    background-color: #FCFCFC;
+  }
+
+  .group:hover .xl\:group-hover\:bg-gray-300 {
+    background-color: #F4F4F4;
+  }
+
+  .group:hover .xl\:group-hover\:bg-gray-400 {
+    background-color: #C8C8C8;
+  }
+
+  .group:hover .xl\:group-hover\:bg-gray-500 {
+    background-color: #707070;
+  }
+
+  .group:hover .xl\:group-hover\:bg-primary-500 {
+    background-color: #C1CA01;
+  }
+
+  .group:hover .xl\:group-hover\:bg-error-500 {
     background-color: #D20707;
   }
 
@@ -15235,6 +15733,44 @@ video {
   }
 
   .xl\:hidden {
+    display: none;
+  }
+
+  .group:hover .xl\:group-hover\:block {
+    display: block;
+  }
+
+  .group:hover .xl\:group-hover\:inline-block {
+    display: inline-block;
+  }
+
+  .group:hover .xl\:group-hover\:inline {
+    display: inline;
+  }
+
+  .group:hover .xl\:group-hover\:flex {
+    display: -webkit-box;
+    display: flex;
+  }
+
+  .group:hover .xl\:group-hover\:inline-flex {
+    display: -webkit-inline-box;
+    display: inline-flex;
+  }
+
+  .group:hover .xl\:group-hover\:table {
+    display: table;
+  }
+
+  .group:hover .xl\:group-hover\:table-row {
+    display: table-row;
+  }
+
+  .group:hover .xl\:group-hover\:table-cell {
+    display: table-cell;
+  }
+
+  .group:hover .xl\:group-hover\:hidden {
     display: none;
   }
 
@@ -16248,6 +16784,10 @@ video {
 
   .xl\:min-w-0 {
     min-width: 0;
+  }
+
+  .xl\:min-w-sm {
+    min-width: 10rem;
   }
 
   .xl\:min-w-full {
@@ -17428,6 +17968,42 @@ video {
   }
 
   .xl\:disabled\:text-error-500:disabled {
+    color: #D20707;
+  }
+
+  .group:hover .xl\:group-hover\:text-transparent {
+    color: transparent;
+  }
+
+  .group:hover .xl\:group-hover\:text-white {
+    color: #FFF;
+  }
+
+  .group:hover .xl\:group-hover\:text-black {
+    color: #000;
+  }
+
+  .group:hover .xl\:group-hover\:text-gray-100 {
+    color: #FCFCFC;
+  }
+
+  .group:hover .xl\:group-hover\:text-gray-300 {
+    color: #F4F4F4;
+  }
+
+  .group:hover .xl\:group-hover\:text-gray-400 {
+    color: #C8C8C8;
+  }
+
+  .group:hover .xl\:group-hover\:text-gray-500 {
+    color: #707070;
+  }
+
+  .group:hover .xl\:group-hover\:text-primary-500 {
+    color: #C1CA01;
+  }
+
+  .group:hover .xl\:group-hover\:text-error-500 {
     color: #D20707;
   }
 

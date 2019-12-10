@@ -65,6 +65,11 @@ module.exports = {
         'monospace',
       ],
     },
+    minWidth: {
+      '0': '0',
+      'sm': '10rem',
+      'full': '100%',
+    },
     extend: {
       borderWidth: {
         '3': '3px'
@@ -76,9 +81,10 @@ module.exports = {
     }
   },
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'disabled'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'disabled', 'group-hover'],
     borderColor: ['responsive', 'hover', 'focus', 'disabled'],
-    textColor: ['responsive', 'hover', 'focus', 'disabled']
+    textColor: ['responsive', 'hover', 'focus', 'disabled', 'group-hover'],
+    display: ['responsive', 'group-hover'],
   },
   plugins: []
 }

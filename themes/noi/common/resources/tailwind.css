@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind compontents;
 @tailwind utilities;
+
+.vertical-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
