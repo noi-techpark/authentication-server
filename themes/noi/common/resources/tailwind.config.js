@@ -3,7 +3,11 @@
 **
 ** Docs: https://tailwindcss.com/docs/configuration
 ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+
 */
+
+const { colors } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   theme: {
     colors: {
@@ -21,7 +25,11 @@ module.exports = {
       },
       error: {
         '500': '#D20707',
-      }
+      },
+      red: colors.red,
+      blue: colors.blue,
+      yellow: colors.yellow,
+      green: colors.green,
     },
     spacing: {
       '0': '0',
