@@ -1,6 +1,18 @@
 @tailwind base;
-@tailwind compontents;
+@tailwind components;
 @tailwind utilities;
+
+.btn {
+    @apply px-4 py-2 border-3 uppercase;
+}
+
+.btn-black {
+        @apply border-black;
+}
+
+.btn-black:hover {
+    @apply bg-black text-white;
+}
 
 .vertical-center {
     top: 50%;

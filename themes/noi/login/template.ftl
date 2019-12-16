@@ -48,32 +48,34 @@
                 </#if>
             </div>
         </div>
-        
-        <h1 id="kc-page-title"><#nested "header"></h1>
       </header>
       <div id="kc-content">
         <div id="kc-content-wrapper">
-
-          <#nested "form">
-
-          <#if auth?has_content && auth.showBackButton() >
-          <form id="kc-select-back-form" action="${url.loginAction}" method="post" <#if displayWide>class="${properties.kcContentWrapperClass!}"</#if>>
-              <div <#if displayWide>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
-                  <div class="${properties.kcFormGroupClass!}">
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
-                           name="back" id="kc-back" type="submit" value="${msg("doBack")}"/>
-                  </div>
+            <div id="kc-form" class="mx-0 xl:mx-4 p-5 flex justify-center bg-gray-300">
+              <div id="kc-form-wrapper" class="mx-2 my-4 xl:mx-0 w-full max-w-2xl p-5 border-3 border-black bg-white">
+                <#nested "header">
+                <#if displayInfo>
+                    <div id="kc-info" class="mb-4 text-sm text-gray-500">
+                        <#nested "info">
+                    </div>
+                </#if>
+                <#-- App-initiated actions should not see warning messages about the need to complete the action -->
+                <#-- during login.                                                                               -->
+                <#if message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+                    <div class="mb-4 border-2 px-4 py-3 <#if message.type = 'error'>bg-red-100 border-red-400 text-red-700<#elseif message.type = 'warning'>bg-yellow-100 border-yellow-400 text-yellow-700<#elseif message.type = 'info'>bg-blue-100 border-blue-400 text-blue-700<#elseif message.type = 'success'>bg-green-100 border-green-400 text-green-700</#if>" role="alert">
+                        <strong class="font-bold">${msg(message.type)}!</strong>
+                        <span class="block sm:inline">${kcSanitize(message.summary)?no_esc}</span>
+                    </div>
+                </#if>
+                <#nested "form">
+                <#if auth?has_content && auth.showBackButton() >
+                    <form id="kc-select-back-form" action="${url.loginAction}" method="post" class="mt-4">
+                        <input class="px-4 py-2 border-3 border-black hover:bg-black hover:text-white uppercase
+                            name="back" id="kc-back" type="submit" value="${msg("doBack")}"/>
+                    </form>
+                </#if>
               </div>
-          </form>
-          </#if>
-
-          <#if displayInfo>
-              <div id="kc-info" class="${properties.kcSignUpClass!}">
-                  <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
-                      <#nested "info">
-                  </div>
-              </div>
-          </#if>
+            </div>
         </div>
       </div>
 

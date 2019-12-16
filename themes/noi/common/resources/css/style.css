@@ -599,7 +599,33 @@ video {
   height: auto;
 }
 
-@tailwind compontents;
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
 
 .sr-only {
   position: absolute;
@@ -7617,6 +7643,24 @@ video {
 
 .z-auto {
   z-index: auto;
+}
+
+.btn {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-width: 3px;
+  text-transform: uppercase;
+}
+
+.btn-black {
+  border-color: #000;
+}
+
+.btn-black:hover {
+  background-color: #000;
+  color: #FFF;
 }
 
 .vertical-center {
