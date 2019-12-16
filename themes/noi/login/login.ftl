@@ -34,8 +34,8 @@
                     <input tabindex="2" id="password" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="password" type="password" autocomplete="off" />
                 </div>
 
-                <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
-                    <div id="kc-form-options" class="mt-4">
+                <div class="mt-3 flex flex-col md:flex-row md:justify-between">
+                    <div id="kc-form-options" class="mt-2 flex">
                         <#if realm.rememberMe && !usernameEditDisabled??>
                             <div class="checkbox">
                                 <label>
@@ -47,12 +47,12 @@
                                 </label>
                             </div>
                         </#if>
-                        </div>
-                        <div class="${properties.kcFormOptionsWrapperClass!}">
-                            <#if realm.resetPasswordAllowed>
-                                <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
-                            </#if>
-                        </div>
+                    </div>
+                    <div class="mt-2 flex">
+                        <#if realm.resetPasswordAllowed>
+                            <a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                        </#if>
+                    </div>
                   </div>
 
                   <div id="kc-form-buttons" class="mt-5 flex justify-between">
