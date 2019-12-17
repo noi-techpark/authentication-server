@@ -7656,6 +7656,7 @@ video {
 
 .btn-black {
   border-color: #000;
+  background-color: #FFF;
 }
 
 .btn-black:hover {

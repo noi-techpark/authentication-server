@@ -33,9 +33,9 @@
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                         <nav role="navigation" class="flex mr-4 items-center">
                             <div class="group relative block">
-                                <button class="relative border-3 border-black md:min-w-sm px-3 md:px-4 py-2 group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                                <button class="relative border-3 border-black pl-3 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
                                     ${locale.current}
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center right-0 fill-current">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 0.5rem">
                                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                                     </svg>
                                 </button>
