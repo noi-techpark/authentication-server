@@ -37,7 +37,7 @@
 }
 
 .side-menu-item {
-    @apply my-1 rounded;
+    @apply my-1 rounded border-r-4 border-transparent;
 }
 
 .side-menu-item:hover {
@@ -45,7 +45,7 @@
 }
 
 .side-menu-item-active {
-    @apply bg-green-100 font-bold text-green-900;
+    @apply bg-green-100 font-bold text-green-900 border-green-900;
 }
 
 .side-menu-item > a {

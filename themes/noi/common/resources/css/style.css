@@ -7690,6 +7690,8 @@ video {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   border-radius: 0.25rem;
+  border-right-width: 4px;
+  border-color: transparent;
 }
 
 .side-menu-item:hover {
@@ -7702,6 +7704,7 @@ video {
   background-color: #f0fff4;
   font-weight: 700;
   color: #22543d;
+  border-color: #22543d;
 }
 
 .side-menu-item > a {
