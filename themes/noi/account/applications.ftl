@@ -1,37 +1,32 @@
 <#import "template.ftl" as layout>
 <@layout.mainLayout active='applications' bodyClass='applications'; section>
-
-    <div class="row">
-        <div class="col-md-10">
-            <h2>${msg("applicationsHtmlTitle")}</h2>
-        </div>
-    </div>
+    <h2 class="text-2xl">${msg("applicationsHtmlTitle")}</h2>
 
     <form action="${url.applicationsUrl}" method="post">
         <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
         <input type="hidden" id="referrer" name="referrer" value="${stateChecker}">
 
-        <table class="table table-striped table-bordered">
+        <table class="table-auto">
             <thead>
               <tr>
-                <td>${msg("application")}</td>
-                <td>${msg("availableRoles")}</td>
-                <td>${msg("grantedPermissions")}</td>
-                <td>${msg("additionalGrants")}</td>
-                <td>${msg("action")}</td>
+                <th class="px-4 py-2">${msg("application")}</th>
+                <th class="px-4 py-2">${msg("availableRoles")}</th>
+                <th class="px-4 py-2">${msg("grantedPermissions")}</th>
+                <th class="px-4 py-2">${msg("additionalGrants")}</th>
+                <th class="px-4 py-2">${msg("action")}</th>
               </tr>
             </thead>
 
             <tbody>
               <#list applications.applications as application>
-                <tr>
-                    <td>
+                <tr class="<#if application?index % 2 == 1>bg-gray-100</#if>">
+                    <td class="border px-4 py-2">
                         <#if application.effectiveUrl?has_content><a href="${application.effectiveUrl}"></#if>
                             <#if application.client.name?has_content>${advancedMsg(application.client.name)}<#else>${application.client.clientId}</#if>
                         <#if application.effectiveUrl?has_content></a></#if>
                     </td>
 
-                    <td>
+                    <td class="border px-4 py-2">
                         <#list application.realmRolesAvailable as role>
                             <#if role.description??>${advancedMsg(role.description)}<#else>${advancedMsg(role.name)}</#if>
                             <#if role_has_next>, </#if>
@@ -46,7 +41,7 @@
                         </#list>
                     </td>
 
-                    <td>
+                    <td class="border px-4 py-2">
                         <#if application.client.consentRequired>
                             <#list application.clientScopesGranted as claim>
                                 ${advancedMsg(claim)}<#if claim_has_next>, </#if>
@@ -56,13 +51,13 @@
                         </#if>
                     </td>
 
-                    <td>
+                    <td class="border px-4 py-2">
                        <#list application.additionalGrants as grant>
                             ${advancedMsg(grant)}<#if grant_has_next>, </#if>
                         </#list>
                     </td>
 
-                    <td>
+                    <td class="border px-4 py-2">
                         <#if (application.client.consentRequired && application.clientScopesGranted?has_content) || application.additionalGrants?has_content>
                             <button type='submit' class='${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!}' id='revoke-${application.client.clientId}' name='clientId' value="${application.client.id}">${msg("revoke")}</button>
                         </#if>
