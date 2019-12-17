@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.mainLayout active='account' bodyClass='user'; section>
 
-    <div class="row">
+    <div>
         <h2 class="text-2xl">${msg("editAccountHtmlTitle")}</h2>
         <div class="my-3">
             <span class="text-red-700"><span class="font-bold">*</span> ${msg("requiredFields")}</span>
@@ -15,46 +15,46 @@
         <#if !realm.registrationEmailAsUsername>
             <div class="md:flex md:items-center mb-2">
                 <div class="md:w-1/4">
-                    <label for="username" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('username','text-red-700')}">
+                    <label for="username" class="inline-form-label ${messagesPerField.printIfExists('username','inline-form-label-error')}">
                         ${msg("username")}<span class="required">*</span>
                     </label>
                 </div>
                 <div class="md:w-3/4">
-                    <input type="text" class="appearance-none w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="username" name="username" <#if !realm.editUsernameAllowed>disabled="disabled"</#if> value="${(account.username!'')}">
+                    <input type="text" class="inline-form-input" id="username" name="username" <#if !realm.editUsernameAllowed>disabled="disabled"</#if> value="${(account.username!'')}">
                 </div>
             </div>
         </#if>
 
         <div class="md:flex md:items-center mb-2">
             <div class="md:w-1/4">
-                <label for="email" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('email','text-red-700')}">
+                <label for="email" class="inline-form-label ${messagesPerField.printIfExists('email','inline-form-label-error')}">
                     ${msg("email")}<span class="required">*</span>
                 </label>
             </div>
             <div class="md:w-3/4">
-                <input type="text" class="appearance-none border-2 border-black w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="email" name="email" autofocus value="${(account.email!'')}">
+                <input type="text" class="inline-form-input" id="email" name="email" autofocus value="${(account.email!'')}">
             </div>
         </div>
 
         <div class="md:flex md:items-center mb-2">
             <div class="md:w-1/4">
-                <label for="firstName" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('firstName','text-red-700')}">
+                <label for="firstName" class="inline-form-label ${messagesPerField.printIfExists('firstName','inline-form-label-error')}">
                     ${msg("firstName")}<span class="required">*</span>
                 </label>
             </div>
             <div class="md:w-3/4">
-                <input type="text" class="appearance-none border-2 border-black w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="firstName" name="firstName" autofocus value="${(account.firstName!'')}">
+                <input type="text" class="inline-form-input" id="firstName" name="firstName" autofocus value="${(account.firstName!'')}">
             </div>
         </div>
 
         <div class="md:flex md:items-center mb-2">
             <div class="md:w-1/4">
-                <label for="lastName" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('lastName','text-red-700')}">
+                <label for="lastName" class="inline-form-label ${messagesPerField.printIfExists('lastName','inline-form-label-error')}">
                     ${msg("lastName")}<span class="required">*</span>
                 </label>
             </div>
             <div class="md:w-3/4">
-                <input type="text" class="appearance-none border-2 border-black w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="lastName" name="lastName" autofocus value="${(account.lastName!'')}">
+                <input type="text" class="inline-form-input" id="lastName" name="lastName" autofocus value="${(account.lastName!'')}">
             </div>
         </div>
 
