@@ -31,7 +31,7 @@
                         <a href="" class="block">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</a>
                     </div>
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                        <nav role="navigation" class="mr-4">
+                        <nav role="navigation" class="flex mr-4 items-center">
                             <div class="group relative block">
                                 <button class="relative border-3 border-black md:min-w-sm px-3 md:px-4 py-2 group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
                                     ${locale.current}

@@ -8,6 +8,7 @@
 
     <title>${msg("accountManagementTitle")}</title>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico">
+    <link href="${url.resourcesPath}/css/style.css" rel="stylesheet" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
             <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
@@ -20,35 +21,34 @@
     </#if>
 </head>
 <body class="admin-console user ${bodyClass}">
-        
-    <header class="navbar navbar-default navbar-pf navbar-main header">
-        <nav class="navbar" role="navigation">
-            <div class="navbar-header">
-                <div class="container">
-                    <h1 class="navbar-title">Keycloak</h1>
-                </div>
+    <header class="mb-4">
+        <div class="mb-4 xl:mb-0 flex content-end items-center justify-between border-b border-gray-500">
+            <div class="p-4 hidden sm:flex flex-col justify-center">
+                <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" width="140"/></a>
             </div>
-            <div class="navbar-collapse navbar-collapse-1">
-                <div class="container">
-                    <ul class="nav navbar-nav navbar-utility">
-                        <#if realm.internationalizationEnabled>
-                            <li>
-                                <div class="kc-dropdown" id="kc-locale-dropdown">
-                                    <a href="#" id="kc-current-locale-link">${locale.current}</a>
-                                    <ul>
-                                        <#list locale.supported as l>
-                                            <li class="kc-dropdown-item"><a href="${l.url}">${l.label}</a></li>
-                                        </#list>
-                                    </ul>
-                                </div>
-                            <li>
-                        </#if>
-                        <#if referrer?has_content && referrer.url?has_content><li><a href="${referrer.url}" id="referrer">${msg("backTo",referrer.name)}</a></li></#if>
-                        <li><a href="${url.logoutUrl}">${msg("doSignOut")}</a></li>
-                    </ul>
-                </div>
+
+            <div class="flex">
+                <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
+                    <nav role="navigation" class="mr-4">
+                        <div class="group relative block">
+                            <button class="relative border-3 border-black md:min-w-sm px-3 md:px-4 py-2 group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                                ${locale.current}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center right-0 fill-current">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </button>
+                            <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
+                                <#list locale.supported as l>
+                                    <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                                </#list>
+                            </div>
+                        </div>
+                    </nav>
+                </#if>
+                <#if referrer?has_content && referrer.url?has_content><li><a href="${referrer.url}" id="referrer">${msg("backTo",referrer.name)}</a></li></#if>
+                <a href="${url.logoutUrl}" class="btn btn-black">${msg("doSignOut")}</a>
             </div>
-        </nav>
+        </div>
     </header>
 
     <div class="container">
