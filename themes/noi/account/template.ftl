@@ -64,7 +64,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col flex-grow">
             <#if message?has_content>
                 <div class="alert alert-${message.type}">
                     <#if message.type=='success' ><span class="pficon pficon-ok"></span></#if>
