@@ -8,14 +8,14 @@
         </div>
     </div>
 
-    <form action="${url.accountUrl}" method="post" class="max-w-6xl">
+    <form action="${url.accountUrl}" method="post" class="max-w-3xl">
 
         <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
 
         <#if !realm.registrationEmailAsUsername>
             <div class="md:flex md:items-center mb-2">
                 <div class="md:w-1/4">
-                    <label for="username" class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('username','text-red-700')}">
+                    <label for="username" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('username','text-red-700')}">
                         ${msg("username")}<span class="required">*</span>
                     </label>
                 </div>
@@ -27,7 +27,7 @@
 
         <div class="md:flex md:items-center mb-2">
             <div class="md:w-1/4">
-                <label for="email" class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('email','text-red-700')}">
+                <label for="email" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('email','text-red-700')}">
                     ${msg("email")}<span class="required">*</span>
                 </label>
             </div>
@@ -38,7 +38,7 @@
 
         <div class="md:flex md:items-center mb-2">
             <div class="md:w-1/4">
-                <label for="firstName" class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('firstName','text-red-700')}">
+                <label for="firstName" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('firstName','text-red-700')}">
                     ${msg("firstName")}<span class="required">*</span>
                 </label>
             </div>
@@ -49,7 +49,7 @@
 
         <div class="md:flex md:items-center mb-2">
             <div class="md:w-1/4">
-                <label for="lastName" class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('lastName','text-red-700')}">
+                <label for="lastName" class="block text-gray-500 font-bold mb-1 md:mb-0 pr-4 ${messagesPerField.printIfExists('lastName','text-red-700')}">
                     ${msg("lastName")}<span class="required">*</span>
                 </label>
             </div>
