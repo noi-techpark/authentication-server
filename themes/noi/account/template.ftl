@@ -65,11 +65,13 @@
         </div>
 
         <div class="flex flex-col flex-grow mx-2">
+
+            <div class="mb-4"><#nested "header"></div>
+
             <#if message?has_content>
-                <div class="alert alert-${message.type}">
-                    <#if message.type=='success' ><span class="pficon pficon-ok"></span></#if>
-                    <#if message.type=='error' ><span class="pficon pficon-error-circle-o"></span></#if>
-                    <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
+                <div class="mb-4 border-2 px-4 py-3 <#if message.type = 'error'>bg-red-100 border-red-400 text-red-700<#elseif message.type = 'success'>bg-green-100 border-green-400 text-green-700</#if>" role="alert">
+                    <strong class="font-bold">${msg(message.type)}!</strong>
+                    <span class="block sm:inline">${kcSanitize(message.summary)?no_esc}</span>
                 </div>
             </#if>
 
