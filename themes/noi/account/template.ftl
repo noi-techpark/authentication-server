@@ -21,15 +21,14 @@
     </#if>
 </head>
 <body class="admin-console user ${bodyClass}">
-    <header class="mb-4">
-        <div class="mb-4 xl:mb-0 flex content-end items-center justify-between border-b border-gray-500">
-            <div class="p-4 hidden sm:flex flex-col justify-center">
-                <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" width="140"/></a>
-            </div>
-
-            <div class="flex">
-                <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                    <nav role="navigation" class="mr-4">
+    <header>
+        <div class="mb-4">
+            <div class="mb-4 xl:mb-0 flex content-end items-stretch border-b border-gray-500">
+                <div class="p-4 flex flex-col justify-center">
+                    <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
+                </div>
+                <div class="flex flex-grow border-l border-gray-500 items-center justify-end mr-2">
+                    <nav role="navigation" class="flex mr-4 items-center">
                         <div class="group relative block">
                             <button class="relative border-3 border-black md:min-w-sm px-3 md:px-4 py-2 group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
                                 ${locale.current}
@@ -41,12 +40,12 @@
                                 <#list locale.supported as l>
                                     <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
                                 </#list>
-                            </div>
+                            </ul>
                         </div>
                     </nav>
-                </#if>
-                <#if referrer?has_content && referrer.url?has_content><li><a href="${referrer.url}" id="referrer">${msg("backTo",referrer.name)}</a></li></#if>
-                <a href="${url.logoutUrl}" class="btn btn-black">${msg("doSignOut")}</a>
+                    <div class="flex items-center"><#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black">${msg("backTo",referrer.name)}</a></#if></div>
+                    <div class="flex items-center"><a href="${url.logoutUrl}" class="flex btn btn-black">${msg("doSignOut")}</a></div>
+                </div>
             </div>
         </div>
     </header>
