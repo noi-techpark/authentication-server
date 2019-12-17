@@ -12,15 +12,15 @@
                     <label for="username" class="font-bold text-primary-500""><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
                     <#if usernameEditDisabled??>
-                        <input tabindex="1" id="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="username" value="${(login.username!'')}" type="text" disabled />
+                        <input tabindex="1" id="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="username" value="${(login.username!'')}" type="text" placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>" disabled />
                     <#else>
-                        <input tabindex="1" id="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off" />
+                        <input tabindex="1" id="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="username" value="${(login.username!'')}"  type="text" placeholder="<#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>" autofocus autocomplete="off" />
                     </#if>
                 </div>
 
                 <div class="mt-4 flex flex-col">
                     <label for="password" class="font-bold text-primary-500">${msg("password")}</label>
-                    <input tabindex="2" id="password" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="password" type="password" autocomplete="off" />
+                    <input tabindex="2" id="password" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="password" type="password" placeholder="${msg("password")}" autocomplete="off" />
                 </div>
 
                 <div class="mt-3 flex flex-col md:flex-row md:justify-between">

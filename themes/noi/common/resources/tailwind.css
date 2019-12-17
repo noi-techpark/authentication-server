@@ -7,7 +7,7 @@
 }
 
 .btn-black {
-        @apply border-black;
+        @apply border-black bg-white;
 }
 
 .btn-black:hover {
