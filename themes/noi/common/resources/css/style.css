@@ -7686,6 +7686,30 @@ video {
   }
 }
 
+.side-menu-item {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.side-menu-item:hover {
+  background-color: #f0fff4;
+  font-weight: 700;
+  color: #22543d;
+}
+
+.side-menu-item-active {
+  background-color: #f0fff4;
+  font-weight: 700;
+  color: #22543d;
+}
+
+.side-menu-item > a {
+  display: -webkit-box;
+  display: flex;
+  padding: 0.5rem;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

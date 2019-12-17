@@ -35,3 +35,19 @@
         height: 65px;
     }   
 }
+
+.side-menu-item {
+    @apply my-1 rounded;
+}
+
+.side-menu-item:hover {
+    @apply bg-green-100 font-bold text-green-900;
+}
+
+.side-menu-item-active {
+    @apply bg-green-100 font-bold text-green-900;
+}
+
+.side-menu-item > a {
+    @apply flex p-2;
+}
