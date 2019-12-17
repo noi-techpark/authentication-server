@@ -50,7 +50,7 @@
         </div>
     </header>
 
-    <div class="container m-auto flex flex-row">
+    <div class="container m-auto flex flex-row overflow-scroll">
         <div class="flex flex-col min-w-sm">
             <ul class="px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
