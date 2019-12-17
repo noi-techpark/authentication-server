@@ -18,3 +18,20 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+.image-noi {
+    width: auto;
+    height: 40px;
+}
+
+@screen sm {
+    .image-noi {
+        height: 50px;
+    }
+}
+
+@screen xl {
+    .image-noi {
+        height: 65px;
+    }   
+}

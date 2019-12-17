@@ -7669,6 +7669,23 @@ video {
           transform: translateY(-50%);
 }
 
+.image-noi {
+  width: auto;
+  height: 40px;
+}
+
+@media (min-width: 640px) {
+  .image-noi {
+    height: 50px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .image-noi {
+    height: 65px;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
