@@ -28,17 +28,17 @@
                     <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
                 </div>
                 <div class="flex flex-grow border-l border-gray-500 items-center justify-end mr-2">
-                    <nav role="navigation" class="flex mr-4 items-center">
+                    <nav role="navigation" class="flex mr-2 items-center">
                         <div class="group relative block">
-                            <button class="relative border-3 border-black md:min-w-sm px-3 md:px-4 py-2 group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                            <button class="btn btn-black">
                                 ${locale.current}
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center right-0 fill-current">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center right-0 mr-1 fill-current">
                                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                                 </svg>
                             </button>
                             <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
                                 <#list locale.supported as l>
-                                    <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                                    <li><a href="${l.url}" class="block px-2 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
                                 </#list>
                             </ul>
                         </div>
