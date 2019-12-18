@@ -41,11 +41,11 @@
 }
 
 .side-menu-item:hover {
-    @apply bg-green-100 font-bold text-green-900;
+    @apply bg-green-100 text-green-900;
 }
 
 .side-menu-item-active {
-    @apply bg-green-100 font-bold text-green-900 border-green-900;
+    @apply bg-green-100 text-green-900 border-green-900;
 }
 
 .side-menu-item > a {

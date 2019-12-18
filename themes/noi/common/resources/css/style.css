@@ -7697,13 +7697,11 @@ video {
 
 .side-menu-item:hover {
   background-color: #f0fff4;
-  font-weight: 700;
   color: #22543d;
 }
 
 .side-menu-item-active {
   background-color: #f0fff4;
-  font-weight: 700;
   color: #22543d;
   border-color: #22543d;
 }
