@@ -21,6 +21,14 @@ services:
       KEYCLOAK_PASSWORD: password
     depends_on:
       - postgres
+    networks:
+      - internal
+      - proxy
+    labels:
+      - traefik.api.frontend.rule=Host:auth.aboutbits.local
+      - traefik.docker.network=proxy
+      - traefik.port=8080
+      - traefik.backend=auth
 
   postgres:
     image: postgres:12
@@ -30,8 +38,22 @@ services:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: password
+    networks:
+      - internal
+    labels:
+      - traefik.enable=false
 
   mailhog:
     image: mailhog/mailhog
     ports:
       - 8025:8025
+    networks:
+      - internal
+    labels:
+      - traefik.enable=false
+
+networks:
+  proxy:
+    external: true
+  internal:
+    external: false
