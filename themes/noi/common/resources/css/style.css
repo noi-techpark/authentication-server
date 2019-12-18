@@ -7755,6 +7755,33 @@ video {
   }
 }
 
+.mobile-nav {
+  display: none;
+  margin-bottom: 2rem;
+  border-bottom-width: 1px;
+  border-color: #000;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+  background-color: #F4F4F4;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+.mobile-nav-open {
+  display: -webkit-box;
+  display: flex;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

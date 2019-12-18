@@ -77,3 +77,17 @@
         @apply mb-0;
     }
 }
+
+.mobile-nav {
+    @apply hidden mb-4 border-b border-black flex-col items-stretch bg-gray-300 px-2 pt-2;
+}
+
+@screen sm {
+    .mobile-nav {
+        @apply hidden;
+    }
+}
+
+.mobile-nav-open {
+    @apply flex;
+}

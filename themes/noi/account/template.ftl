@@ -23,7 +23,7 @@
 <body class="admin-console user ${bodyClass}">
     <header>
 
-        <div class="mb-2 flex content-end items-stretch border-b border-gray-500">
+        <div class="sm:mb-2 flex content-end items-stretch border-b border-gray-500">
             <div class="p-4 flex flex-col justify-center">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
@@ -53,12 +53,16 @@
                     <div class="flex items-center"><#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black">${msg("backTo",referrer.name)}</a></#if></div>
                     <div class="flex items-center"><a href="${url.logoutUrl}" class="flex btn btn-black">${msg("doSignOut")}</a></div>
                 </nav>
+                <!-- Mobile Navigation - Burger Icon -->
+                <a class="sm:hidden" href="javascript:void(0);" onclick="toggleNav()">
+                    <img src="${url.resourcesPath}/img/menu.svg" alt="MENU" width="24" />
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Mobile Navigation -->
-    <nav role="navigation" class="mb-2 mx-2 xs:mx-4 flex sm:hidden flex-col items-stretch">
+    <nav id="mobile-nav" role="navigation" class="mobile-nav">
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
             <div class="group relative block mb-2">
                 <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
@@ -78,11 +82,21 @@
         </#if>
         <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black mb-2">${msg("backTo",referrer.name)}</a></#if>
         <a href="${url.logoutUrl}" class="block btn btn-black mb-2">${msg("doSignOut")}</a>
+        <ul class="px-2">
+            <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
+            <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
+            <li class="side-menu-item <#if active=='totp'>side-menu-item-active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
+            <#if features.identityFederation><li class="side-menu-item <#if active=='social'>side-menu-item-active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
+            <li class="side-menu-item <#if active=='sessions'>side-menu-item-active</#if>"><a href="${url.sessionsUrl}">${msg("sessions")}</a></li>
+            <li class="side-menu-item <#if active=='applications'>side-menu-item-active</#if>"><a href="${url.applicationsUrl}">${msg("applications")}</a></li>
+            <#if features.log><li class="<#if active=='log'>active</#if>"><a href="${url.logUrl}">${msg("log")}</a></li></#if>
+            <#if realm.userManagedAccessAllowed && features.authorization><li class="<#if active=='authorization'>active</#if>"><a href="${url.resourceUrl}">${msg("myResources")}</a></li></#if>
+        </ul>
     </nav>
 
     <div class="container m-auto flex flex-row overflow-scroll">
-        <div class="flex flex-col min-w-sm">
-            <ul class="px-2">
+        <div class="hidden sm:flex flex-col">
+            <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
                 <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
                 <li class="side-menu-item <#if active=='totp'>side-menu-item-active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
@@ -134,5 +148,15 @@
     </div>
 
 </body>
+<script>
+    function toggleNav() {
+        var x = document.getElementById("mobile-nav");
+        if (x.className === "mobile-nav") {
+            x.className += " mobile-nav-open";
+        } else {
+            x.className = "mobile-nav";
+        }
+    }
+</script>
 </html>
 </#macro>
