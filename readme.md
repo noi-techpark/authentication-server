@@ -5,9 +5,7 @@ A central authentication server for all services build with the open source iden
 ## Table of contents
 
 - [Gettings started](#getting-started)
-- [Running tests](#running-tests)
 - [Deployment](#deployment)
-- [Docker environment](#docker-environment)
 - [Information](#information)
 
 ## Getting started
@@ -19,55 +17,22 @@ on your local machine for development and testing purposes.
 
 To build the project, the following prerequisites must be met:
 
-- ToDo: Check the prerequisites
-- Java JDK 1.8 or higher (e.g. [OpenJDK](https://openjdk.java.net/))
-- [Maven](https://maven.apache.org/) 3.x
-
-For a ready to use Docker environment with all prerequisites already installed and prepared, you can check out the [Docker environment](#docker-environment) section.
+- [Docker](https://www.docker.com/) 19.x
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ### Source code
 
 Get a copy of the repository:
 
 ```bash
-ToDo: git clone https://github.com/noi-techpark/project-name.git
+git clone https://github.com/noi-techpark/authentication-server.git
 ```
 
 Change directory:
 
 ```bash
-ToDo: cd project-name/
+cd authentication-server/
 ```
-
-### Build
-
-Build the project:
-
-```bash
-mvn clean install
-```
-
-## Running tests
-
-The unit tests can be executed with the following command:
-
-```bash
-mvn clean test
-```
-
-## Deployment
-
-ToDo: A detailed description about how the application must be deployed.
-
-## Docker environment
-
-For the project a Docker environment is already prepared and ready to use with all necessary prerequisites.
-
-These Docker containers are the same as used by the continuous integration servers.
-
-### Installation
-
-Install [Docker](https://docs.docker.com/install/) (with Docker Compose) locally on your machine.
 
 ### Start and stop the containers
 
@@ -83,23 +48,26 @@ After finished working you can stop the Docker containers:
 docker-compose stop
 ```
 
-### Running commands inside the container
+### Custom domain
 
-When the containers are running, you can execute any command inside the environment. Just replace the dots `...` in the following example with the command you wish to execute:
-
-```bash
-docker-compose exec java /bin/bash -c "..."
-```
-
-Some examples are:
+If you wish to run the environment locally with a custom domain and using HTTPS then check out the Docker Compose file [docker-compose.aboutbits.yml](docker-compose.aboutbits.yml). You can run all the previous commands by referencing the custom Docker Compose file:
 
 ```bash
-docker-compose exec java /bin/bash -c "mvn clean install"
-
-# or
-
-docker-compose exec java /bin/bash -c "mvn clean test"
+docker-compose -f docker-compose.aboutbits.yml up --build --detach
+docker-compose -f docker-compose.aboutbits.yml stop
 ```
+
+However, this setup requires the [Local Docker Environment](https://github.com/aboutbits/local-environment) so that the requests are routed to the right Docker container though a Traefik proxy.
+
+In addition, this setup requires the following entry in the `/etc/hosts` file:
+
+```
+127.0.0.1 auth.aboutbits.local
+```
+
+## Deployment
+
+ToDo: A detailed description about how the application must be deployed.
 
 ## Information
 
@@ -124,10 +92,6 @@ A more detailed description can be found here: [https://github.com/noi-techpark/
 ### Documentation
 
 More documentation can be found at [https://opendatahub.readthedocs.io/en/latest/index.html](https://opendatahub.readthedocs.io/en/latest/index.html).
-
-### Boilerplate
-
-The project uses this boilerplate: [https://github.com/noi-techpark/java-boilerplate](https://github.com/noi-techpark/java-boilerplate).
 
 ### License
 
