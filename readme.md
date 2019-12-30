@@ -48,6 +48,15 @@ After finished working you can stop the Docker containers:
 docker-compose stop
 ```
 
+### SMTP Server
+
+In order to test the whole workflow locally, [Mailhog](https://github.com/mailhog/MailHog) is set up and can be configured as SMTP server that catches all outgoing mails. These are the SMTP configurations:
+
+- Host: mailhog
+- Port: 1025
+
+All catched emails can be visited at [http://localhost:8025/](http://localhost:8025/).
+
 ### Custom domain
 
 If you wish to run the environment locally with a custom domain and using HTTPS then check out the Docker Compose file [docker-compose.aboutbits.yml](docker-compose.aboutbits.yml). You can run all the previous commands by referencing the custom Docker Compose file:
