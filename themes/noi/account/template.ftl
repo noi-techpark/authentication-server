@@ -22,8 +22,7 @@
 </head>
 <body class="admin-console user ${bodyClass}">
     <header>
-
-        <div class="sm:mb-2 flex content-end items-stretch border-b border-gray-500">
+        <div class="flex content-end items-stretch border-b border-gray-500">
             <div class="p-4 flex flex-col justify-center">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
@@ -94,7 +93,7 @@
         </ul>
     </nav>
 
-    <div class="container m-auto flex flex-row overflow-scroll">
+    <div class="container mt-4 my-auto flex flex-row overflow-scroll">
         <div class="hidden sm:flex flex-col">
             <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
