@@ -1,4 +1,4 @@
-FROM jboss/keycloak:8.0.0 as base
+FROM jboss/keycloak:8.0.1 as base
 
 FROM base as dev
 
