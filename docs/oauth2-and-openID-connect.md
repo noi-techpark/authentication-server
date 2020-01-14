@@ -4,6 +4,7 @@
 
 - [OAuth 2.0](#oauth-2.0)
 - [OpenID Connect](#openid-connect)
+- [Protocol Flows](#protocol-flows)
 
 ## OAuth 2.0
 
@@ -25,8 +26,6 @@ It is also possible to grant access to a client application to its own behalf. T
 | Authorization Server | The authorization server holds the account of the resource owner.                                                                                                                                                                                                    |
 | Resource Server      | This is a service that holds specific information or provides functionality that a client wants to use on behalf of the Resource Owner. For example this service can be a contact service, that manages all contacts of a user.                                      |
 | Authorization Server | The authorization server holds the account of the resource owner and issues access tokens to the client after successfully authenticating the resource owner and obtaining authorization. Has the user the user the necessary rights to answer the requested scopes? |
-
-### Protocol flow
 
 ## OpenID Connect
 
@@ -52,3 +51,26 @@ Claims are also included if certain scopes are requested. For example if you req
 #### NOTE
 
 The ID_Token can **not** be used to request information from a resource server. You always have to use the **access_token**.
+
+## Protocol Flows
+
+On an abstract level the protocol can be defined in 3 steps.
+
+1. Authorization Request
+
+The client requests authorization from the resource owner. The client receives an authorization grant, which is a credential representing the resource owner.
+
+2. Token request
+
+The client uses the authorization grant from the previous response and authenticates itself at the authorization server to get an access token.
+
+3. Protected resource request
+
+With the access token the client app can request protected resources in behalf of the user. The resource server validates the access token and, if valid, serves the request.
+
+### Authorization Grant
+
+An authorization grant is a credential representing the resource owner's authorization (to access its protected resources) used by the client to obtain an access token. Oauth supports different grant types: Authorization Code, Implicit, Resource Owner Password Credentials, Client Credentials.
+
+
+
