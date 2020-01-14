@@ -4,7 +4,7 @@
 
 - [OAuth 2.0](#oauth-2.0)
 - [OpenID Connect](#openid-connect)
-- [Protocol Flows](#protocol-flows)
+- [Authorization Grant and Flow](#authorization-grant-and-flow)
 
 # OAuth 2.0
 
