@@ -5,7 +5,7 @@ In this section you can find all relevant information on how to install the auth
 
 More detailed description about system requirements and other possible installation methods can be found here: (https://www.keycloak.org/docs/latest/server_installation/)[https://www.keycloak.org/docs/latest/server_installation/].
 
-## Table of content
+## Table of contents
 
 - [Prerequisites](#prerequisites)
 - [Admin user](#admin-user)
