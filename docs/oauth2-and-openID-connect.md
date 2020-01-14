@@ -1,5 +1,4 @@
-OAuth 2.0 and OpenID Connect
-============================
+# OAuth 2.0 and OpenID Connect
 
 ## Table of contents
 
@@ -11,8 +10,23 @@ OAuth 2.0 and OpenID Connect
 OAuth 2.0 is a security standard that specifies how you can give or grant an application the permission to access your data from another application.
 You, as a user, allow or grant permission, to access your data, or use features in another application on your behalf. The important thing here is that you never share your password with the other applications. As you are not sharing your credentials with other applications, you are able to limit the scope of which data and features are accessible for each application.
 
-https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc
+This article shows an example how OAuth2.0 works. https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc
 
+As you can see in the example, the user has to grant permission to the requested scopes. In this case the application only needs read access on the contact list. The issued access token will allow the client application only to read the contacts from your Email account and does not allow anything else, such as creating or deleting contacts.
+
+It is also possible to grant access to a client application to its own behalf. This is very useful for server to server communication.
+
+### The four roles in OAuth 2.0 
+
+| Term                 | Description                                                                                                                                                                                                                                                          |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Resource Owner       | You are the resource owner! You own your data and identity.                                                                                                                                                                                                          |
+| Client               | An application that wants to access data from or act as the resource owner.                                                                                                                                                                                          |
+| Authorization Server | The authorization server holds the account of the resource owner.                                                                                                                                                                                                    |
+| Resource Server      | This is a service that holds specific information or provides functionality that a client wants to use on behalf of the Resource Owner. For example this service can be a contact service, that manages all contacts of a user.                                      |
+| Authorization Server | The authorization server holds the account of the resource owner and issues access tokens to the client after successfully authenticating the resource owner and obtaining authorization. Has the user the user the necessary rights to answer the requested scopes? |
+
+### Protocol flow
 
 ## OpenID Connect
 
@@ -22,12 +36,12 @@ The primary extension that OpenID Connect makes to OAuth 2.0 to enable End-Users
 
 ```json
 {
-    "name": "John Doe",
-    "preferred_username": "john.doe",
-    "given_name": "John",
-    "locale": "en",
-    "family_name": "Doe",
-    "email": "john.doe@aboutbits.it"
+  "name": "John Doe",
+  "preferred_username": "john.doe",
+  "given_name": "John",
+  "locale": "en",
+  "family_name": "Doe",
+  "email": "john.doe@aboutbits.it"
 }
 ```
 
@@ -35,8 +49,6 @@ Claims can be requested explicitly with the claims parameter, or implicitly by t
 
 Claims are also included if certain scopes are requested. For example if you request the scope profile, following claims will be included by default: name, preferred_username, given_name, locale, family_name.
 
-#### NOTE 
+#### NOTE
+
 The ID_Token can **not** be used to request information from a resource server. You always have to use the **access_token**.
-
-
-
