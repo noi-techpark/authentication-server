@@ -8,7 +8,9 @@ More detailed description about system requirements and other possible installat
 ## Table of contents
 
 - [Prerequisites](#prerequisites)
-- [Admin user](#admin-user)
+- [Setup nodes](#setup-nodes)
+- [Setup load balancer](#setup-load-balancer)
+- [Create admin user](#create-admin-user)
 
 ## Prerequisites
 
@@ -21,7 +23,15 @@ More detailed description about system requirements and other possible installat
 
 All Keycloak nodes should be connected with a private network. There should be no possibility to access the nodes directly through a public IP address. The only public entrypoint should be the load balancer, that receives the requests through his public IP and redirects the requests to the nodes to their private IP addresses. However, the nodes should be able to communicate with each other using the private network.
 
-## Admin user
+## Setup nodes
+
+
+
+## Setup load balancer
+
+The load balancer should accept all HTTP/HTTPS requests and forward them to the Keycloak nodes. The destination port for the nodes is the port 8080. Important is, that the load balancer forwards the requests to the nodes within the private network.
+
+## Create admin user
 
 The first user must be created using the command line on one of the nodes:
 
