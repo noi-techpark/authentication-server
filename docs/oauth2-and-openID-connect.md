@@ -29,6 +29,8 @@ It is also possible to grant access to a client application to its own behalf. T
 
 # OpenID Connect
 
+OpenID Connect is an extension to the OAuth 2.0 protocol. It enables the client application to get basic profile information about the End-User.
+
 ## ID Token
 
 The primary extension that OpenID Connect makes to OAuth 2.0 to enable End-Users to be Authenticated is the ID Token data structure. A client can securely extract user information from the ID Token. This information can be used to personalize the web experience. In the ID_Token request (scope: openid) it is possible to define claims. A claim is a piece of user specific information such as email, phone and more. The values of the requested claims are encoded in the ID_Token and can be consumed by the client.
@@ -95,7 +97,3 @@ The authorization server authenticates the client solely on the redirect URI, be
 **Use case**: Server to server communication
 
 The Application acts on the behalf of itself. The client application POSTS the client ID and the client secret without any user information to the authorization server and gets in the response an access and a refresh token, which can be used to access resources.
-
-
-
-
