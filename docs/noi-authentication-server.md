@@ -6,6 +6,7 @@
 - [Client registration](#client-registration)
 - [Examples](#examples)
 - [Users and Groups](#users-and-groups)
+- [Client app examples](#client-app-examples)
 
 # Realm
 
@@ -112,3 +113,7 @@ It is very simple to manually add a new user by filling in the following form.
 ![Add User](images/add_user.png)
 
 It is possible to assign roles to a user or assign roles to a group and then add the user the group. For easier maintenance we recommend creating groups. For example a developer group that has certain roles per client assigned.
+
+# Client app examples
+
+For examples how to create a resource server, a server that uses the client credentials to request another resource server and a single page app based on VueJS please refer to the authentication-examples repository.
