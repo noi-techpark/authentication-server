@@ -13,9 +13,8 @@ More detailed description about system requirements and other possible installat
 
 - Database
     - [PostgreSQL](https://www.postgresql.org/)
-
 - Nodes
     - [Docker](https://www.docker.com/)
     - ToDO: Network requirements
-
 - Load balancer
+
