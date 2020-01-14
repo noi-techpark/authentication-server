@@ -1,10 +1,10 @@
-NOI Authentication server
-=========================
+# NOI Authentication server
 
 ## Table of contents
 
 - [Realm](#realm)
 - [Client registration](#client-registration)
+- [Examples](#examples)
 
 # Realm
 
@@ -40,7 +40,7 @@ The most important field in the client settings is the **Access Type**. The acce
 - Public
 - Bearer-only
 
-**Confidential**: This option should be used if you create a server-side rendered web app or a backend service, where you can safely store the client secret. In order to support client credentials flow *Service accounts Enabled* needs to be set to true.
+**Confidential**: This option should be used if you create a server-side rendered web app or a backend service, where you can safely store the client secret. In order to support client credentials flow _Service accounts Enabled_ needs to be set to true.
 
 **Public**: Use this option only if your client app is a single page application or a native mobile app that needs implicit flow support.
 
@@ -57,7 +57,7 @@ The client scopes define which scopes can be requested by the client application
 
 ![Definition of client scopes](images/client_scopes.png)
 
-We recommend to leave the default configuration in place and use roles for access control on resource servers. By default *email, profile, roles and web_origins* will always be requested. Especially the roles scope is important as it mappes the roles of a user into the access token, which can than be used on the server to do role based access management.
+We recommend to leave the default configuration in place and use roles for access control on resource servers. By default _email, profile, roles and web_origins_ will always be requested. Especially the roles scope is important as it mappes the roles of a user into the access token, which can than be used on the server to do role based access management.
 
 ## Scope
 
@@ -68,4 +68,38 @@ Set the **Full Scope Allowed** to **OFF**.
 
 Now you can specify which resource services can be requested from this client. If we have a public web app and a resource server, than we would allow the resource server in the web apps configuration. This would prevent the access_token to be valid for other resource servers in the realm, where the user would have access to.
 
+# Examples
 
+## Single page application
+
+### Settings
+
+| Property              | Value        | Description                                                            |
+| --------------------- | ------------ | ---------------------------------------------------------------------- |
+| Access Type           | Public       | Support authorization without client secret needed.                    |
+| Implicit Flow Enabled | True         | Enables the implicit flow grant                                        |
+| Valid Redirect URIs   | Redirect URI | URI that the user-agent follows and extracts the access_token/id_token |
+
+### Roles
+
+We would recommend to define the roles for the backend service and don't duplicate the roles also in the web client.
+The frontend can read the roles associated with the backend service in the access token.
+
+### Scope
+
+| Property                        | Value | Description                                                                    |
+| ------------------------------- | ----- | ------------------------------------------------------------------------------ |
+| Full Scope Allowed              | OFF   | Do not include all roles assigned to a user for all applications in the realm. |
+| Client Roles -> **backend-service** |       | Move roles from available roles to assigned roles.                            |
+
+## REST API backend
+
+### Settings
+
+| Property    | Value       | Description                            |
+| ----------- | ----------- | -------------------------------------- |
+| Access Type | bearer-only | No support for authorization required. |
+
+### Roles
+
+Add all roles that the REST API needs to manage access control. Example: admin, project_manager, ...
