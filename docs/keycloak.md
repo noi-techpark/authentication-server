@@ -1,10 +1,11 @@
-# NOI Authentication server
+# NOI Authentication Server - Keycloak
 
 ## Table of contents
 
 - [Realm](#realm)
 - [Client registration](#client-registration)
 - [Examples](#examples)
+- [Users and Groups](#users-and-groups)
 
 # Realm
 
@@ -103,3 +104,11 @@ The frontend can read the roles associated with the backend service in the acces
 ### Roles
 
 Add all roles that the REST API needs to manage access control. Example: admin, project_manager, ...
+
+
+# Users and Groups
+
+It is very simple to manually add a new user by filling in the following form.
+![Add User](images/add_user.png)
+
+It is possible to assign roles to a user or assign roles to a group and then add the user the group. For easier maintenance we recommend creating groups. For example a developer group that has certain roles per client assigned.
