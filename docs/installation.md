@@ -7,14 +7,23 @@ More detailed description about system requirements and other possible installat
 
 ## Table of content
 
-1. [Prerequisites](#prerequisites)
+- [Prerequisites](#prerequisites)
+- [Admin user](#admin-user)
 
 ## Prerequisites
 
-- Database
+- Database Server
     - [PostgreSQL](https://www.postgresql.org/)
+- SMTP Server
 - Nodes
     - [Docker](https://www.docker.com/)
-    - ToDO: Network requirements
+    - ToDo: Network requirements
 - Load balancer
 
+## Admin user
+
+The first user must be created using the command line on one of the nodes:
+
+```bash
+docker-compose exec keycloak /opt/jboss/keycloak/bin/add-user-keycloak.sh -u <USERNAME> -p <PASSWORD>
+```

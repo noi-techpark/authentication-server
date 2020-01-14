@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  keycloak:
+    image: ${DOCKER_IMAGE_APP}:${DOCKER_TAG_APP}
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: ${DB_ADDR}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_SCHEMA: public
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      PROXY_ADDRESS_FORWARDING: 'true'
+      KEYCLOAK_FRONTEND_URL: ${FRONTEND_URL}
