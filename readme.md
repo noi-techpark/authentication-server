@@ -2,9 +2,12 @@
 
 A central authentication server for all services build with the open source identity and access managment tool Keycloak [https://www.keycloak.org/](https://www.keycloak.org/).
 
+A basic explanation of the terms and standards used by Keycloak can be found in the documentation about [OAuth 2.0 and OpenID Connect](docs/oauth2-and-openid-connect.md).
+
 ## Table of contents
 
 - [Gettings started](#getting-started)
+- [Setup and contiguration](#setup-and-configuration)
 - [Deployment](#deployment)
 - [Information](#information)
 
@@ -56,6 +59,10 @@ In order to test the whole workflow locally, [Mailhog](https://github.com/mailho
 - Port: 1025
 
 All catched emails can be visited at [http://localhost:8025/](http://localhost:8025/).
+
+## Setup and configuration
+
+By default the authentication server has no applications configured. That's why you can find in the documentation a detailed description on [how to set up and configure the server](docs/noi-authentication-server.md).
 
 ## Deployment
 
