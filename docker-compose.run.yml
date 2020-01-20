@@ -4,8 +4,6 @@ services:
   keycloak:
     image: ${DOCKER_IMAGE_APP}:${DOCKER_TAG_APP}
     restart: unless-stopped
-    ports:
-      - 8080:8080
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: ${DB_ADDR}
@@ -17,3 +15,7 @@ services:
       JGROUPS_PRIVATE_ADDRESS: ${PRIVATE_ADDRESS}
       PROXY_ADDRESS_FORWARDING: 'true'
       KEYCLOAK_FRONTEND_URL: ${FRONTEND_URL}
+    ports:
+      - 8080:8080
+      - 7600:7600
+      - 57600:57600
