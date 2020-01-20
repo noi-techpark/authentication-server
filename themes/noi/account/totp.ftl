@@ -5,33 +5,33 @@
         <h2 class="text-2xl">${msg("authenticatorTitle")}</h2>
     <#elseif section = "content">
         <#if totp.enabled>
-            <table class="table table-bordered table-striped">
+            <table class="table-auto">
                 <thead>
                 <#if totp.otpCredentials?size gt 1>
                     <tr>
-                        <th colspan="4">${msg("configureAuthenticators")}</th>
+                        <th class="px-4 py-2" colspan="4">${msg("configureAuthenticators")}</th>
                     </tr>
                 <#else>
                     <tr>
-                        <th colspan="3">${msg("configureAuthenticators")}</th>
+                        <th class="px-4 py-2" colspan="3">${msg("configureAuthenticators")}</th>
                     </tr>
                 </#if>
                 </thead>
                 <tbody>
                 <#list totp.otpCredentials as credential>
-                    <tr>
-                        <td class="provider">${msg("mobile")}</td>
+                    <tr class="<#if credential?index % 2 == 1>bg-gray-100</#if>">
+                        <td class="border px-4 py-2">${msg("mobile")}</td>
                         <#if totp.otpCredentials?size gt 1>
-                            <td class="provider">${credential.id}</td>
+                            <td class="border px-4 py-2">${credential.id}</td>
                         </#if>
-                        <td class="provider">${credential.userLabel!}</td>
-                        <td class="action">
+                        <td class="border px-4 py-2">${credential.userLabel!}</td>
+                        <td class="border px-4 py-2">
                             <form action="${url.totpUrl}" method="post" class="form-inline">
                                 <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
                                 <input type="hidden" id="submitAction" name="submitAction" value="Delete">
                                 <input type="hidden" id="credentialId" name="credentialId" value="${credential.id}">
-                                <button id="remove-mobile" class="btn btn-default">
-                                    <i class="pficon pficon-delete"></i>
+                                <button id="remove-mobile" class="btn btn-black">
+                                    ${msg('doRemove')}
                                 </button>
                             </form>
                         </td>
