@@ -64,6 +64,8 @@ All catched emails can be visited at [http://localhost:8025/](http://localhost:8
 
 By default the authentication server has no applications configured. That's why you can find in the documentation a detailed description on [how to set up and configure the server](docs/noi-authentication-server.md).
 
+In addition, example application where you can take a look how to integrate your application with the authentication server can be found in this repository: [https://github.com/noi-techpark/authentication-examples](https://github.com/noi-techpark/authentication-examples).
+
 ## Deployment
 
 To deploy the app, you must first create the production Docker image. This can be done using the `docker-compose.build.yml` file. Therefore, duplicate first the file `.env.example` to `.env` and then set the environment variables "DOCKER_IMAGE_APP" and "DOCKER_TAG". Last, you can create and push the image using the following commands:
