@@ -53,7 +53,7 @@
                     <div class="flex items-center"><a href="${url.logoutUrl}" class="flex btn btn-black">${msg("doSignOut")}</a></div>
                 </nav>
                 <!-- Mobile Navigation - Burger Icon -->
-                <a class="sm:hidden" href="javascript:void(0);" onclick="toggleNav()">
+                <button class="sm:hidden" onclick="toggleNav()">
                     <img src="${url.resourcesPath}/img/menu.svg" alt="MENU" width="24" />
                 </button>
             </div>
@@ -63,7 +63,7 @@
         <nav id="mobile-nav" role="navigation" class="mobile-nav">
             <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                 <div class="group relative block mb-2">
-                    <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                    <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left uppercase" onclick="toggleLanguage()">
                         <div class="block pr-2">
                         ${locale.current}
                         </div>
@@ -71,9 +71,9 @@
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                         </svg>
                     </button>
-                    <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
+                    <ul id="mobile-languages" class="mobile-languages">
                         <#list locale.supported as l>
-                            <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                            <li><a href="${l.url}" class="block px-4 py-2">${l.label}</a></li>
                         </#list>
                     </ul>
                 </div>
@@ -156,6 +156,15 @@
             x.className += " mobile-nav-open";
         } else {
             x.className = "mobile-nav";
+        }
+    }
+
+    function toggleLanguage() {
+        var x = document.getElementById("mobile-languages");
+        if (x.className === "mobile-languages") {
+            x.className += " mobile-languages-open";
+        } else {
+            x.className = "mobile-languages";
         }
     }
 </script>

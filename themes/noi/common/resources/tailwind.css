@@ -91,3 +91,17 @@
 .mobile-nav-open {
     @apply flex;
 }
+
+.mobile-languages {
+    @apply z-10 shadow absolute right-0 left-0 bg-white hidden;
+}
+
+@screen sm {
+    .mobile-languages {
+        @apply hidden;
+    }
+}
+
+.mobile-languages-open {
+    @apply block;
+}
