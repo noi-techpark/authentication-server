@@ -20,7 +20,7 @@
         </#list>
     </#if>
 </head>
-<body class="admin-console user ${bodyClass}">
+<body class="flex flex-col min-h-screen ${bodyClass}">
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
             <div class="p-4 flex flex-col justify-center">
@@ -58,42 +58,44 @@
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobile-nav" role="navigation" class="mobile-nav">
+            <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
+                <div class="group relative block mb-2">
+                    <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                        <div class="block pr-2">
+                        ${locale.current}
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                        </svg>
+                    </button>
+                    <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
+                        <#list locale.supported as l>
+                            <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                        </#list>
+                    </ul>
+                </div>
+            </#if>
+            <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black mb-2">${msg("backTo",referrer.name)}</a></#if>
+            <a href="${url.logoutUrl}" class="block btn btn-black mb-2">${msg("doSignOut")}</a>
+            <ul class="px-2">
+                <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
+                <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
+                <li class="side-menu-item <#if active=='totp'>side-menu-item-active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
+                <#if features.identityFederation><li class="side-menu-item <#if active=='social'>side-menu-item-active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
+                <li class="side-menu-item <#if active=='sessions'>side-menu-item-active</#if>"><a href="${url.sessionsUrl}">${msg("sessions")}</a></li>
+                <li class="side-menu-item <#if active=='applications'>side-menu-item-active</#if>"><a href="${url.applicationsUrl}">${msg("applications")}</a></li>
+                <#if features.log><li class="<#if active=='log'>active</#if>"><a href="${url.logUrl}">${msg("log")}</a></li></#if>
+                <#if realm.userManagedAccessAllowed && features.authorization><li class="<#if active=='authorization'>active</#if>"><a href="${url.resourceUrl}">${msg("myResources")}</a></li></#if>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Mobile Navigation -->
-    <nav id="mobile-nav" role="navigation" class="mobile-nav">
-        <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-            <div class="group relative block mb-2">
-                <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
-                    <div class="block pr-2">
-                    ${locale.current}
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                    </svg>
-                </button>
-                <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
-                    <#list locale.supported as l>
-                        <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
-                    </#list>
-                </ul>
-            </div>
-        </#if>
-        <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black mb-2">${msg("backTo",referrer.name)}</a></#if>
-        <a href="${url.logoutUrl}" class="block btn btn-black mb-2">${msg("doSignOut")}</a>
-        <ul class="px-2">
-            <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
-            <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
-            <li class="side-menu-item <#if active=='totp'>side-menu-item-active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
-            <#if features.identityFederation><li class="side-menu-item <#if active=='social'>side-menu-item-active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
-            <li class="side-menu-item <#if active=='sessions'>side-menu-item-active</#if>"><a href="${url.sessionsUrl}">${msg("sessions")}</a></li>
-            <li class="side-menu-item <#if active=='applications'>side-menu-item-active</#if>"><a href="${url.applicationsUrl}">${msg("applications")}</a></li>
-            <#if features.log><li class="<#if active=='log'>active</#if>"><a href="${url.logUrl}">${msg("log")}</a></li></#if>
-            <#if realm.userManagedAccessAllowed && features.authorization><li class="<#if active=='authorization'>active</#if>"><a href="${url.resourceUrl}">${msg("myResources")}</a></li></#if>
-        </ul>
-    </nav>
+    
 
-    <div class="container mt-4 my-auto flex flex-row overflow-scroll">
+    <div class="container mt-4 flex flex-row flex-grow overflow-scroll">
         <div class="hidden sm:flex flex-col">
             <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
@@ -124,7 +126,7 @@
 
 
     <!-- Footer -->
-    <div class="mt-4 mb-0 xl:mb-4 mx-0 xl:mx-4 p-4 md:p-5 flex flex-col bg-gray-300">
+    <footer class="flex flex-col mt-4 mb-0 xl:mb-4 mx-0 xl:mx-4 p-4 md:p-5 bg-gray-300">
         <div class="mb-3 text-base md:text-2xl font-bold">
             &copy; ${.now?string('yyyy')} NOI Techpark
         </div>
@@ -144,7 +146,7 @@
             Developed by
             <a href="https://aboutbits.it" class="hover:underline">About Bits</a>
         </div>
-    </div>
+    </footer>
 
 </body>
 <script>
