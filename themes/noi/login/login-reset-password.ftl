@@ -11,7 +11,7 @@
             </div>
 
             <div class="mt-3">
-                <div id="kc-form-options" class="mt-2">
+                <div id="kc-form-options" class="mt-2 underline">
                     <a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a>
                 </div>
 
