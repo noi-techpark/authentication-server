@@ -69,8 +69,8 @@ By default the authentication server has no applications configured. That's why 
 To deploy the app, you must first create the production Docker image. This can be done using the `docker-compose.build.yml` file. Therefore, duplicate first the file `.env.example` to `.env` and then set the environment variables "DOCKER_IMAGE_APP" and "DOCKER_TAG". Last, you can create and push the image using the following commands:
 
 ```bash
-docker-compose build
-docker-compose push
+docker-compose -f docker-compose.build.yml build
+docker-compose -f docker-compose.build.yml push
 ```
 
 For a detailed installation instruction of the production servers, you can check out the [installation documentation](docs/installation.md).

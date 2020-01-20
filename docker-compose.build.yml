@@ -6,4 +6,4 @@ services:
     build:
       context: ./
       dockerfile: docker/keycloak/Dockerfile
-      target: prod
+      target: build
