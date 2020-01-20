@@ -50,29 +50,28 @@
                     </#if>
                 </nav>
             </div>
+            <!-- Mobile Navigation -->
+            <nav role="navigation" class="mb-2 mx-2 xs:mx-4 flex sm:hidden flex-col items-stretch">
+                <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
+                    <div class="group relative block">
+                        <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left uppercase" onclick="toggleLanguage()">
+                            <div class="block pr-2">
+                            ${locale.current}
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                        </button>
+                        <ul id="mobile-languages" class="mobile-languages">
+                            <#list locale.supported as l>
+                                <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                            </#list>
+                        </ul>
+                    </div>
+                </#if>
+            </nav>
         </header>
 
-        <!-- Mobile Navigation -->
-        <nav role="navigation" class="mb-2 mx-2 xs:mx-4 flex sm:hidden flex-col items-stretch">
-            <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                <div class="group relative block">
-                    <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
-                        <div class="block pr-2">
-                        ${locale.current}
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>
-                    </button>
-                    <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
-                        <#list locale.supported as l>
-                            <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
-                        </#list>
-                    </ul>
-                </div>
-            </#if>
-        </nav>
-            
         <!-- Content -->
         <div id="kc-content">
             <div id="kc-content-wrapper">
@@ -129,5 +128,15 @@
 
     </div>
 </body>
+<script>
+    function toggleLanguage() {
+        var x = document.getElementById("mobile-languages");
+        if (x.className === "mobile-languages") {
+            x.className += " mobile-languages-open";
+        } else {
+            x.className = "mobile-languages";
+        }
+    }
+</script>
 </html>
 </#macro>
