@@ -107,7 +107,7 @@
 
                 <div class="form-group">
                     <div id="kc-form-buttons" class="mt-4 flex flex-col md:flex-row">
-                        <button type="submit" class="btn btn-black mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
+                        <button type="submit" class="btn btn-black mb-2 md:mb-0 md:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
                         <button type="submit" class="btn btn-black" name="submitAction" value="Cancel">${msg("doCancel")}</button>
                     </div>
                 </div>
