@@ -57,32 +57,22 @@ In order to test the whole workflow locally, [Mailhog](https://github.com/mailho
 
 All catched emails can be visited at [http://localhost:8025/](http://localhost:8025/).
 
-### Custom domain
-
-If you wish to run the environment locally with a custom domain and using HTTPS then check out the Docker Compose file [docker-compose.aboutbits.yml](docker-compose.aboutbits.yml). You can run all the previous commands by referencing the custom Docker Compose file:
-
-```bash
-docker-compose -f docker-compose.aboutbits.yml up --build --detach
-docker-compose -f docker-compose.aboutbits.yml stop
-```
-
-However, this setup requires the [Local Docker Environment](https://github.com/aboutbits/local-environment) so that the requests are routed to the right Docker container though a Traefik proxy.
-
-In addition, this setup requires the following entry in the `/etc/hosts` file:
-
-```
-127.0.0.1 auth.aboutbits.local
-```
-
 ## Deployment
 
-ToDo: A detailed description about how the application must be deployed.
+To deploy the app, you must first create the production Docker image. This can be done using the `docker-compose.build.yml` file. Therefore, duplicate first the file `.env.example` to `.env` and then set the environment variables "DOCKER_IMAGE_APP" and "DOCKER_TAG". Last, you can create and push the image using the following commands:
+
+```bash
+docker-compose build
+docker-compose push
+```
+
+For a detailed installation instruction of the production servers, you can check out the [installation documentation](docs/installation.md).
 
 ## Information
 
 ### Support
 
-ToDo: For support, please contact [info@opendatahub.bz.it](mailto:info@opendatahub.bz.it).
+For support, please contact [info@opendatahub.bz.it](mailto:info@opendatahub.bz.it).
 
 ### Contributing
 

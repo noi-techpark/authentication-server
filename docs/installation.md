@@ -21,6 +21,7 @@ More detailed description about system requirements and other possible installat
 - SMTP Server
 - Nodes
     - [Docker](https://www.docker.com/)
+    - [Docker Compose](https://docs.docker.com/compose/)
 - Load balancer
 
 All Keycloak nodes should be connected with a private network. There should be no possibility to access the nodes directly through a public IP address. The only public entrypoint should be the load balancer, that receives the requests through his public IP and redirects the requests to the nodes to their private IP addresses. However, the nodes should be able to communicate with each other using the private network.
