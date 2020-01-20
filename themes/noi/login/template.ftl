@@ -75,7 +75,7 @@
         <!-- Content -->
         <div id="kc-content">
             <div id="kc-content-wrapper">
-                <div id="kc-form" class="mx-0 xl:mx-4 p-2 md:p-5 flex justify-center bg-gray-300">
+                <div id="kc-form" class="mx-0 md:mt-4 xl:mx-4 p-2 md:p-5 flex justify-center bg-gray-300">
                 <div id="kc-form-wrapper" class="my-4 w-full max-w-2xl p-4 md:p-5 border-3 border-black bg-white">
                     <#nested "header">
                     <#if displayInfo>
