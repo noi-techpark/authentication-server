@@ -20,7 +20,7 @@
         </#list>
     </#if>
 </head>
-<body class="flex flex-col min-h-screen ${bodyClass}">
+<body class="font-sans flex flex-col min-h-screen">
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
             <div class="p-4 flex flex-col justify-center">
