@@ -7,7 +7,7 @@ batch
 /subsystem=jgroups/stack=tcp:remove()
 /subsystem=jgroups/stack=tcp:add()
 /subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp)
-/subsystem=jgroups/stack=tcp/transport=TCP/property=external_addr:add(value=$keycloak_private_address)
+/subsystem=jgroups/stack=tcp/transport=TCP/property=external_addr:add(value=${env.JGROUPS_PRIVATE_ADDRESS:127.0.0.1})
 
 /subsystem=jgroups/stack=tcp/protocol=JDBC_PING:add()
 /subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=datasource_jndi_name:add(value=java:jboss/datasources/KeycloakDS)
@@ -30,9 +30,5 @@ batch
 /subsystem=jgroups/stack=tcp/protocol=FRAG2:add()
 
 /subsystem=jgroups/channel=ee:write-attribute(name="stack", value=$keycloak_jgroups_transport_stack)
-
-/subsystem=logging/logger=org.jgroups:add
-/subsystem=logging/logger=org.jgroups:write-attribute(name=level,value=DEBUG)
-/subsystem=logging/console-handler=CONSOLE/:write-attribute(name=level,value=DEBUG)
 run-batch
 stop-embedded-server
