@@ -51,7 +51,7 @@ After finished working you can stop the Docker containers:
 docker-compose stop
 ```
 
-The default username for the master realm is "admin" and the password "password".
+The website will be accessible at [http://localhost:8080/](http://localhost:8080/). The default username for the master realm is "admin" and the password "password".
 
 ### SMTP Server
 
@@ -70,7 +70,7 @@ In addition, example application where you can take a look how to integrate your
 
 ## Deployment
 
-To deploy the app, you must first create the production Docker image. This can be done using the `docker-compose.build.yml` file. Therefore, duplicate first the file `.env.example` to `.env` and then set the environment variables "DOCKER_IMAGE_APP" and "DOCKER_TAG". Last, you can create and push the image using the following commands:
+To deploy the app, you must first create the production Docker image. This can be done using the `docker-compose.build.yml` file. Therefore, duplicate first the file `.env.build.example` to `.env` and then set the environment variables "DOCKER_IMAGE" and "DOCKER_TAG". Last, you can create and push the image using the following commands:
 
 ```bash
 docker-compose -f docker-compose.build.yml build
