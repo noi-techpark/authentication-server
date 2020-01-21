@@ -51,6 +51,8 @@ After finished working you can stop the Docker containers:
 docker-compose stop
 ```
 
+The default username for the master realm is "admin" and the password "password".
+
 ### SMTP Server
 
 In order to test the whole workflow locally, [Mailhog](https://github.com/mailhog/MailHog) is set up and can be configured as SMTP server that catches all outgoing mails. These are the SMTP configurations:
