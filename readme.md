@@ -7,7 +7,7 @@ A basic explanation of the terms and standards used by Keycloak can be found in 
 ## Table of contents
 
 - [Gettings started](#getting-started)
-- [Setup and contiguration](#setup-and-configuration)
+- [Setup and configuration](#setup-and-configuration)
 - [Deployment](#deployment)
 - [Information](#information)
 
