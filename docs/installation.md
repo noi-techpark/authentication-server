@@ -40,6 +40,8 @@ Then start the containers by executing the following command:
 docker-compose up -d
 ```
 
+For more convenience, you can copy the files `server/start.sh` and `server/stop.sh` to your server beside the other files. These helper scripts can help with starting and stoping the container.
+
 ## Setup load balancer
 
 The load balancer should accept all HTTP/HTTPS requests and forward them to the Keycloak nodes. The destination port for the nodes is the port 8080. Important is, that the load balancer forwards the requests to the nodes within the private network.
