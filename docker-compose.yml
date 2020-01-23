@@ -8,8 +8,6 @@ services:
       target: dev
     volumes:
       - ./themes/noi:/opt/jboss/keycloak/themes/noi
-    ports:
-      - ${KEYCLOAK_PORT:-8080}:8080
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
@@ -21,6 +19,11 @@ services:
       KEYCLOAK_PASSWORD: password
     depends_on:
       - postgres
+    ports:
+      - ${KEYCLOAK_PORT:-8080}:8080
+    networks:
+      - internal
+      - authentication
 
   postgres:
     image: postgres:12
@@ -28,8 +31,18 @@ services:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: password
+    networks:
+      - internal
 
   mailhog:
     image: mailhog/mailhog
     ports:
       - ${MAILHOG_PORT:-8025}:8025
+    networks:
+      - internal
+
+networks:
+  authentication:
+    external: true
+  internal:
+    external: false

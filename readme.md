@@ -39,7 +39,13 @@ cd authentication-server/
 
 ### Start and stop the containers
 
-Before start working you have to start the Docker containers:
+First, you have to create a Docker network:
+
+```bash
+docker network create authentication
+```
+
+Then, before start working you have to start the Docker containers:
 
 ```
 docker-compose up --build --detach
