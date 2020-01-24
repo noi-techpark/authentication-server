@@ -37,15 +37,25 @@ Change directory:
 cd authentication-server/
 ```
 
-### Start and stop the containers
+### Setup
 
-First, you have to create a Docker network:
+In order that the authentication server works correctly, you have to perform two setup steps before starting.
+
+First, you have to add the following line to your `/etc/hosts` file of your machine:
+
+```
+127.0.0.1 keycloak
+```
+
+Second, you have to create a Docker network:
 
 ```bash
 docker network create authentication
 ```
 
-Then, before start working you have to start the Docker containers:
+### Start and stop the containers
+
+Before start working you have to start the Docker containers:
 
 ```
 docker-compose up --build --detach
