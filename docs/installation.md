@@ -32,7 +32,7 @@ Create a private network an allow the load balancer to access the nodes throgh t
 
 ## Setup nodes
 
-Install Docker on every node and copy the files `docker-compose.run.yml` and `.env.run.example` onto the server. Rename them to `docker-compose.yml` and `.env` and adjust the configuration in the `.env` file.
+Install Docker on every node and copy the files `docker-compose.run.yml` and `.env.example` onto the server. Rename them to `docker-compose.yml` and `.env` and adjust the configuration in the `.env` file.
 
 Then start the containers by executing the following command:
 
