@@ -12,7 +12,6 @@ More detailed description about system requirements and other possible installat
 - [Setup firewall](#setup-firewall)
 - [Setup nodes](#setup-nodes)
 - [Setup load balancer](#setup-load-balancer)
-- [Create admin user](#create-admin-user)
 
 ## Prerequisites
 
@@ -45,11 +44,3 @@ For more convenience, you can copy the files `server/start.sh` and `server/stop.
 ## Setup load balancer
 
 The load balancer should accept all HTTP/HTTPS requests and forward them to the Keycloak nodes. The destination port for the nodes is the port 8080. Important is, that the load balancer forwards the requests to the nodes within the private network.
-
-## Create admin user
-
-The first user must be created using the command line on one of the nodes:
-
-```bash
-docker-compose exec keycloak /opt/jboss/keycloak/bin/add-user-keycloak.sh -u <USERNAME> -p <PASSWORD>
-```
