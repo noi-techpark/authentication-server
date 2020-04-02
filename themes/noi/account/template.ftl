@@ -109,7 +109,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col flex-grow m-4.5">
+        <div class="flex flex-col flex-grow mx-4 my-4.5">
 
             <div class="mb-4"><#nested "header"></div>
 
