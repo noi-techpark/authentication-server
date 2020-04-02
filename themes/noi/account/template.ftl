@@ -23,10 +23,10 @@
 <body class="font-sans flex flex-col min-h-screen">
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
-            <div class="p-4 flex flex-col justify-center">
+            <div class="border-r border-gray-500 min-w-md flex flex-col justify-center items-center p-4">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
-            <div class="flex-1 flex flex-col justify-center px-4 border-l border-gray-500 leading-tight font-light text-2xl md:text-3xl sm:text-4xl">
+            <div class="flex-1 flex flex-col justify-center px-4 leading-tight font-light text-2xl sm:text-4xl">
                 <a href="" class="block">${kcSanitize(msg(realm.displayNameHtml!''))?no_esc}</a>
             </div>
             <div class="flex items-center justify-end mr-4">
@@ -95,8 +95,8 @@
 
     
 
-    <div class="container mt-4 flex flex-row flex-grow overflow-scroll">
-        <div class="hidden sm:flex flex-col">
+    <div class="container flex flex-row flex-grow overflow-scroll">
+        <div class="hidden min-w-md border-r border-gray-500 sm:flex flex-col pt-2">
             <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
                 <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
@@ -109,7 +109,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col flex-grow mx-2">
+        <div class="flex flex-col flex-grow m-4.5">
 
             <div class="mb-4"><#nested "header"></div>
 
@@ -126,25 +126,27 @@
 
 
     <!-- Footer -->
-    <footer class="flex flex-col mt-4 mb-0 xl:mb-4 mx-0 xl:mx-4 p-4 md:p-5 bg-gray-300">
-        <div class="mb-3 text-base md:text-2xl font-bold">
-            &copy; ${.now?string('yyyy')} NOI Techpark
-        </div>
-        <div class="flex flex-col sm:flex-row leading-relaxed text-xs md:text-base">
-            <div class="mr-5">
-                NOI SPA<br />
-                Techpark Südtirol / Alto Adige<br />
-                <a href="mailto:info@davinci.bz.it" class="hover:underline">info@opendatahub.bz.it</a>
+    <footer class="flex flex-col border-t border-gray-500 p-4">
+        <div class="flex flex-col mb-0 xl:mb-4 mx-0 xl:mx-4 p-4 md:p-5 bg-gray-300">
+            <div class="mb-3 text-base md:text-2xl font-bold">
+                &copy; ${.now?string('yyyy')} NOI Techpark
             </div>
-            <div class="mt-3 sm:mt-0">
-                A.-Volta-Straße 13/A - 39100 Bozen/South Tyrol - Italy<br />
-                P.IVA 02595720216<br />
-                <a href="https://noi.bz.it" class="hover:underline">noi.bz.it</a>
+            <div class="flex flex-col sm:flex-row leading-relaxed text-xs md:text-base">
+                <div class="mr-5">
+                    NOI SPA<br />
+                    Techpark Südtirol / Alto Adige<br />
+                    <a href="mailto:info@davinci.bz.it" class="hover:underline">info@opendatahub.bz.it</a>
+                </div>
+                <div class="mt-3 sm:mt-0">
+                    A.-Volta-Straße 13/A - 39100 Bozen/South Tyrol - Italy<br />
+                    P.IVA 02595720216<br />
+                    <a href="https://noi.bz.it" class="hover:underline">noi.bz.it</a>
+                </div>
             </div>
-        </div>
-        <div class="mt-3 text-xs md:text-lg font-bold">
-            Developed by
-            <a href="https://aboutbits.it" class="hover:underline">About Bits</a>
+            <div class="mt-3 text-xs md:text-lg font-bold">
+                Developed by
+                <a href="https://aboutbits.it" class="hover:underline">About Bits</a>
+            </div>
         </div>
     </footer>
 

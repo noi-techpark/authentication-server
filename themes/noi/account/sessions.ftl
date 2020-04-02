@@ -2,7 +2,7 @@
 <@layout.mainLayout active='sessions' bodyClass='sessions'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl">${msg("sessionsHtmlTitle")}</h2>
+        <h2 class="text-2xl underline">${msg("sessionsHtmlTitle")}</h2>
     <#elseif section = "content">
         <table class="table-auto">
             <thead>

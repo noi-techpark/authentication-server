@@ -2,7 +2,7 @@
 <@layout.mainLayout active='totp' bodyClass='totp'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl">${msg("authenticatorTitle")}</h2>
+        <h2 class="text-2xl underline">${msg("authenticatorTitle")}</h2>
     <#elseif section = "content">
         <#if totp.enabled>
             <table class="table-auto">

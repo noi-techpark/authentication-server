@@ -24,7 +24,7 @@
             <div class="p-4 flex flex-col justify-center">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
-            <div class="flex-1 flex flex-col justify-center px-4 border-l border-gray-500 leading-tight font-light text-2xl md:text-3xl sm:text-4xl">
+            <div class="flex-1 flex flex-col justify-center px-4 border-l border-gray-500 leading-tight font-light text-2xl sm:text-4xl">
                 <a href="" class="block">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</a>
             </div>
             <!-- Desktop Navigation -->

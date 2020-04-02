@@ -2,7 +2,7 @@
 <@layout.mainLayout active='applications' bodyClass='applications'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl">${msg("applicationsHtmlTitle")}</h2>
+        <h2 class="text-2xl underline">${msg("applicationsHtmlTitle")}</h2>
     <#elseif section = "content">
         <form action="${url.applicationsUrl}" method="post">
             <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">

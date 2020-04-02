@@ -2,7 +2,7 @@
 <@layout.mainLayout active='account' bodyClass='user'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl">${msg("editAccountHtmlTitle")}</h2>
+        <h2 class="text-2xl underline">${msg("editAccountHtmlTitle")}</h2>
     <#elseif section = "content">
         <form action="${url.accountUrl}" method="post" class="max-w-3xl">
 

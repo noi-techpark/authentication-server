@@ -2,7 +2,7 @@
 <@layout.mainLayout active='password' bodyClass='password'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl">${msg("changePasswordHtmlTitle")}</h2>
+        <h2 class="text-2xl underline">${msg("changePasswordHtmlTitle")}</h2>
     <#elseif section = "content">
         <form action="${url.passwordUrl}" method="post" class="max-w-3xl">
             <input type="text" id="username" name="username" value="${(account.username!'')}" autocomplete="username" readonly="readonly" style="display:none;">
