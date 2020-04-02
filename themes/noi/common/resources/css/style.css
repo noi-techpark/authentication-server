@@ -7766,6 +7766,17 @@ video {
   color: #FFF;
 }
 
+.btn-black-filled {
+  border-color: #000;
+  background-color: #000;
+  color: #FFF;
+}
+
+.btn-black-filled:hover {
+  background-color: #FFF;
+  color: #000;
+}
+
 .vertical-center {
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -7803,6 +7814,7 @@ video {
 }
 
 .side-menu-item-active {
+  font-weight: 700;
   background-color: #f0fff4;
   color: #22543d;
   border-color: #22543d;
@@ -7818,6 +7830,7 @@ video {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  margin-top: 0.5rem;
   border-width: 2px;
   border-color: #000;
   width: 100%;
@@ -7835,14 +7848,17 @@ video {
 
 .inline-form-input:disabled {
   border-style: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .inline-form-label {
   display: block;
-  color: #707070;
-  font-weight: 700;
   margin-bottom: 0.25rem;
   padding-right: 2rem;
+  font-size: 0.75rem;
+  color: #000;
+  font-weight: 700;
 }
 
 .inline-form-label-error {
