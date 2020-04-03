@@ -3916,7 +3916,7 @@ video {
 }
 
 .min-w-md {
-  min-width: 14rem;
+  min-width: 15rem;
 }
 
 .min-w-full {
@@ -11208,7 +11208,7 @@ video {
   }
 
   .sm\:min-w-md {
-    min-width: 14rem;
+    min-width: 15rem;
   }
 
   .sm\:min-w-full {
@@ -18330,7 +18330,7 @@ video {
   }
 
   .md\:min-w-md {
-    min-width: 14rem;
+    min-width: 15rem;
   }
 
   .md\:min-w-full {
@@ -25452,7 +25452,7 @@ video {
   }
 
   .lg\:min-w-md {
-    min-width: 14rem;
+    min-width: 15rem;
   }
 
   .lg\:min-w-full {
@@ -32574,7 +32574,7 @@ video {
   }
 
   .xl\:min-w-md {
-    min-width: 14rem;
+    min-width: 15rem;
   }
 
   .xl\:min-w-full {
