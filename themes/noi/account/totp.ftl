@@ -53,14 +53,15 @@
                 </li>
 
                 <#if mode?? && mode = "manual">
-                    <li class="mt-3 mb-1">
-                        <p>${msg("totpManualStep2")}</p>
-                        <div id="kc-totp-secret-key" class="my-2 inline-block border-2 border-black p-2">${totp.totpSecretEncoded}</div>
+                    <li class="mt-5 mb-1">
+                        <div class="inline-block bg-black py-2 px-3 text-white text-xl font-bold">2</div>
+                        <div class="mt-4"><p class="text-lg">${msg("totpManualStep2")}</p></div>
+                        <div id="kc-totp-secret-key" class="my-3 inline-block border-2 border-black p-2">${totp.totpSecretEncoded}</div>
                         <p><a href="${totp.qrUrl}" id="mode-barcode" class="font-bold hover:underline">${msg("totpScanBarcode")}</a></p>
                     </li>
                     <li class="mt-3 mb-1">
-                        <p>${msg("totpManualStep3")}</p>
-                        <ul>
+                        <div class="mt-4"><p class="text-lg">${msg("totpManualStep3")}</p></div>
+                        <ul class="mt-1">
                             <li id="kc-totp-type" class="ml-4 list-disc">${msg("totpType")}: ${msg("totp." + totp.policy.type)}</li>
                             <li id="kc-totp-algorithm" class="ml-4 list-disc">${msg("totpAlgorithm")}: ${totp.policy.getAlgorithmKey()}</li>
                             <li id="kc-totp-digits" class="ml-4 list-disc">${msg("totpDigits")}: ${totp.policy.digits}</li>
