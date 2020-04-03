@@ -77,7 +77,7 @@ module.exports = {
     minWidth: {
       '0': '0',
       'sm': '10rem',
-      'md': '15rem',
+      'md': '20rem',
       'full': '100%',
     },
     extend: {

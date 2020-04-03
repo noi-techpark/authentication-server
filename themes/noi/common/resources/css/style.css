@@ -3916,7 +3916,7 @@ video {
 }
 
 .min-w-md {
-  min-width: 15rem;
+  min-width: 20rem;
 }
 
 .min-w-full {
@@ -7747,6 +7747,10 @@ video {
   z-index: auto;
 }
 
+body {
+  font-size: 18px;
+}
+
 .btn {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -11208,7 +11212,7 @@ video {
   }
 
   .sm\:min-w-md {
-    min-width: 15rem;
+    min-width: 20rem;
   }
 
   .sm\:min-w-full {
@@ -18330,7 +18334,7 @@ video {
   }
 
   .md\:min-w-md {
-    min-width: 15rem;
+    min-width: 20rem;
   }
 
   .md\:min-w-full {
@@ -25452,7 +25456,7 @@ video {
   }
 
   .lg\:min-w-md {
-    min-width: 15rem;
+    min-width: 20rem;
   }
 
   .lg\:min-w-full {
@@ -32574,7 +32578,7 @@ video {
   }
 
   .xl\:min-w-md {
-    min-width: 15rem;
+    min-width: 20rem;
   }
 
   .xl\:min-w-full {

@@ -95,7 +95,7 @@
 
     
 
-    <div class="container flex flex-row flex-grow overflow-scroll">
+    <div class="flex flex-row flex-grow overflow-scroll">
         <div class="hidden min-w-md border-r border-gray-500 sm:flex flex-col pt-2">
             <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
