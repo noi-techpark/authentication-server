@@ -8,10 +8,10 @@
             <table class="table-auto border-2 border-black">
                 <thead>
                 <tr class="bg-gray-300">
-                    <th class="px-4 py-2 border-r border-black">${msg("ip")}</th>
-                    <th class="px-4 py-2 border-r border-black">${msg("started")}</th>
-                    <th class="px-4 py-2 border-r border-black">${msg("lastAccess")}</th>
-                    <th class="px-4 py-2 border-r border-black">${msg("expires")}</th>
+                    <th class="border-r border-black px-4 py-2">${msg("ip")}</th>
+                    <th class="border-r border-black px-4 py-2">${msg("started")}</th>
+                    <th class="border-r border-black px-4 py-2">${msg("lastAccess")}</th>
+                    <th class="border-r border-black px-4 py-2">${msg("expires")}</th>
                     <th class="px-4 py-2">${msg("clients")}</th>
                 </tr>
                 </thead>
