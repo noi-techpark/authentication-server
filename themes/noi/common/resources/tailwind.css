@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 body {
-    font-size: 18px;
+    font-size: 16px;
+}
+
+@screen lg {
+    body {
+        font-size: 18px;
+    }
 }
 
 .btn {
@@ -84,7 +90,7 @@ body {
     @apply text-red-700;
 }
 
-@screen md {
+@screen lg {
     .inline-form-label {
         @apply mb-0;
     }
@@ -94,7 +100,7 @@ body {
     @apply hidden mb-4 border-b border-black flex-col items-stretch bg-gray-300 px-2 pt-2;
 }
 
-@screen sm {
+@screen lg {
     .mobile-nav {
         @apply hidden;
     }
@@ -108,7 +114,7 @@ body {
     @apply z-10 shadow absolute right-0 left-0 bg-white hidden;
 }
 
-@screen sm {
+@screen lg {
     .mobile-languages {
         @apply hidden;
     }

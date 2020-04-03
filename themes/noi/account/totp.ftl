@@ -47,7 +47,7 @@
 
                     <ul class="mt-3">
                         <#list totp.policy.supportedApplications as app>
-                            <li class="mr-3 inline-block min-w-sm py-2 px-4 bg-black text-white text-center">${app}</li>
+                            <li class="lg:mr-3 my-1 lg:my-0 inline-block min-w-sm py-2 px-4 bg-black text-white text-center">${app}</li>
                         </#list>
                     </ul>
                 </li>
@@ -89,7 +89,7 @@
 
             <form action="${url.totpUrl}" class="mt-3 max-w-xl" method="post">
                 <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
-                <div class="mb-2 max-w-xs">
+                <div class="mb-2 lg:max-w-xs">
                     <label for="totp" class="inline-form-label">${msg("authenticatorCode")}</label>
                     <input type="text" class="inline-form-input" id="totp" name="totp" autocomplete="off" autofocus>
                     <input type="hidden" id="totpSecret" name="totpSecret" value="${totp.totpSecret}"/>
@@ -101,8 +101,8 @@
                 </div>
 
                 <div class="form-group">
-                    <div id="kc-form-buttons" class="mt-4 flex flex-col md:flex-row">
-                        <button type="submit" class="btn btn-black-filled mb-2 md:mb-0 md:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
+                    <div id="kc-form-buttons" class="mt-4 flex flex-col lg:flex-row">
+                        <button type="submit" class="btn btn-black-filled mb-2 lg:mb-0 lg:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
                         <button type="submit" class="btn btn-black" name="submitAction" value="Cancel">${msg("doCancel")}</button>
                     </div>
                 </div>

@@ -27,7 +27,7 @@
             </div>
 
             <div class="form-group">
-                <div id="kc-form-buttons" class="mt-4 flex flex-col md:flex-row">
+                <div id="kc-form-buttons" class="mt-4 flex flex-col lg:flex-row">
                     <button type="submit" class="btn btn-black-filled" name="submitAction" value="Save">${msg("doSave")}</button>
                 </div>
             </div>

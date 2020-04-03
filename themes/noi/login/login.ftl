@@ -23,7 +23,7 @@
                     <input tabindex="2" id="password" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" name="password" type="password" placeholder="${msg("password")}" autocomplete="off" />
                 </div>
 
-                <div class="mt-3 flex flex-col md:flex-row md:justify-between">
+                <div class="mt-3 flex flex-col lg:flex-row lg:justify-between">
                     <div id="kc-form-options" class="mt-2 flex">
                         <#if realm.rememberMe && !usernameEditDisabled??>
                             <div class="checkbox">

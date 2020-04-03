@@ -40,9 +40,9 @@
             </div>
 
             <div class="form-group">
-                <div id="kc-form-buttons" class="mt-4 flex flex-col md:flex-row">
+                <div id="kc-form-buttons" class="mt-4 flex flex-col lg:flex-row">
                     <#if url.referrerURI??><a class="underline" href="${url.referrerURI}">${kcSanitize(msg("backToApplication")?no_esc)}</a></#if>
-                    <button type="submit" class="btn btn-black-filled mb-2 md:mb-0 md:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
+                    <button type="submit" class="btn btn-black-filled mb-2 lg:mb-0 lg:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
                     <button type="submit" class="btn btn-black" name="submitAction" value="Cancel">${msg("doCancel")}</button>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
 
@@ -23,15 +24,15 @@
 <body class="font-sans flex flex-col min-h-screen">
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
-            <div class="border-r border-gray-500 min-w-md flex flex-col justify-center items-center p-4">
+            <div class="border-r border-gray-500 lg:min-w-md flex flex-col justify-center items-center p-3 lg:p-4">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
-            <div class="flex-1 flex flex-col justify-center pl-5 pr-4 leading-tight font-light text-2xl sm:text-4xl">
+            <div class="flex-1 flex flex-col justify-center px-3 lg:pl-5 lg:pr-4 leading-tight font-light text-3xl lg:text-4xl">
                 <a href="" class="block">${kcSanitize(msg(realm.displayNameHtml!''))?no_esc}</a>
             </div>
-            <div class="flex items-center justify-end mr-4">
+            <div class="flex items-center justify-end mr-3">
                 <!-- Desktop Navigation -->
-                <nav role="navigation" class="hidden sm:flex items-center">
+                <nav role="navigation" class="hidden lg:flex items-center">
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                         <div class="mr-2 group relative block">
                             <button class="relative border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
@@ -53,7 +54,7 @@
                     <div class="flex items-center"><a href="${url.logoutUrl}" class="flex btn btn-black">${msg("doSignOut")}</a></div>
                 </nav>
                 <!-- Mobile Navigation - Burger Icon -->
-                <button class="sm:hidden" onclick="toggleNav()">
+                <button class="lg:hidden" onclick="toggleNav()">
                     <img src="${url.resourcesPath}/img/menu.svg" alt="MENU" width="24" />
                 </button>
             </div>
@@ -96,7 +97,7 @@
     
 
     <div class="flex flex-row flex-grow overflow-scroll">
-        <div class="hidden min-w-md border-r border-gray-500 sm:flex flex-col pt-2">
+        <div class="hidden min-w-md border-r border-gray-500 lg:flex flex-col pt-2">
             <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
                 <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
@@ -109,14 +110,14 @@
             </ul>
         </div>
 
-        <div class="flex flex-col flex-grow mx-5 my-4.5">
+        <div class="flex flex-col flex-grow mx-3 lg:mx-5 my-4.5">
 
             <div class="mb-4"><#nested "header"></div>
 
             <#if message?has_content>
                 <div class="mb-4 border-2 px-4 py-3 <#if message.type = 'error'>bg-red-100 border-red-400 text-red-700<#elseif message.type = 'success'>bg-green-100 border-green-400 text-green-700</#if>" role="alert">
                     <strong class="font-bold">${msg(message.type)}!</strong>
-                    <span class="block sm:inline">${kcSanitize(message.summary)?no_esc}</span>
+                    <span class="block lg:inline">${kcSanitize(message.summary)?no_esc}</span>
                 </div>
             </#if>
 
@@ -126,24 +127,24 @@
 
 
     <!-- Footer -->
-    <footer class="flex flex-col border-t border-gray-500 p-4">
-        <div class="flex flex-col mb-0 xl:mb-4 mx-0 xl:mx-4 p-4 md:p-5 bg-gray-300">
-            <div class="mb-3 text-base md:text-2xl font-bold">
+    <footer class="flex flex-col border-t border-gray-500 p-3 lg:p-4">
+        <div class="flex flex-col mb-0 xl:mb-4 mx-0 xl:mx-4 p-4 lg:p-5 bg-gray-300">
+            <div class="mb-3 text-base lg:text-2xl font-bold">
                 &copy; ${.now?string('yyyy')} NOI Techpark
             </div>
-            <div class="flex flex-col sm:flex-row leading-relaxed text-xs md:text-base">
+            <div class="flex flex-col lg:flex-row leading-relaxed text-xs lg:text-base">
                 <div class="mr-5">
                     NOI SPA<br />
                     Techpark Südtirol / Alto Adige<br />
                     <a href="mailto:info@davinci.bz.it" class="hover:underline">info@opendatahub.bz.it</a>
                 </div>
-                <div class="mt-3 sm:mt-0">
+                <div class="mt-3 lg:mt-0">
                     A.-Volta-Straße 13/A - 39100 Bozen/South Tyrol - Italy<br />
                     P.IVA 02595720216<br />
                     <a href="https://noi.bz.it" class="hover:underline">noi.bz.it</a>
                 </div>
             </div>
-            <div class="mt-3 text-xs md:text-lg font-bold">
+            <div class="mt-3 text-xs lg:text-lg font-bold">
                 Developed by
                 <a href="https://aboutbits.it" class="hover:underline">About Bits</a>
             </div>
