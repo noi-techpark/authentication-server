@@ -26,7 +26,7 @@
             <div class="border-r border-gray-500 min-w-md flex flex-col justify-center items-center p-4">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
-            <div class="flex-1 flex flex-col justify-center px-4 leading-tight font-light text-2xl sm:text-4xl">
+            <div class="flex-1 flex flex-col justify-center pl-5 pr-4 leading-tight font-light text-2xl sm:text-4xl">
                 <a href="" class="block">${kcSanitize(msg(realm.displayNameHtml!''))?no_esc}</a>
             </div>
             <div class="flex items-center justify-end mr-4">
@@ -109,7 +109,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col flex-grow mx-4 my-4.5">
+        <div class="flex flex-col flex-grow mx-5 my-4.5">
 
             <div class="mb-4"><#nested "header"></div>
 
