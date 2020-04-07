@@ -37,9 +37,10 @@ module.exports = {
       '2': '0.5rem',
       '3': '1rem',
       '4': '2rem',
+      '4.5': '3rem',
       '5': '4rem',
       '6': '6rem',
-      'i': '1.5rem'
+      'i': '1.5rem',
     },
     fontFamily: {
       sans: [
@@ -76,6 +77,7 @@ module.exports = {
     minWidth: {
       '0': '0',
       'sm': '10rem',
+      'md': '20rem',
       'full': '100%',
     },
     extend: {

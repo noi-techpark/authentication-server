@@ -2,7 +2,7 @@
 <@layout.mainLayout active='totp' bodyClass='totp'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl">${msg("authenticatorTitle")}</h2>
+        <h2 class="text-2xl underline">${msg("authenticatorTitle")}</h2>
     <#elseif section = "content">
         <#if totp.enabled>
             <table class="table-auto">
@@ -40,26 +40,28 @@
                 </tbody>
             </table>
         <#else>
-            <ol>
+            <ol class="mt-3">
                 <li>
-                    <p>${msg("totpStep1")}</p>
+                    <div class="inline-block bg-black py-2 px-3 text-white text-xl font-bold">1</div>
+                    <div class="mt-4"><p class="text-lg">${msg("totpStep1")}</p></div>
 
-                    <ul>
+                    <ul class="mt-3">
                         <#list totp.policy.supportedApplications as app>
-                            <li class="ml-4 list-disc">${app}</li>
+                            <li class="lg:mr-3 my-1 lg:my-0 inline-block min-w-sm py-2 px-4 bg-black text-white text-center">${app}</li>
                         </#list>
                     </ul>
                 </li>
 
                 <#if mode?? && mode = "manual">
-                    <li class="mt-3 mb-1">
-                        <p>${msg("totpManualStep2")}</p>
-                        <div id="kc-totp-secret-key" class="my-2 inline-block border-2 border-black p-2">${totp.totpSecretEncoded}</div>
-                        <p><a href="${totp.qrUrl}" id="mode-barcode" class="underline">${msg("totpScanBarcode")}</a></p>
+                    <li class="mt-5 mb-1">
+                        <div class="inline-block bg-black py-2 px-3 text-white text-xl font-bold">2</div>
+                        <div class="mt-4"><p class="text-lg">${msg("totpManualStep2")}</p></div>
+                        <div id="kc-totp-secret-key" class="my-3 inline-block border-2 border-black p-2">${totp.totpSecretEncoded}</div>
+                        <p><a href="${totp.qrUrl}" id="mode-barcode" class="font-bold hover:underline">${msg("totpScanBarcode")}</a></p>
                     </li>
                     <li class="mt-3 mb-1">
-                        <p>${msg("totpManualStep3")}</p>
-                        <ul>
+                        <div class="mt-4"><p class="text-lg">${msg("totpManualStep3")}</p></div>
+                        <ul class="mt-1">
                             <li id="kc-totp-type" class="ml-4 list-disc">${msg("totpType")}: ${msg("totp." + totp.policy.type)}</li>
                             <li id="kc-totp-algorithm" class="ml-4 list-disc">${msg("totpAlgorithm")}: ${totp.policy.getAlgorithmKey()}</li>
                             <li id="kc-totp-digits" class="ml-4 list-disc">${msg("totpDigits")}: ${totp.policy.digits}</li>
@@ -71,43 +73,36 @@
                         </ul>
                     </li>
                 <#else>
-                    <li class="mt-3 mb-1">
-                        <p>${msg("totpStep2")}</p>
+                    <li class="mt-5 mb-1">
+                        <div class="inline-block bg-black py-2 px-3 text-white text-xl font-bold">2</div>
+                    
+                        <div class="mt-4"><p class="text-lg">${msg("totpStep2")}</p></div>
                         <p><img src="data:image/png;base64, ${totp.totpSecretQrCode}" alt="Figure: Barcode"></p>
-                        <p><a href="${totp.manualUrl}" id="mode-manual">${msg("totpUnableToScan")}</a></p>
+                        <p><a href="${totp.manualUrl}" id="mode-manual" class="font-bold hover:underline">${msg("totpUnableToScan")}</a></p>
                     </li>
                 </#if>
-                <li class="mt-3 mb-1">
-                    <p>${msg("totpStep3")}</p>
+                <li class="mt-5 mb-1">
+                    <div class="inline-block bg-black py-2 px-3 text-white text-xl font-bold">3</div>
+                    <div class="mt-4"><p class="text-lg">${msg("totpStep3")}</p></div>
                 </li>
             </ol>
 
-            <form action="${url.totpUrl}" class="max-w-3xl" method="post">
+            <form action="${url.totpUrl}" class="mt-3 max-w-xl" method="post">
                 <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
-                <div class="md:flex md:items-center mb-2">
-                    <div class="md:w-1/4">
-                        <label for="totp" class="inline-form-label">${msg("authenticatorCode")}</label>
-                    </div>
-
-                    <div class="md:w-3/4">
-                        <input type="text" class="inline-form-input" id="totp" name="totp" autocomplete="off" autofocus>
-                        <input type="hidden" id="totpSecret" name="totpSecret" value="${totp.totpSecret}"/>
-                    </div>
+                <div class="mb-2 lg:max-w-xs">
+                    <label for="totp" class="inline-form-label">${msg("authenticatorCode")}</label>
+                    <input type="text" class="inline-form-input" id="totp" name="totp" autocomplete="off" autofocus>
+                    <input type="hidden" id="totpSecret" name="totpSecret" value="${totp.totpSecret}"/>
                 </div>
 
-                <div class="md:flex md:items-center mb-2">
-                    <div class="md:w-1/4">
-                        <label for="userLabel" class="inline-form-label">Device Name</label>
-                    </div>
-
-                    <div class="md:w-3/4">
-                        <input type="text" class="inline-form-input" id="userLabel" name="userLabel" autocomplete="off">
-                    </div>
+                <div class="mb-2">
+                    <label for="userLabel" class="inline-form-label">Device Name</label>
+                    <input type="text" class="inline-form-input" id="userLabel" name="userLabel" autocomplete="off">                    
                 </div>
 
                 <div class="form-group">
-                    <div id="kc-form-buttons" class="mt-4 flex flex-col md:flex-row">
-                        <button type="submit" class="btn btn-black mb-2 md:mb-0 md:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
+                    <div id="kc-form-buttons" class="mt-4 flex flex-col lg:flex-row">
+                        <button type="submit" class="btn btn-black-filled mb-2 lg:mb-0 lg:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
                         <button type="submit" class="btn btn-black" name="submitAction" value="Cancel">${msg("doCancel")}</button>
                     </div>
                 </div>
