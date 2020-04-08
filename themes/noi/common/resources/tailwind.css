@@ -79,7 +79,7 @@ body {
 }
 
 .inline-form-input:disabled {
-    @apply border-none px-0;
+    @apply border-none px-0 bg-transparent;
 }
 
 .inline-form-label {

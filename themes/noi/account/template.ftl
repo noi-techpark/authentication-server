@@ -96,7 +96,7 @@
 
     
 
-    <div class="flex flex-row flex-grow overflow-scroll">
+    <div class="flex flex-row flex-grow">
         <div class="hidden min-w-md border-r border-gray-500 lg:flex flex-col pt-2">
             <ul class="min-w-sm px-2">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
@@ -110,7 +110,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col flex-grow mx-3 lg:mx-5 my-4.5">
+        <div class="flex flex-col flex-grow mx-3 lg:mx-5 my-4.5 overflow-scroll">
 
             <div class="mb-4"><#nested "header"></div>
 
