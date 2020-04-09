@@ -1,1 +1,3 @@
-node_modules
+/resources/node_modules
+/resources/rev-manifest.json
+/resources/css/style-*.json

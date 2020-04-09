@@ -57,13 +57,13 @@ docker network create authentication
 
 Before start working you have to start the Docker containers:
 
-```
+```bash
 docker-compose up --build --detach
 ```
 
 After finished working you can stop the Docker containers:
 
-```
+```bash
 docker-compose stop
 ```
 
@@ -77,6 +77,23 @@ In order to test the whole workflow locally, [Mailhog](https://github.com/mailho
 - Port: 1025
 
 All catched emails can be visited at [http://localhost:8025/](http://localhost:8025/).
+
+### Themes
+
+If you want to make some adjustments to the theme, you can run the following commands, so that all CSS files will be regenerated on the fly:
+
+```bash
+cd themes/noi/common/resources
+npm install
+npm run watch
+```
+
+Or you can run it also inside a Docker container:
+
+```bash
+docker run --rm -it -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm install
+docker run --rm -it -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm run watch
+```
 
 ## Setup and configuration
 

@@ -18,6 +18,12 @@ pipeline {
                 sh "echo 'DOCKER_TAG=${DOCKER_TAG}' >> .env"
             }
         }
+        stage('Assets') {
+            steps {
+                sh "docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm install"
+                sh "docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm run build"
+            }
+        }
         stage('Build & Push') {
             steps {
                 sh "aws ecr get-login --region eu-west-1 --no-include-email | bash"
