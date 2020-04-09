@@ -20,8 +20,8 @@ pipeline {
         }
         stage('Assets') {
             steps {
-                sh "docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm install"
-                sh "docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm run build"
+                sh 'docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm install'
+                sh 'docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm run build'
             }
         }
         stage('Build & Push') {
