@@ -110,7 +110,7 @@
             </ul>
         </div>
 
-        <div class="flex flex-col flex-grow mx-3 lg:mx-5 my-4.5 overflow-scroll">
+        <div class="flex flex-col flex-grow mx-3 lg:mx-5 my-4 overflow-scroll">
 
             <div class="mb-4"><#nested "header"></div>
 
