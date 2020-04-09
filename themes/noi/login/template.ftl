@@ -89,12 +89,6 @@
                     </div>
                 </#if>
                 <#nested "form">
-                <#if auth?has_content && auth.showBackButton() >
-                    <form id="kc-select-back-form" action="${url.loginAction}" method="post" class="mt-4">
-                        <input class="px-4 py-2 border-3 border-black hover:bg-black hover:text-white uppercase
-                            name="back" id="kc-back" type="submit" value="${msg("doBack")}"/>
-                    </form>
-                </#if>
             </div>
         </div>
     </main>
