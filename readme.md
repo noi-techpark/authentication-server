@@ -110,7 +110,7 @@ docker-compose -f docker-compose.build.yml build
 docker-compose -f docker-compose.build.yml push
 ```
 
-For a detailed installation instruction of the production servers, you can check out the [installation documentation](docs/installation.md).
+For a detailed installation instruction of the production servers, you can check out the [installation documentation](docs/installation.md) and [upgrade documentation](docs/upgrade.md).
 
 ## Information
 
