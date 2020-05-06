@@ -1,0 +1,5 @@
+[groupone]
+34.246.216.35 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[grouptwo]
+63.33.0.126 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
