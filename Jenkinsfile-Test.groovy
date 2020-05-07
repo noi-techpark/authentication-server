@@ -70,20 +70,32 @@ pipeline {
                     sh """
                         (cd terraform && terraform init)
                         ansible-galaxy install --force -r ansible/requirements.yml
+                    """
 
+                    sh """
                         (cd terraform && terraform apply -auto-approve config/group-one")
                         sleep 30
-
+                    """
+                    
+                    sh """
                         ansible-playbook --limit=grouptwo ansible/deploy.yml --extra-vars "release_name=${BUILD_NUMBER}"
-
+                    """
+                    
+                    sh """
                         (cd terraform && terraform apply -auto-approve config/all")
                         sleep 30
-                        
+                    """
+                    
+                    sh """ 
                         (cd terraform && terraform apply -auto-approve config/group-two")
                         sleep 30
-
+                    """
+                    
+                    sh """
                         ansible-playbook --limit=groupone ansible/deploy.yml --extra-vars "release_name=${BUILD_NUMBER}"
-
+                    """
+                    
+                    sh """
                         (cd terraform && terraform apply -auto-approve config/all")
                         sleep 30
                     """
