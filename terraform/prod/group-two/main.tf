@@ -1,7 +1,6 @@
 provider "aws" {
   version = "~> 2.0"
   region = "eu-west-1"
-  profile = "noi"
 }
 
 resource "aws_lb_target_group_attachment" "target-i-0f0f979343339f406" {
