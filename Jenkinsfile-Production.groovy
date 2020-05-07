@@ -43,7 +43,7 @@ pipeline {
                     cp ansible/hosts_${ENVIRONMENT} ansible/hosts
 
                     rm -rf terraform/config
-                    cp terraform/${ENVIRONMENT} terraform/config
+                    cp -R terraform/${ENVIRONMENT} terraform/config
                 """
             }
         }
