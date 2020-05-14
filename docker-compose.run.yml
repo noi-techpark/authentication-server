@@ -18,6 +18,12 @@ services:
       KEYCLOAK_FRONTEND_URL: ${FRONTEND_URL}
       KEYCLOAK_USER: ${ADMIN_NAME}
       KEYCLOAK_PASSWORD: ${ADMIN_PASSWORD}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${SERVER_PORT}/actuator/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
     ports:
       - 8080:8080
       - 7600:7600
