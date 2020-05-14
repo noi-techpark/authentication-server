@@ -71,16 +71,16 @@ pipeline {
                         (cd terraform && terraform init)
                         ansible-galaxy install --force -r ansible/requirements.yml
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/groupone.tfvars" main)
+                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/groupone.tfvars")
                         ansible-playbook --limit=grouptwo ansible/deploy.yml --extra-vars "release_name=${BUILD_NUMBER}"
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars" main)
+                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars")
                         sleep 30
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/grouptwo.tfvars" main)
+                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/grouptwo.tfvars")
                         ansible-playbook --limit=groupone ansible/deploy.yml --extra-vars "release_name=${BUILD_NUMBER}"
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars" main)
+                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars")
                         sleep 30
                     """
                 }
