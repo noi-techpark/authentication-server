@@ -19,7 +19,7 @@ services:
       KEYCLOAK_USER: ${ADMIN_NAME}
       KEYCLOAK_PASSWORD: ${ADMIN_PASSWORD}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:${SERVER_PORT}/actuator/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth"]
       interval: 20s
       timeout: 10s
       retries: 5
