@@ -4,6 +4,6 @@ services:
   keycloak:
     image: ${DOCKER_IMAGE}:${DOCKER_TAG}
     build:
-      context: ./
-      dockerfile: docker/keycloak/Dockerfile
+      context: ../
+      dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: build

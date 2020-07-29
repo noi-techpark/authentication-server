@@ -39,11 +39,11 @@ pipeline {
                     echo 'ADMIN_NAME=${ADMIN_NAME}' >> .env
                     echo 'ADMIN_PASSWORD=${ADMIN_PASSWORD}' >> .env
 
-                    rm -rf ansible/hosts
-                    cp ansible/hosts_${ENVIRONMENT} ansible/hosts
+                    rm -rf infrastructure/ansible/hosts
+                    cp infrastructure/ansible/hosts_${ENVIRONMENT} infrastructure/ansible/hosts
 
-                    rm -rf terraform/config
-                    cp -R terraform/${ENVIRONMENT} terraform/config
+                    rm -rf infrastructure/terraform/config
+                    cp -R infrastructure/terraform/${ENVIRONMENT} infrastructure/terraform/config
                 """
             }
         }
@@ -59,8 +59,8 @@ pipeline {
             steps {
                 sh '''
                     aws ecr get-login --region eu-west-1 --no-include-email | bash
-                    docker-compose --no-ansi -f docker-compose.build.yml build --pull
-                    docker-compose --no-ansi -f docker-compose.build.yml push
+                    docker-compose --no-ansi -f infrastructure/docker-compose.build.yml build --pull
+                    docker-compose --no-ansi -f infrastructure/docker-compose.build.yml push
                 '''
             }
         }
@@ -68,19 +68,19 @@ pipeline {
             steps {
                sshagent(['jenkins-ssh-key']) {
                     sh """
-                        (cd terraform && terraform init)
-                        ansible-galaxy install --force -r ansible/requirements.yml
+                        (cd infrastructure/terraform && terraform init)
+                        (cd infrastructure/ansible && ansible-galaxy install --force -r requirements.yml)
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/groupone.tfvars")
-                        ansible-playbook --limit=grouptwo ansible/deploy.yml --extra-vars "release_name=${BUILD_NUMBER}"
+                        (cd infrastructure/terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/groupone.tfvars")
+                        (cd infrastructure/ansible && ansible-playbook --limit=grouptwo deploy.yml --extra-vars "release_name=${BUILD_NUMBER}")
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars")
+                        (cd infrastructure/terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars")
                         sleep 30
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/grouptwo.tfvars")
-                        ansible-playbook --limit=groupone ansible/deploy.yml --extra-vars "release_name=${BUILD_NUMBER}"
+                        (cd infrastructure/terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/grouptwo.tfvars")
+                        (cd infrastructure/ansible && ansible-playbook --limit=groupone deploy.yml --extra-vars "release_name=${BUILD_NUMBER}")
 
-                        (cd terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars")
+                        (cd infrastructure/terraform && terraform apply -auto-approve -var-file="config/main.tfvars" -var-file="config/all.tfvars")
                         sleep 30
                     """
                 }

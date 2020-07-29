@@ -4,7 +4,7 @@ services:
   keycloak:
     build:
       context: ./
-      dockerfile: docker/keycloak/Dockerfile
+      dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: dev
     volumes:
       - ./themes/noi:/opt/jboss/keycloak/themes/noi

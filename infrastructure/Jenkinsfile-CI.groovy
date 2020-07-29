@@ -21,13 +21,13 @@ pipeline {
         }
         stage('Assets') {
             steps {
-                sh 'docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm install'
-                sh 'docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm run build'
+                sh 'docker run --no-ansi --rm -v $PWD:/code -w /code/themes/noi/common/resources -u $(id -u jenkins):$(id -g jenkins) node:12 npm install'
+                sh 'docker run --no-ansi --rm -v $PWD:/code -w /code/themes/noi/common/resources -u $(id -u jenkins):$(id -g jenkins) node:12 npm run build'
             }
         }
         stage('Build') {
             steps {
-                sh "docker-compose -f docker-compose.build.yml build"
+                sh "docker-compose -f infrastrucutre/docker-compose.build.yml build"
             }
         }
     }
