@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "docker-compose -f infrastrucutre/docker-compose.build.yml build"
+                sh "docker-compose -f infrastructure/docker-compose.build.yml build"
             }
         }
     }
