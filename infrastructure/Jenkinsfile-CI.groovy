@@ -21,9 +21,11 @@ pipeline {
         }
         stage('Assets') {
             steps {
-                sh 'docker build --pull --build-arg JENKINS_USER_ID=$(id -u jenkins) --build-arg JENKINS_GROUP_ID=$(id -g jenkins) -t ${DOCKER_IMAGE}-node:${BUILD_NUMBER} infrastructure/docker/node'
-                sh 'docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources ${DOCKER_IMAGE}-node:${BUILD_NUMBER} npm install'
-                sh 'docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources ${DOCKER_IMAGE}-node:${BUILD_NUMBER} npm run build'
+                sh '''
+                    docker build --pull --build-arg JENKINS_USER_ID=$(id -u jenkins) --build-arg JENKINS_GROUP_ID=$(id -g jenkins) -t ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER} infrastructure/docker/node
+                    docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER} npm install
+                    docker run --rm -v $PWD:/code -w /code/themes/noi/common/resources ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER} npm run build
+                '''
             }
         }
         stage('Build') {
@@ -34,7 +36,7 @@ pipeline {
     }
     post {
         always {
-            sh 'docker image rm -f ${DOCKER_IMAGE}-node:${BUILD_NUMBER}'
+            sh 'docker image rm -f ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER}'
         }
     }
 }
