@@ -1,5 +1,5 @@
 [groupone]
-auth01.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+auth01.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no' private_ip='172.31.20.252'
 
 [grouptwo]
-auth02.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+auth02.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no' private_ip='172.31.21.94'
