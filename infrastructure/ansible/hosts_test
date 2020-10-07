@@ -1,5 +1,5 @@
 [groupone]
-auth01.opendatahub.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+auth01.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [grouptwo]
-auth02.opendatahub.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+auth02.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
