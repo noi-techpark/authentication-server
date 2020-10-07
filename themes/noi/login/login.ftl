@@ -49,11 +49,8 @@
                       <input tabindex="4" class="btn btn-black" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                   </div>
             </form>
-        </#if>
-    <#elseif section = "info" >
-        <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
-            <div id="kc-registration">
-                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+            <div id="kc-registration" class="mt-4">
+                <span class="text-sm">${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}" class="hover:underline focus:underline">${msg("doRegister")}</a></span>
             </div>
         </#if>
     </#if>
