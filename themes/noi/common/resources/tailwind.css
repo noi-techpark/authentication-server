@@ -86,6 +86,36 @@ body {
     @apply p-2;
 }
 
+.form-input-group {
+    @apply flex;
+    @apply flex-col;
+}
+
+.form-input-group-error > .form-input {
+    @apply border-red-700;
+}
+
+.form-input-group-error > .form-label {
+    @apply text-red-700;
+}
+
+.form-input {
+    @apply py-1;
+    @apply border-b;
+    @apply border-black;
+    @apply text-2xl;
+}
+
+.form-input:focus {
+    @apply outline-none;
+    @apply border-primary-500;
+}
+
+.form-label {
+    @apply text-primary-500;
+    @apply font-bold;
+}
+
 .inline-form-input {
     @apply appearance-none;
     @apply mt-2;
