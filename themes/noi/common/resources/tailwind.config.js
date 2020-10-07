@@ -9,6 +9,17 @@
 const { colors } = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  purge: {
+    enabled: true,
+    content: [
+      '../../**/*.html',
+      '../../**/*.ftl',
+    ]
+  },
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
   theme: {
     colors: {
       transparent: 'transparent',

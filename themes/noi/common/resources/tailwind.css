@@ -13,23 +13,31 @@ body {
 }
 
 .btn {
-    @apply px-4 py-2 border-3 uppercase;
+    @apply px-4; 
+    @apply py-2;
+    @apply border-3;
+    @apply uppercase;
 }
 
 .btn-black {
-        @apply border-black bg-white;
+    @apply border-black;
+    @apply bg-white;
 }
 
 .btn-black:hover {
-    @apply bg-black text-white;
+    @apply bg-black;
+    @apply text-white;
 }
 
 .btn-black-filled {
-    @apply border-black bg-black text-white;
+    @apply border-black;
+    @apply bg-black;
+    @apply text-white;
 }
 
 .btn-black-filled:hover {
-    @apply bg-white text-black;
+    @apply bg-white;
+    @apply text-black;
 }
 
 .vertical-center {
@@ -55,35 +63,58 @@ body {
 }
 
 .side-menu-item {
-    @apply my-1 rounded border-r-4 border-transparent;
+    @apply my-1;
+    @apply rounded;
+    @apply border-r-4;
+    @apply border-transparent;;
 }
 
 .side-menu-item:hover {
-    @apply bg-green-100 text-green-900;
+    @apply bg-green-100;
+    @apply text-green-900;
 }
 
 .side-menu-item-active {
-    @apply font-bold bg-green-100 text-green-900 border-green-900;
+    @apply font-bold;
+    @apply bg-green-100;
+    @apply text-green-900;
+    @apply border-green-900;
 }
 
 .side-menu-item > a {
-    @apply flex p-2;
+    @apply flex;
+    @apply p-2;
 }
 
 .inline-form-input {
-    @apply appearance-none mt-2 border-2 border-black w-full py-2 px-2 leading-tight;
+    @apply appearance-none;
+    @apply mt-2;
+    @apply border-2;
+    @apply border-black;
+    @apply w-full;
+    @apply py-2;
+    @apply px-2;
+    @apply leading-tight;
 }
 
 .inline-form-input:focus {
-    @apply outline-none border-green-700;
+    @apply outline-none;
+    @apply border-green-700;
 }
 
 .inline-form-input:disabled {
-    @apply border-none px-0 bg-transparent;
+    @apply border-none;
+    @apply px-0;
+    @apply bg-transparent;
 }
 
 .inline-form-label {
-    @apply block mb-1 pr-4 text-xs text-black font-bold;
+    @apply block;
+    @apply mb-1;
+    @apply pr-4;
+    @apply text-xs;
+    @apply text-black;
+    @apply font-bold;
 }
 
 .inline-form-label-error {
@@ -97,7 +128,15 @@ body {
 }
 
 .mobile-nav {
-    @apply hidden mb-4 border-b border-black flex-col items-stretch bg-gray-300 px-2 pt-2;
+    @apply hidden;
+    @apply mb-4;
+    @apply border-b;
+    @apply border-black;
+    @apply flex-col;
+    @apply items-stretch;
+    @apply bg-gray-300;
+    @apply px-2;
+    @apply pt-2;
 }
 
 @screen lg {
@@ -111,7 +150,13 @@ body {
 }
 
 .mobile-languages {
-    @apply z-10 shadow absolute right-0 left-0 bg-white hidden;
+    @apply z-10;
+    @apply shadow;
+    @apply absolute;
+    @apply right-0;
+    @apply left-0;
+    @apply bg-white;
+    @apply hidden;
 }
 
 @screen lg {
