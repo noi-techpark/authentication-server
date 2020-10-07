@@ -1,5 +1,5 @@
 target_group_one = {}
 
 target_group_two = {
-  "63.33.0.126": "i-0c3a9911bc818a769"
+  "auth02.testingmachine.eu": "i-0f7a83cd2647a0286"
 }

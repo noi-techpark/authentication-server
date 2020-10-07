@@ -1,5 +1,5 @@
 target_group_one = {
-  "34.250.118.144": "i-0445fdff327ef4ef8"
+  "auth01.opendatahub.bz.it": "i-089dcb3c64c5759a7"
 }
 
 target_group_two = {}
