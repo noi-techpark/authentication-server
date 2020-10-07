@@ -1,5 +1,5 @@
 [groupone]
-auth01.opendatahub.bz.it ansible_ssh_common_args='-o StrictHostKeyChecking=no' ip='108.128.219.75'
+auth01.opendatahub.bz.it ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [grouptwo]
-auth02.opendatahub.bz.it ansible_ssh_common_args='-o StrictHostKeyChecking=no' ip='18.200.203.254'
+auth02.opendatahub.bz.it ansible_ssh_common_args='-o StrictHostKeyChecking=no'
