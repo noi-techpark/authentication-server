@@ -32,9 +32,10 @@
             </div>
             <div class="flex items-center justify-end mr-3">
                 <!-- Desktop Navigation -->
-                <nav role="navigation" class="hidden lg:flex items-center">
+                <nav role="navigation" class="hidden lg:flex items-center space-x-2">
+                    <div class="flex items-center"><#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black">${msg("backTo",referrer.name)}</a></#if></div>
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                        <div class="mr-2 group relative block">
+                        <div class="group relative block">
                             <button class="relative border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
                                 <div class="block pr-2">
                                 ${locale.current}
@@ -50,7 +51,6 @@
                             </ul>
                         </div>
                     </#if>
-                    <div class="flex items-center"><#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black">${msg("backTo",referrer.name)}</a></#if></div>
                     <div class="flex items-center"><a href="${url.logoutUrl}" class="flex btn btn-black">${msg("doSignOut")}</a></div>
                 </nav>
                 <!-- Mobile Navigation - Burger Icon -->

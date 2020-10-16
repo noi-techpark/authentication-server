@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -85,7 +86,7 @@
                 <#if message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
                     <div class="mb-4 border-2 px-4 py-3 <#if message.type = 'error'>bg-red-100 border-red-400 text-red-700<#elseif message.type = 'warning'>bg-yellow-100 border-yellow-400 text-yellow-700<#elseif message.type = 'info'>bg-blue-100 border-blue-400 text-blue-700<#elseif message.type = 'success'>bg-green-100 border-green-400 text-green-700</#if>" role="alert">
                         <strong class="font-bold">${msg(message.type)}!</strong>
-                        <span class="block lg:inline">${kcSanitize(message.summary)?no_esc}</span>
+                        <span class="block">${kcSanitize(message.summary)?no_esc}</span>
                     </div>
                 </#if>
                 <#nested "form">
