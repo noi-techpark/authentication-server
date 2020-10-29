@@ -11,10 +11,13 @@ import org.keycloak.models.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public class AdminNotificationEventListenerProvider implements EventListenerProvider {
 
     private static final Logger log = Logger.getLogger(AdminNotificationEventListenerProvider.class);
+    private static final EmailNotificationGroup sanktVirtualNotificationGroup = new EmailNotificationGroup("Sankt Virtual Managers", Set.of("it.bz.noi.virtual"));
+    private static final EmailNotificationGroup defaultNotificationGroup = new EmailNotificationGroup("About Bits", null);
 
     private final KeycloakSession session;
     private final RealmProvider model;
@@ -31,19 +34,27 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
             log.infof("## NEW %s EVENT", event.getType());
             log.info("-----------------------------------------------------------");
 
+            EmailNotificationGroup groupToNotify;
+
+            if (sanktVirtualNotificationGroup.getClients().contains(event.getClientId())) {
+                groupToNotify = sanktVirtualNotificationGroup;
+            } else {
+                groupToNotify = defaultNotificationGroup;
+            }
+
             RealmModel realm = this.model.getRealm(event.getRealmId());
 
-            Optional<GroupModel> sanktVirtualGroup = this.model.getGroups(realm).stream()
-                    .filter(groupModel -> "Sankt Virtual Managers".equals(groupModel.getName()))
+            Optional<GroupModel> keycloakGroup = this.model.getGroups(realm).stream()
+                    .filter(groupModel -> groupToNotify.getName().equals(groupModel.getName()))
                     .findFirst();
 
-            if (sanktVirtualGroup.isEmpty()) {
-                log.info("The \"Sankt Virtual Managers\" does not exist and therefore we don't send a registration notification mail.");
+            if (keycloakGroup.isEmpty()) {
+                log.info("The " + groupToNotify.getName() + " does not exist and therefore we don't send a registration notification mail.");
                 return;
             }
 
             UserModel newRegisteredUser = this.session.users().getUserById(event.getUserId(), realm);
-            List<UserModel> usersToNotify = this.session.users().getGroupMembers(realm, sanktVirtualGroup.get());
+            List<UserModel> usersToNotify = this.session.users().getGroupMembers(realm, keycloakGroup.get());
 
             String emailPlainContent = "New user registration\n\n" +
                     "Email: " + newRegisteredUser.getEmail() + "\n" +
