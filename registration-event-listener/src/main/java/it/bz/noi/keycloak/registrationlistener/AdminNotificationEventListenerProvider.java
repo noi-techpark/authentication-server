@@ -7,10 +7,10 @@ import org.keycloak.events.Event;
 import org.keycloak.events.EventListenerProvider;
 import org.keycloak.events.EventType;
 import org.keycloak.events.admin.AdminEvent;
-import org.keycloak.models.KeycloakSession;
-import org.keycloak.models.RealmModel;
-import org.keycloak.models.RealmProvider;
-import org.keycloak.models.UserModel;
+import org.keycloak.models.*;
+
+import java.util.List;
+import java.util.Optional;
 
 public class AdminNotificationEventListenerProvider implements EventListenerProvider {
 
@@ -32,30 +32,40 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
             log.info("-----------------------------------------------------------");
 
             RealmModel realm = this.model.getRealm(event.getRealmId());
-            UserModel user = this.session.users().getUserById(event.getUserId(), realm);
+
+            Optional<GroupModel> sanktVirtualGroup = this.model.getGroups(realm).stream()
+                    .filter(groupModel -> "Sankt Virtual Managers".equals(groupModel.getName()))
+                    .findFirst();
+
+            if (sanktVirtualGroup.isEmpty()) {
+                log.info("The \"Sankt Virtual Managers\" does not exist and therefore we don't send a registration notification mail.");
+                return;
+            }
+
+            UserModel newRegisteredUser = this.session.users().getUserById(event.getUserId(), realm);
+            List<UserModel> usersToNotify = this.session.users().getGroupMembers(realm, sanktVirtualGroup.get());
+
+            String emailPlainContent = "New user registration\n\n" +
+                    "Email: " + newRegisteredUser.getEmail() + "\n" +
+                    "Username: " + newRegisteredUser.getUsername() + "\n" +
+                    "Client: " + event.getClientId();
+
+            String emailHtmlContent = "<h1>New user registration</h1>" +
+                    "<ul>" +
+                    "<li>Email: " + newRegisteredUser.getEmail() + "</li>" +
+                    "<li>Username: " + newRegisteredUser.getUsername() + "</li>" +
+                    "<li>Client: " + event.getClientId() + "</li>" +
+                    "</ul>";
 
             DefaultEmailSenderProvider senderProvider = new DefaultEmailSenderProvider(session);
 
-            try {
-                String emailPlainContent = "New user registration\n\n" +
-                        "Email: " + user.getEmail() + "\n" +
-                        "Username: " + user.getUsername() + "\n" +
-                        "Client: " + event.getClientId();
-
-                String emailHtmlContent = "<h1>New user registration</h1>" +
-                        "<ul>" +
-                        "<li>Email: " + user.getEmail() + "</li>" +
-                        "<li>Username: " + user.getUsername() + "</li>" +
-                        "<li>Client: " + event.getClientId() + "</li>" +
-                        "</ul>";
-
-
-                senderProvider.send(session.getContext().getRealm().getSmtpConfig(), new AdminToNotify(), "Keycloak: New Registration - " + realm.getName(), emailPlainContent, emailHtmlContent);
-
-                log.info("Successfully send notification email");
-            } catch (EmailException e) {
-                log.info("Failed to send Email");
-            }
+            usersToNotify.forEach(userToNotify -> {
+                try {
+                    senderProvider.send(session.getContext().getRealm().getSmtpConfig(), userToNotify, "Keycloak - New Registration", emailPlainContent, emailHtmlContent);
+                } catch (EmailException e) {
+                    log.warn("Failed send notification to: " + userToNotify.getEmail());
+                }
+            });
 
 
             log.info("-----------------------------------------------------------");

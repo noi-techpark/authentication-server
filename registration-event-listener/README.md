@@ -3,10 +3,6 @@
 This is a custom event listener for Keycloak events. 
 Its goal is to notify an admin about new user registrations via email.
 
-## How to change the email address of the user that gets notified?
-
-Open `it.bz.noi.keycloak.registrationlistener.AdminToNotify` and change the email. 
-Build the artifact and redeploy keycloak.
 
 ## How to build the artifact?
 
@@ -28,3 +24,9 @@ Set the event listener
 * Open the config [tab]
 * click in the input box next to event listeners, a dropdown with all available event listeners is shown
 * select our registration_event_listener
+
+## How to add users to get notified about new registrations?
+
+Create a group called: "Sankt Virtual Managers"
+Assign the user who wants to get notified for new registrations to this specific group.
+
