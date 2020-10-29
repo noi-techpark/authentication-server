@@ -56,6 +56,13 @@ pipeline {
                 '''
             }
         }
+        stage('Build Keycloak extensions') {
+            steps {
+                sh'''
+                    mvn -B -U clean install
+                '''
+            }
+        }
         stage('Build') {
             steps {
                 sh '''

@@ -7,3 +7,5 @@ services:
       context: ../
       dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: build
+    volumes:
+      - ./registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar://opt/jboss/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar

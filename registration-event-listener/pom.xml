@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>KEYCLOAK EXTENSIONS :: Registration Event Listener</name>
+    <name>Keycloak - Registration Event Listener</name>
     <description>This event listener will notify the NOI Team when a new user signs up.</description>
 
     <properties>

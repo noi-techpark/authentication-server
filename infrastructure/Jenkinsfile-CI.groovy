@@ -28,6 +28,13 @@ pipeline {
                 '''
             }
         }
+        stage('Build Keycloak extensions') {
+            steps {
+                sh'''
+                    mvn -B -U clean install
+                '''
+            }
+        }
         stage('Build') {
             steps {
                 sh "docker-compose -f infrastructure/docker-compose.build.yml build"
