@@ -3,14 +3,19 @@
 This is a custom event listener for Keycloak events. 
 Its goal is to notify an admin about new user registrations via email.
 
-
 ## How to build the artifact?
 
 ```sh
 mvn clean install
 ```
 
-## How to add the jar in Keyclaok?
+## How to build the artifact with docker?
+
+```sh
+docker run --rm -v $PWD:/code -w /code maven:3-openjdk-11 mvn clean install
+```
+
+## How to add the jar in Keycloak?
 
 Copy the jar in the target folder to the `/opt/jboss/keycloak/standalone/deployments/` folder.
 Or when using Docker mount the file `./registration-event-listener-0.0.1-SNAPSHOT.jar:/opt/jboss/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar`
