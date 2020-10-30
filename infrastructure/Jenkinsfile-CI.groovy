@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh'''
                     docker build --pull --build-arg JENKINS_USER_ID=$(id -u jenkins) --build-arg JENKINS_GROUP_ID=$(id -g jenkins) -t ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} infrastructure/docker/maven
-                    docker run --rm -v $PWD:/code -w /registration-event-listener ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} mvn -B -U clean install
+                    docker run --rm -v $PWD:/code -w /code/registration-event-listener ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} mvn -B -U clean install
                 '''
             }
         }
