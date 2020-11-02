@@ -1,4 +1,4 @@
-FROM maven:3-openjdk-11
+FROM maven:3-openjdk-11-alpine
 
 ARG JENKINS_GROUP_ID=1000
 ARG JENKINS_USER_ID=1000
