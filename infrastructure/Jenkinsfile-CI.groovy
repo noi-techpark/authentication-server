@@ -45,6 +45,7 @@ pipeline {
     post {
         always {
             sh 'docker image rm -f ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER}'
+            sh 'docker image rm -f ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER}'
         }
     }
 }
