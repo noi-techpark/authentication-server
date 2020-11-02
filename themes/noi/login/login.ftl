@@ -49,9 +49,11 @@
                     </div>
                 </div>
             </form>
-            <div id="kc-registration" class="mt-4">
-                <span class="text-sm">${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}" class="hover:underline focus:underline">${msg("doRegister")}</a></span>
-            </div>
+            <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
+                <div id="kc-registration" class="mt-4">
+                    <span class="text-sm">${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}" class="hover:underline focus:underline">${msg("doRegister")}</a></span>
+                </div>
+            </#if>
         </#if>
     </#if>
 

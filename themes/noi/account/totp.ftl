@@ -2,7 +2,17 @@
 <@layout.mainLayout active='totp' bodyClass='totp'; section>
 
     <#if section = "header">
-        <h2 class="text-2xl underline">${msg("authenticatorTitle")}</h2>
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="text-2xl underline">${msg("authenticatorTitle")}</h2>
+            </div>
+            <#if totp.otpCredentials?size == 0>
+                <div class="col-md-2 subtitle">
+                    <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
+                </div>
+            </#if>
+        </div>
+        
     <#elseif section = "content">
         <#if totp.enabled>
             <table class="table-auto">
@@ -83,27 +93,30 @@
                 </#if>
                 <li class="mt-5 mb-1">
                     <div class="inline-block bg-black py-2 px-3 text-white text-xl font-bold">3</div>
-                    <div class="mt-4"><p class="text-lg">${msg("totpStep3")}</p></div>
+                    <div class="mt-4">
+                        <p class="text-lg">${msg("totpStep3")}</p>
+                        <p>${msg("totpStep3DeviceName")}</p>
+                    </div>
                 </li>
             </ol>
 
             <form action="${url.totpUrl}" class="mt-3 max-w-xl" method="post">
                 <input type="hidden" id="stateChecker" name="stateChecker" value="${stateChecker}">
                 <div class="mb-2 lg:max-w-xs">
-                    <label for="totp" class="inline-form-label">${msg("authenticatorCode")}</label>
+                    <label for="totp" class="inline-form-label">${msg("authenticatorCode")} <span class="required">*</span></label>
                     <input type="text" class="inline-form-input" id="totp" name="totp" autocomplete="off" autofocus>
                     <input type="hidden" id="totpSecret" name="totpSecret" value="${totp.totpSecret}"/>
                 </div>
 
-                <div class="mb-2">
-                    <label for="userLabel" class="inline-form-label">Device Name</label>
+                <div class="mb-2" ${messagesPerField.printIfExists('userLabel',properties.kcFormGroupErrorClass!)}">
+                    <label for="userLabel" class="inline-form-label">${msg("totpDeviceName")} <#if totp.otpCredentials?size gte 1><span class="required">*</span></#if></label>
                     <input type="text" class="inline-form-input" id="userLabel" name="userLabel" autocomplete="off">                    
                 </div>
 
                 <div class="form-group">
                     <div id="kc-form-buttons" class="mt-4 flex flex-col lg:flex-row">
-                        <button type="submit" class="btn btn-black-filled mb-2 lg:mb-0 lg:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
-                        <button type="submit" class="btn btn-black" name="submitAction" value="Cancel">${msg("doCancel")}</button>
+                        <button id="saveTOTPBtn" type="submit" class="btn btn-black-filled mb-2 lg:mb-0 lg:mr-2" name="submitAction" value="Save">${msg("doSave")}</button>
+                        <button id="cancelTOTPBtn" type="submit" class="btn btn-black" name="submitAction" value="Cancel">${msg("doCancel")}</button>
                     </div>
                 </div>
             </form>

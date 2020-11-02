@@ -17,7 +17,7 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
 
     private static final Logger log = Logger.getLogger(AdminNotificationEventListenerProvider.class);
     private static final EmailNotificationGroup sanktVirtualNotificationGroup = new EmailNotificationGroup("Sankt Virtual Managers", Set.of("it.bz.noi.virtual"));
-    private static final EmailNotificationGroup defaultNotificationGroup = new EmailNotificationGroup("About Bits", null);
+    private static final EmailNotificationGroup defaultNotificationGroup = new EmailNotificationGroup("NOI Project Managers", null);
 
     private final KeycloakSession session;
     private final RealmProvider model;
@@ -49,7 +49,7 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
                     .findFirst();
 
             if (keycloakGroup.isEmpty()) {
-                log.info("The " + groupToNotify.getName() + " does not exist and therefore we don't send a registration notification mail.");
+                log.info("The group\"" + groupToNotify.getName() + "\" does not exist and therefore we don't send a registration notification mail.");
                 return;
             }
 
@@ -59,7 +59,8 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
             String emailPlainContent = "New user registration\n\n" +
                     "Email: " + newRegisteredUser.getEmail() + "\n" +
                     "Username: " + newRegisteredUser.getUsername() + "\n" +
-                    "Client: " + event.getClientId();
+                    "Client Application: " + event.getClientId();
+
 
             String emailHtmlContent = "<h1>New user registration</h1>" +
                     "<ul>" +

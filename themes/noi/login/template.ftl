@@ -1,4 +1,4 @@
-<#macro registrationLayout displayInfo=false displayMessage=true displayWide=false>
+<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -89,7 +89,19 @@
                         <span class="block">${kcSanitize(message.summary)?no_esc}</span>
                     </div>
                 </#if>
+
                 <#nested "form">
+
+                <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
+                    <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post" <#if displayWide>class="${properties.kcContentWrapperClass!}"</#if>>
+                        <div <#if displayWide>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
+                            <div class="${properties.kcFormGroupClass!}">
+                                <input type="hidden" name="tryAnotherWay" value="on" />
+                                <a href="#" id="try-another-way" onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
+                            </div>
+                        </div>
+                    </form>
+                </#if>
             </div>
         </div>
     </main>
