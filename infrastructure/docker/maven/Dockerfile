@@ -4,4 +4,4 @@ ARG JENKINS_GROUP_ID=1000
 ARG JENKINS_USER_ID=1000
 
 RUN addgroup --gid $JENKINS_GROUP_ID jenkins
-RUN adduser --uid $JENKINS_USER_ID --group jenkins jenkins
+RUN adduser -D --uid $JENKINS_USER_ID --group jenkins jenkins
