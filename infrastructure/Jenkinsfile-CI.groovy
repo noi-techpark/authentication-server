@@ -28,6 +28,14 @@ pipeline {
                 '''
             }
         }
+        stage('Build Keycloak extensions') {
+            steps {
+                sh'''
+                    docker build --pull --build-arg JENKINS_USER_ID=$(id -u jenkins) --build-arg JENKINS_GROUP_ID=$(id -g jenkins) -t ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} infrastructure/docker/maven
+                    docker run --rm -u $(id -u jenkins):$(id -g jenkins) -v $PWD:/code -w /code/registration-event-listener ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} mvn -B -U clean install
+                '''
+            }
+        }
         stage('Build') {
             steps {
                 sh "docker-compose -f infrastructure/docker-compose.build.yml build"
@@ -37,6 +45,7 @@ pipeline {
     post {
         always {
             sh 'docker image rm -f ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER}'
+            sh 'docker image rm -f ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER}'
         }
     }
 }

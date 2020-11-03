@@ -12,3 +12,4 @@ FROM base as build
 
 COPY infrastructure/docker/keycloak/JDBC_PING.cli /opt/jboss/tools/cli/jgroups/discovery/JDBC_PING.cli
 COPY themes/noi /opt/jboss/keycloak/themes/noi
+COPY registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar /opt/jboss/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar
