@@ -27,7 +27,7 @@
             </div>
             <div class="flex-1 flex flex-col justify-center px-4 border-l border-gray-500 leading-tight font-light text-2xl lg:text-4xl">
                 <#if client?? && client.baseUrl?has_content>
-                    <a href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",(client.name!'')))?no_esc}</a>
+                    <a class="hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",(client.name!'')))?no_esc}</a>
                 <#else>
                     <h2>${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</h2>
                 </#if>
