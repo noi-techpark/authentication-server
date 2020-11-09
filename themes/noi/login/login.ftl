@@ -38,7 +38,7 @@
                         </div>
                         <div class="mt-2 flex">
                             <#if realm.resetPasswordAllowed>
-                                <a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                                <a tabindex="5" class="underline" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
                             </#if>
                         </div>
                     </div>
