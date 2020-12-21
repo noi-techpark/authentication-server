@@ -32,6 +32,5 @@ Set the event listener
 
 ## How to add users to get notified about new registrations?
 
-For new registrations on "Sankt Virtual" => Add user to "Sankt Virtual Managers" group.
-For all other registrations => Add user to "NOI Project managers" group.
+In order to add a user to the list of users that get notified, you need to add them to the group "Email Notification Group".
 

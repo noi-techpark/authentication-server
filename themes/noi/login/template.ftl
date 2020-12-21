@@ -23,10 +23,14 @@
     <header class="${properties.kcFormHeaderClass!}">
         <div class="mb-2 lg:mb-4 xl:mb-0 flex content-end items-stretch border-b border-gray-500">
             <div class="p-4 flex flex-col justify-center">
-                <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
+                <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
             </div>
             <div class="flex-1 flex flex-col justify-center px-4 border-l border-gray-500 leading-tight font-light text-2xl lg:text-4xl">
-                <a href="" class="block">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</a>
+                <#if client?? && client.baseUrl?has_content>
+                    <a class="hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",((client.name?has_content)?string(client.name, realm.displayNameHtml))))?no_esc}</a>
+                <#else>
+                    <h2>${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</h2>
+                </#if>
             </div>
             <!-- Desktop Navigation -->
             <nav role="navigation" class="hidden lg:flex mr-4 items-center">

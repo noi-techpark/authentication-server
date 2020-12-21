@@ -7,35 +7,35 @@
             <div class="space-y-4">
                 <div class="form-input-group ${messagesPerField.printIfExists('firstName','form-input-group-error')}">
                     <label for="firstName" class="form-label">${msg("firstName")}</label>
-                    <input type="text" id="firstName" name="firstName" class="form-input" value="${(register.formData.firstName!'')}" autofocus/>
+                    <input type="text" id="firstName" name="firstName" class="form-input" value="${(register.formData.firstName!'')}" placeholder="${msg("firstName")}" autofocus />
                 </div>
 
                 <div class="form-input-group ${messagesPerField.printIfExists('lastName','form-input-group-error')}">
                     <label for="lastName" class="form-label">${msg("lastName")}</label>
-                    <input type="text" id="lastName" name="lastName" class="form-input" value="${(register.formData.lastName!'')}"/>
+                    <input type="text" id="lastName" name="lastName" class="form-input" value="${(register.formData.lastName!'')}" placeholder="${msg("lastName")}"/>
                 </div>
 
                 <div class="form-input-group ${messagesPerField.printIfExists('email','form-input-group-error')}">
                     <label for="email" class="form-label">${msg("email")}</label>
-                    <input type="text" id="email" name="email" class="form-input" value="${(register.formData.email!'')}" autocomplete="email"/>
+                    <input type="text" id="email" name="email" class="form-input" value="${(register.formData.email!'')}" placeholder="${msg("email")}" autocomplete="email"/>
                 </div>
 
             <#if !realm.registrationEmailAsUsername>
                 <div class="form-input-group ${messagesPerField.printIfExists('username','form-input-group-error')}">
                     <label for="username" class="form-label">${msg("username")}</label>
-                    <input type="text" id="username" name="username" class="form-input" value="${(register.formData.username!'')}" autocomplete="username"/>
+                    <input type="text" id="username" name="username" class="form-input" value="${(register.formData.username!'')}" placeholder="${msg("username")}" autocomplete="username"/>
                 </div>
             </#if>
 
                 <#if passwordRequired??>
                 <div class="form-input-group ${messagesPerField.printIfExists('password','form-input-group-error')}">
                     <label for="password" class="form-label">${msg("password")}</label>
-                    <input type="password" id="password" name="password" class="form-input" autocomplete="new-password"/>
+                    <input type="password" id="password" name="password" class="form-input" autocomplete="new-password" placeholder="${msg("password")}"/>
                 </div>
 
                 <div class="form-input-group ${messagesPerField.printIfExists('password-confirm','form-input-group-error')}">
                     <label for="password-confirm" class="form-label">${msg("passwordConfirm")}</label>
-                    <input type="password" id="password-confirm" name="password-confirm" class="form-input"/>
+                    <input type="password" id="password-confirm" name="password-confirm" class="form-input" placeholder="${msg("passwordConfirm")}"/>
                 </div>
                 </#if>
 

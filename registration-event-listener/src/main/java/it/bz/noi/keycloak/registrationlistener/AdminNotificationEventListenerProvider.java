@@ -16,8 +16,8 @@ import java.util.Set;
 public class AdminNotificationEventListenerProvider implements EventListenerProvider {
 
     private static final Logger log = Logger.getLogger(AdminNotificationEventListenerProvider.class);
-    private static final EmailNotificationGroup sanktVirtualNotificationGroup = new EmailNotificationGroup("Sankt Virtual Managers", Set.of("it.bz.noi.virtual"));
-    private static final EmailNotificationGroup defaultNotificationGroup = new EmailNotificationGroup("NOI Project Managers", null);
+    // private static final EmailNotificationGroup sanktVirtualNotificationGroup = new EmailNotificationGroup("Sankt Virtual Managers", Set.of("it.bz.noi.virtual"));
+    private static final EmailNotificationGroup defaultNotificationGroup = new EmailNotificationGroup("Email Notification Group", null);
 
     private final KeycloakSession session;
     private final RealmProvider model;
@@ -34,13 +34,13 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
             log.infof("## NEW %s EVENT", event.getType());
             log.info("-----------------------------------------------------------");
 
-            EmailNotificationGroup groupToNotify;
+            EmailNotificationGroup groupToNotify = defaultNotificationGroup;
 
-            if (sanktVirtualNotificationGroup.getClients().contains(event.getClientId())) {
+            /* if (sanktVirtualNotificationGroup.getClients().contains(event.getClientId())) {
                 groupToNotify = sanktVirtualNotificationGroup;
             } else {
                 groupToNotify = defaultNotificationGroup;
-            }
+            } */
 
             RealmModel realm = this.model.getRealm(event.getRealmId());
 
