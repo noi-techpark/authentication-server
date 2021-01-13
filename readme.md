@@ -9,6 +9,7 @@ A basic explanation of the terms and standards used by Keycloak can be found in 
 - [Getting started](#getting-started)
 - [Setup and configuration](#setup-and-configuration)
 - [Deployment](#deployment)
+- [Applications / Clients](#applications-clients)
 - [Information](#information)
 
 ## Getting started
@@ -111,6 +112,10 @@ docker-compose -f docker-compose.build.yml push
 ```
 
 For a detailed installation instruction of the production servers, you can check out the [installation documentation](docs/installation.md) and [upgrade documentation](docs/upgrade.md).
+
+## Applications / Clients
+
+If you want to configure different tools and applications to provide the authentication using the authentication server, you have to make different configurations and adjustments. Detailed information about different tools can be found [here](#/docs/applications.md).
 
 ## Information
 
