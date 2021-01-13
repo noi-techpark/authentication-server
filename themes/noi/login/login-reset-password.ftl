@@ -7,7 +7,11 @@
             
             <div class="flex flex-col">
                 <label for="username" class="font-bold text-primary-500"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
-                <input type="text" id="username" name="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" autofocus/>
+                <#if auth?has_content && auth.showUsername()>
+                    <input type="text" id="username" name="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" autofocus value="${auth.attemptedUsername}"/>
+                <#else>
+                    <input type="text" id="username" name="username" class="py-1 border-b border-black text-2xl placeholder-gray-500 focus:border-primary-500" autofocus/>
+                </#if>
             </div>
 
             <div class="mt-3">

@@ -27,7 +27,7 @@
                 </div>
             </#if>
 
-                <#if passwordRequired>
+                <#if passwordRequired??>
                 <div class="form-input-group ${messagesPerField.printIfExists('password','form-input-group-error')}">
                     <label for="password" class="form-label">${msg("password")}</label>
                     <input type="password" id="password" name="password" class="form-input" autocomplete="new-password" placeholder="${msg("password")}"/>
