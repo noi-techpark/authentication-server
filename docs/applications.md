@@ -67,5 +67,28 @@ services:
     - "3000:3000"
 ```
 
-### Configuration
+### Global Permissions
 
+Grafana has three build in global roles:
+
+  - Admin
+  - Editor
+  - Viewer
+
+Using these permissions, you can controll the actions users are allowed to perform globally. Example: with the admin role assigned, can a user access the admin area.
+
+In order to provide a user the permissions of one of these roles, you have to assign the corresponding role in Keycloak to the user.
+
+![Keycloak Grafana Global Permissions](images/grafana-global-permissons.png)
+
+### Folder/Dashboard Permissions
+
+In addition, for each folder or dashboard, you have the possibility to assign users and teams to it with one of the following permissions:
+
+  - Admin
+  - Edit
+  - View
+
+> *Note!* Make sure to remove the default roles from a newly created folder, so that users cannot see all dashboards as configured in the initial setup of a folder.
+
+![Keycloak Grafana Foler/Dashboard Permissions](images/grafana-folder-dashboard-permissions.png)
