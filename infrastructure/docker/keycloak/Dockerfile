@@ -1,4 +1,4 @@
-FROM jboss/keycloak:11.0.2 as base
+FROM jboss/keycloak:12.0.2 as base
 
 # Dev
 FROM base as dev
@@ -12,4 +12,5 @@ FROM base as build
 
 COPY infrastructure/docker/keycloak/JDBC_PING.cli /opt/jboss/tools/cli/jgroups/discovery/JDBC_PING.cli
 COPY themes/noi /opt/jboss/keycloak/themes/noi
+COPY themes/sankt-virtual /opt/jboss/keycloak/themes/sankt-virtual
 COPY registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar /opt/jboss/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar
