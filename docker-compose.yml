@@ -9,6 +9,7 @@ services:
     volumes:
       - ./themes/noi:/opt/jboss/keycloak/themes/noi
       - ./themes/sankt-virtual:/opt/jboss/keycloak/themes/sankt-virtual
+      - ./themes/noiV2:/opt/jboss/keycloak/themes/noiV2
       - ./registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar://opt/jboss/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar
     environment:
       DB_VENDOR: POSTGRES

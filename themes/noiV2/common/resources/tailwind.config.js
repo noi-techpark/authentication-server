@@ -10,15 +10,11 @@ const { colors } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   purge: {
-    enabled: true,
     content: [
       '../../**/*.html',
       '../../**/*.ftl',
+      '../../**/theme.properties',
     ]
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
   },
   theme: {
     colors: {
@@ -41,17 +37,6 @@ module.exports = {
       blue: colors.blue,
       yellow: colors.yellow,
       green: colors.green,
-    },
-    spacing: {
-      '0': '0',
-      '1': '0.25rem',
-      '2': '0.5rem',
-      '3': '1rem',
-      '4': '2rem',
-      '4.5': '3rem',
-      '5': '4rem',
-      '6': '6rem',
-      'i': '1.5rem',
     },
     fontFamily: {
       sans: [
