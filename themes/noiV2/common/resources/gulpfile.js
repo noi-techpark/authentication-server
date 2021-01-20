@@ -40,7 +40,7 @@ const dev = devCss;
 const build = series(buildClean, buildCss, buildBust);
 
 exports.default = series(dev, function () {
-    watch(['../../**/*.html', '../../**/*.ftl', 'tailwind.css', 'tailwind.config.js'], dev);
+    watch(['../../**/*.html', '../../**/*.ftl', '../../login/theme.properties', 'tailwind.css', 'tailwind.config.js'], dev);
 });
 exports.dev = dev;
 exports.build = build;

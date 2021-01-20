@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -42,7 +43,13 @@
 <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
         <div id="kc-header-wrapper"
-             class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
+             class="${properties.kcHeaderWrapperClass!}">
+                <#if client?? && client.baseUrl?has_content>
+                    <a class="hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",((client.name?has_content)?string(client.name, realm.displayNameHtml))))?no_esc}</a>
+                <#else>
+                    ${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}
+                </#if>
+            </div>
     </div>
     <div class="${properties.kcFormCardClass!}">
         <header class="${properties.kcFormHeaderClass!}">
