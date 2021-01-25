@@ -5,8 +5,28 @@ If you want to configure different tools and applications to provide the authent
 
 ## Table of contents
 
+- [Jenkins](#jenkins)
 - [Grafana](#grafana)
 
+## Jenkins
+
+### Installation
+
+First, you have to create a Keycloak client for Jenkins:
+
+![Keycloak Jenkins Client](images/jenkins-client.png)
+
+Finally, adjust the Jenkins configuration:
+
+![Jenkins Configuration](images/jenkins-configuration.png)
+
+### Permissions
+
+Per default, now every user with a valid Keycloak login can access the Jenkins server. However, the user has no rights and therefore, cannot do anything.
+
+In order to provide specific users rights to the system, you have assign them to specific roles. Just add the users with their Keycloak username to the list in the section "Global roles" and add them to a specific role.
+
+![Jenkins Roles](images/jenkins-roles.png)
 
 ## Grafana
 
