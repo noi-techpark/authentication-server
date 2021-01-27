@@ -181,6 +181,18 @@ a {
     @apply text-red-700;
 }
 
+.alert-info {
+    @apply bg-blue-50;
+    @apply border-blue-400;
+    @apply text-blue-700;
+}
+
+.alert-success {
+    @apply bg-green-50;
+    @apply border-green-400;
+    @apply text-green-700;
+}
+
 /* BUTTONS */
 
 .btn {
