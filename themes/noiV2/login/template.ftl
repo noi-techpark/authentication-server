@@ -135,9 +135,8 @@
                                 </div>
                             <#else>
                                 <#nested "show-username">
-                                <div id="kc-username" class="${properties.kcFormGroupClass!}">
-                                    <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                                    <a id="reset-login" href="${url.loginRestartFlowUrl}">
+                                <div id="kc-username">
+                                    <a id="reset-login" href="${url.loginRestartFlowUrl}" class="text-base self-end">
                                         <div class="kc-login-tooltip">
                                             <i class="${properties.kcResetFlowIcon!}"></i>
                                             <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
