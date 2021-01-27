@@ -52,7 +52,6 @@
                                 <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
                             </#if>
                         </div>
-
                   </div>
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">

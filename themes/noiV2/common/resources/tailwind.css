@@ -13,17 +13,19 @@ body {
 }
 
 #kc-content {
-    @apply mx-0;
     @apply flex;
     @apply flex-col;
     @apply flex-grow;
     @apply items-center;
+    @apply mx-0;
+    @apply p-2;
     @apply bg-gray-300;
 }
 
 @screen lg {
     #kc-content {
         @apply mt-4;
+        @apply p-4;
     }
 }
 
@@ -65,6 +67,10 @@ body {
     @apply space-y-8;
 }
 
+#kc-register-form {
+    @apply space-y-8;
+}
+
 .form-input-group {
     @apply flex;
     @apply flex-col;
@@ -76,6 +82,15 @@ body {
 
 .form-input-group-error > .form-label {
     @apply text-red-700;
+}
+
+.form-input[aria-invalid='true'] {
+    @apply border-red-700;
+}
+
+.form-input-wrapper {
+    @apply flex;
+    @apply flex-col;
 }
 
 .form-input {

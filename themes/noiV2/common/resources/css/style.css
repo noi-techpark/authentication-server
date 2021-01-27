@@ -24901,12 +24901,13 @@ body {
 }
 
 #kc-content {
-  margin-left: 0px;
-  margin-right: 0px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgba(244, 244, 244, var(--tw-bg-opacity));
 }
@@ -24914,6 +24915,7 @@ body {
 @media (min-width: 1024px) {
   #kc-content {
     margin-top: 1rem;
+    padding: 1rem;
   }
 }
 
@@ -24962,6 +24964,12 @@ body {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+#kc-register-form > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .form-input-group {
   display: flex;
   flex-direction: column;
@@ -24975,6 +24983,16 @@ body {
 .form-input-group-error > .form-label {
   --tw-text-opacity: 1;
   color: rgba(185, 28, 28, var(--tw-text-opacity));
+}
+
+.form-input[aria-invalid='true'] {
+  --tw-border-opacity: 1;
+  border-color: rgba(185, 28, 28, var(--tw-border-opacity));
+}
+
+.form-input-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-input {
