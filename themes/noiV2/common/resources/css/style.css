@@ -24918,15 +24918,15 @@ a {
 
 @media (min-width: 1024px) {
   #kc-content {
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
   }
 }
 
 @media (min-width: 1280px) {
   #kc-content {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 }
 
