@@ -167,6 +167,22 @@ a {
     }
 }
 
+/* ALERTS */
+
+.alert-warning {
+    @apply bg-yellow-50;
+    @apply border-yellow-400;
+    @apply text-yellow-700;
+}
+
+.alert-error {
+    @apply bg-red-50;
+    @apply border-red-400;
+    @apply text-red-700;
+}
+
+/* BUTTONS */
+
 .btn {
     @apply px-4;
     @apply py-2;
