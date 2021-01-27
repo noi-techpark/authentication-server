@@ -38,45 +38,31 @@ body {
     @apply max-w-2xl;
     @apply border-3;
     @apply border-black;
-    @apply my-4;
-    @apply p-4;
+    @apply my-8;
+    @apply p-8;
     @apply bg-white;
 }
 
 @screen lg {
     #kc-content-wrapper {
-        @apply p-5;
+        @apply p-16;
     }
 }
 
 #kc-info {
     @apply flex;
     @apply justify-center;
-    @apply p-2;
-}
-
-@screen lg {
-    #kc-info {
-        @apply p-5;
-    }
 }
 
 #kc-info-wrapper {
     @apply w-full;
     @apply max-w-2xl;
-    @apply my-4;
-    @apply p-4;
+    @apply mt-8;
     @apply bg-white;
 }
 
-@screen lg {
-    #kc-info-wrapper {
-        @apply p-5;
-    }
-}
-
 #kc-form-login {
-    @apply space-y-4;
+    @apply space-y-8;
 }
 
 .form-input-group {
