@@ -10,6 +10,14 @@ a {
     @apply underline;
 }
 
+ul {
+    @apply list-disc;
+}
+
+ol {
+    @apply list-decimal;
+}
+
 #kc-content {
     @apply flex;
     @apply flex-col;
@@ -69,6 +77,8 @@ a {
     @apply space-y-8;
 }
 
+/* FORMS */
+
 .form-input-group {
     @apply flex;
     @apply flex-col;
@@ -88,10 +98,15 @@ a {
 
 .form-input-wrapper {
     @apply flex;
-    @apply flex-col;
+    @apply flex-row;
+}
+
+.form-input-wrapper > .required {
+    @apply text-primary-500;
 }
 
 .form-input {
+    @apply w-full;
     @apply py-1;
     @apply border-b;
     @apply border-black;
@@ -104,6 +119,11 @@ a {
 }
 
 .form-label {
+    @apply text-primary-500;
+    @apply font-bold;
+}
+
+.control-label {
     @apply text-primary-500;
     @apply font-bold;
 }
@@ -304,3 +324,19 @@ a {
 .mobile-languages-open {
     @apply block;
 }
+
+/* OTP Page */
+
+#kc-totp-settings {
+    @apply space-y-4;
+}
+
+#kc-totp-supported-apps {
+    @apply ml-4;
+}
+
+/* Error page */
+#kc-error-message {
+    @apply space-y-4;
+}
+
