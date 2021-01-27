@@ -28,14 +28,14 @@ a {
 
 @screen lg {
     #kc-content {
-        @apply mt-4;
-        @apply p-4;
+        @apply mt-8;
+        @apply p-8;
     }
 }
 
 @screen xl {
     #kc-content {
-        @apply mx-4;
+        @apply mx-8;
     }
 }
 
