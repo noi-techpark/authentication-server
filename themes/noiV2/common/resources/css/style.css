@@ -24898,6 +24898,14 @@ a {
   text-decoration: underline;
 }
 
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 #kc-content {
   display: flex;
   flex-direction: column;
@@ -24968,6 +24976,8 @@ a {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+/* FORMS */
+
 .form-input-group {
   display: flex;
   flex-direction: column;
@@ -24990,10 +25000,16 @@ a {
 
 .form-input-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.form-input-wrapper > .required {
+  --tw-text-opacity: 1;
+  color: rgba(193, 202, 1, var(--tw-text-opacity));
 }
 
 .form-input {
+  width: 100%;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-bottom-width: 1px;
@@ -25011,6 +25027,12 @@ a {
 }
 
 .form-label {
+  --tw-text-opacity: 1;
+  color: rgba(193, 202, 1, var(--tw-text-opacity));
+  font-weight: 700;
+}
+
+.control-label {
   --tw-text-opacity: 1;
   color: rgba(193, 202, 1, var(--tw-text-opacity));
   font-weight: 700;
@@ -25256,6 +25278,26 @@ a {
 
 .mobile-languages-open {
   display: block;
+}
+
+/* OTP Page */
+
+#kc-totp-settings > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+#kc-totp-supported-apps {
+  margin-left: 1rem;
+}
+
+/* Error page */
+
+#kc-error-message > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 @media (min-width: 640px) {
@@ -146592,3 +146634,4 @@ a {
             animation: bounce 1s infinite;
   }
 }
+
