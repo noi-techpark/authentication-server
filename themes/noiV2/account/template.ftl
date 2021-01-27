@@ -131,5 +131,24 @@
     </div>
 
 </body>
+<script>
+    function toggleNav() {
+        var x = document.getElementById("mobile-nav");
+        if (x.className === "mobile-nav") {
+            x.className += " mobile-nav-open";
+        } else {
+            x.className = "mobile-nav";
+        }
+    }
+
+    function toggleLanguage() {
+        var x = document.getElementById("mobile-languages");
+        if (x.className === "mobile-languages") {
+            x.className += " mobile-languages-open";
+        } else {
+            x.className = "mobile-languages";
+        }
+    }
+</script>
 </html>
 </#macro>
