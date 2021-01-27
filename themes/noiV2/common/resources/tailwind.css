@@ -10,12 +10,6 @@ a {
     @apply underline;
 }
 
-@screen lg {
-    body {
-        font-size: 18px;
-    }
-}
-
 #kc-content {
     @apply flex;
     @apply flex-col;
