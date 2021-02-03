@@ -29,7 +29,7 @@
     </#if>
 
 </head>
-<body class="admin-console user ${bodyClass}">
+<body class="admin-console user ${properties.kcBodyClass!}">
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
             <div class="border-r border-gray-500 lg:min-w-md flex flex-col justify-center items-center p-4 lg:p-8">
@@ -71,9 +71,9 @@
         <!-- Mobile Navigation -->
         <nav id="mobile-nav" role="navigation" class="mobile-nav">
             <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                <div class="group relative block mb-2">
+                <div class="group relative block mb-4">
                     <button class="btn btn-black w-full text-left" onclick="toggleLanguage()">
-                        <div class="block pr-2">
+                        <div class="block pr-4">
                         ${locale.current}
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
@@ -82,14 +82,14 @@
                     </button>
                     <ul id="mobile-languages" class="mobile-languages">
                         <#list locale.supported as l>
-                            <li class="list-none"><a href="${l.url}" class="block px-4 py-2">${l.label}</a></li>
+                            <li class="list-none"><a href="${l.url}" class="block px-4 py-4">${l.label}</a></li>
                         </#list>
                     </ul>
                 </div>
             </#if>
             <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black mb-2">${msg("backTo",referrer.name)}</a></#if>
-            <a href="${url.logoutUrl}" class="block btn btn-black mb-2">${msg("doSignOut")}</a>
-            <ul class="px-2">
+            <a href="${url.logoutUrl}" class="block btn btn-black">${msg("doSignOut")}</a>
+            <ul class="divide-y divide-solid divide-gray-500">
                 <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
                 <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
                 <li class="side-menu-item <#if active=='totp'>side-menu-item-active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
@@ -103,9 +103,9 @@
     </header>
 
     <div class="flex flex-row flex-grow">
-        <div class="hidden min-w-md border-r border-gray-500 lg:flex flex-col pt-2">
-            <ul class="min-w-sm px-2">
-                <li class="side-menu-item<#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
+        <div class="hidden min-w-md border-r border-gray-500 lg:flex flex-col pt-4">
+            <ul class="min-w-sm px-4 divide-y divide-solid divide-gray-500">
+                <li class="side-menu-item <#if active=='account'>side-menu-item-active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
                 <#if features.passwordUpdateSupported><li class="side-menu-item <#if active=='password'>side-menu-item-active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
                 <li class="side-menu-item <#if active=='totp'>side-menu-item-active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
                 <#--  <#if features.identityFederation><li class="side-menu-item <#if active=='social'>side-menu-item-active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>  -->
@@ -116,9 +116,9 @@
             </ul>
         </div>
 
-        <div class="col-sm-9 content-area">
+        <div class="content-area">
             <#if message?has_content>
-                <div class="alert alert-${message.type}">
+                <div class="alert-${message.type} ${properties.kcAlertClass!}">
                     <#if message.type=='success' ><span class="pficon pficon-ok"></span></#if>
                     <#if message.type=='error' ><span class="pficon pficon-error-circle-o"></span></#if>
                     <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
