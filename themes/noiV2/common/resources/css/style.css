@@ -25210,6 +25210,7 @@ ol {
   border-radius: 0.25rem;
   border-right-width: 4px;
   border-color: transparent;
+  list-style-type: none;
 }
 
 .side-menu-item:hover {
