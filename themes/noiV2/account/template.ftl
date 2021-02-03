@@ -45,7 +45,7 @@
                     <div class="flex items-center"><#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black">${msg("backTo",referrer.name)}</a></#if></div>
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                         <div class="group relative block">
-                            <button class="relative border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                            <button class="btn btn-black">
                                 <div class="block pr-8">
                                 ${locale.current}
                                 </div>
@@ -55,7 +55,7 @@
                             </button>
                             <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
                                 <#list locale.supported as l>
-                                    <li><a href="${l.url}" class="block px-2 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                                    <li class="list-none"><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
                                 </#list>
                             </ul>
                         </div>
@@ -73,7 +73,7 @@
         <nav id="mobile-nav" role="navigation" class="mobile-nav">
             <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                 <div class="group relative block mb-2">
-                    <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left uppercase" onclick="toggleLanguage()">
+                    <button class="btn btn-black w-full text-left" onclick="toggleLanguage()">
                         <div class="block pr-2">
                         ${locale.current}
                         </div>
@@ -83,7 +83,7 @@
                     </button>
                     <ul id="mobile-languages" class="mobile-languages">
                         <#list locale.supported as l>
-                            <li><a href="${l.url}" class="block px-4 py-2">${l.label}</a></li>
+                            <li class="list-none"><a href="${l.url}" class="block px-4 py-2">${l.label}</a></li>
                         </#list>
                     </ul>
                 </div>
