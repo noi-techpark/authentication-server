@@ -30,16 +30,15 @@
 
 </head>
 <body class="admin-console user ${bodyClass}">
-        
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
-            <div class="border-r border-gray-500 lg:min-w-md flex flex-col justify-center items-center p-3 lg:p-4">
+            <div class="border-r border-gray-500 lg:min-w-md flex flex-col justify-center items-center p-4 lg:p-8">
                 <a href="/"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI" class="image-noi" /></a>
             </div>
-            <div class="flex-1 flex flex-col justify-center px-3 lg:pl-5 lg:pr-4 leading-tight font-light text-3xl lg:text-4xl">
+            <div class="flex-1 flex flex-col justify-center px-4 lg:px-8 leading-tight font-light text-2xl lg:text-4xl">
                 <a href="" class="block">${kcSanitize(msg(realm.displayNameHtml!''))?no_esc}</a>
             </div>
-            <div class="flex items-center justify-end mr-3">
+            <div class="flex items-center justify-end mr-4 lg:mr-8">
                 <!-- Desktop Navigation -->
                 <nav role="navigation" class="hidden lg:flex items-center space-x-2">
                     <div class="flex items-center"><#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" id="referrer" class="btn btn-black">${msg("backTo",referrer.name)}</a></#if></div>
