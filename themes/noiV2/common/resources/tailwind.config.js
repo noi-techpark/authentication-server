@@ -36,7 +36,19 @@ module.exports = {
       red: colors.red,
       blue: colors.blue,
       yellow: colors.yellow,
-      green: colors.green,
+      green: {
+        DEFAULT: '#B2C117',
+        '50': '#F4F8C5',
+        '100': '#EFF5AF',
+        '200': '#E6F081',
+        '300': '#DDEB53',
+        '400': '#D4E526',
+        '500': '#B2C117',
+        '600': '#889312',
+        '700': '#5E660C',
+        '800': '#343807',
+        '900': '#0A0B01'
+      }
     },
     fontFamily: {
       sans: [
