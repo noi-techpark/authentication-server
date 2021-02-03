@@ -130,6 +130,28 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="mt-8 mb-0 xl:mb-8 mx-0 xl:mx-8 p-8 lg:p-10 flex flex-col bg-gray-300">
+        <div class="mb-4 text-base lg:text-2xl font-bold">
+            &copy; ${.now?string('yyyy')} NOI Techpark
+        </div>
+        <div class="flex flex-col lg:flex-row leading-relaxed text-xs lg:text-base">
+            <div class="mr-10">
+                NOI SPA<br />
+                Techpark Südtirol / Alto Adige<br />
+                <a href="mailto:info@davinci.bz.it" class="hover:underline">info@opendatahub.bz.it</a>
+            </div>
+            <div class="mt-4 lg:mt-0">
+                A.-Volta-Straße 13/A - 39100 Bozen/South Tyrol - Italy<br />
+                P.IVA 02595720216<br />
+                <a href="https://noi.bz.it" class="hover:underline">noi.bz.it</a>
+            </div>
+        </div>
+        <div class="mt-4 text-xs lg:text-lg font-bold">
+            Developed by
+            <a href="https://aboutbits.it" class="hover:underline">About Bits</a>
+        </div>
+    </footer>
 </body>
 <script>
     function toggleNav() {
