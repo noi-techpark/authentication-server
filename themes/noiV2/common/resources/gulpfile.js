@@ -1,14 +1,15 @@
 const { src, dest, series, watch } = require('gulp');
 const rename = require('gulp-rename');
+const concat = require('gulp-concat');
 const postcss = require('gulp-postcss');
 const rev = require("gulp-rev");
 const revRewrite = require('gulp-rev-rewrite');
 const del = require('del');
 
 function devCss() {
-    return src('./tailwind.css')
+    return src(['./bootstrap.css', './tailwind.css'])
       .pipe(postcss())
-      .pipe(rename('style.css'))
+      .pipe(concat('style.css'))
       .pipe(dest('css'))
   }
 
