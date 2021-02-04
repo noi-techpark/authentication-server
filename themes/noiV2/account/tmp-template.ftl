@@ -29,7 +29,7 @@
     </#if>
 
 </head>
-<body class="admin-console user ${properties.kcBodyClass!}">
+<body class="admin-console ${bodyClass} ${properties.kcBodyClass!}">
     <header>
         <div class="flex content-end items-stretch border-b border-gray-500">
             <div class="border-r border-gray-500 lg:min-w-md flex flex-col justify-center items-center p-4 lg:p-8">
