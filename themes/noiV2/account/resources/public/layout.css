@@ -75,6 +75,11 @@
     }
 }
 
+/* NAVIGATION LEFT */
+.pf-c-page__sidebar {
+    border-right: 1px solid black;
+}
+
 /* Hide user name in header bar on desktop */
 
 @media screen and (min-width: 768px) {
