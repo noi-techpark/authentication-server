@@ -45,7 +45,7 @@
         <!-- Navigation Bar -->
         <div>
             <div class="${properties.kcHeaderContainerClass!}">
-                <div class="py-4 pr-4 flex flex-col justify-center">
+                <div class="py-2 md:py-4 pr-4 flex flex-col justify-center">
                     <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>
                 <div class="${properties.kcHeaderTitleContainerClass!}">
@@ -59,7 +59,7 @@
                 <nav role="navigation" class="hidden lg:flex items-center">
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                         <div class="group relative block">
-                            <button class="relative border-3 border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
+                            <button class="relative border border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
                                 <div class="block pr-8">
                                 ${locale.current}
                                 </div>
@@ -67,7 +67,7 @@
                                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                                 </svg>
                             </button>
-                            <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white">
+                            <ul class="z-10 shadow hidden absolute right-0 left-0 group-hover:block bg-white list-none">
                                 <#list locale.supported as l>
                                     <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
                                 </#list>
@@ -76,26 +76,6 @@
                     </#if>
                 </nav>
             </div>
-            <!-- Mobile Navigation -->
-            <nav role="navigation" class="mb-2 mx-2 xs:mx-4 flex lg:hidden flex-col items-stretch">
-                <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                    <div class="group relative block">
-                        <button class="relative w-full border-3 border-black pl-4 pr-4 py-2 text-left uppercase" onclick="toggleLanguage()">
-                            <div class="block pr-2">
-                            ${locale.current}
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                            </svg>
-                        </button>
-                        <ul id="mobile-languages" class="mobile-languages">
-                            <#list locale.supported as l>
-                                <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
-                            </#list>
-                        </ul>
-                    </div>
-                </#if>
-            </nav>
         </div>
         
         <div id="kc-content">
@@ -188,8 +168,30 @@
     </div>
     <!-- Footer -->
     <footer class="${properties.kcFooterClass!}">
-        <div class="mb-4 text-base lg:text-2xl font-bold">
-            &copy; ${.now?string('yyyy')} NOI Techpark
+        <div class="flex items-center justify-between">
+            <div class="mb-4 text-base lg:text-2xl font-bold">
+                &copy; ${.now?string('yyyy')} NOI Techpark
+            </div>
+            <!-- Mobile Navigation -->
+            <nav role="navigation" class="mb-2 mx-2 xs:mx-4 flex lg:hidden flex-col items-stretch">
+                <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
+                    <div class="group relative block">
+                        <button class="relative w-full pl-4 pr-4 py-2 text-left uppercase mobile-language-select-button" onclick="toggleLanguage()">
+                            <div class="block pr-6">
+                            ${locale.current}
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" class="absolute vertical-center fill-current" style="right: 1rem">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                        </button>
+                        <ul id="mobile-languages" class="mobile-languages">
+                            <#list locale.supported as l>
+                                <li><a href="${l.url}" class="block px-4 py-2 hover:bg-black hover:text-white">${l.label}</a></li>
+                            </#list>
+                        </ul>
+                    </div>
+                </#if>
+            </nav>
         </div>
         <div class="flex flex-col lg:flex-row leading-relaxed text-xs lg:text-base">
             <div class="mr-10">
