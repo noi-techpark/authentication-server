@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&amp;display=swap" rel="stylesheet">
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -43,13 +44,13 @@
     <div class="${properties.kcLoginClass!}">
         <!-- Navigation Bar -->
         <div>
-            <div class="mb-2 lg:mb-4 xl:mb-0 flex content-end items-stretch border-b border-gray-500 px-4 lg:px-8">
+            <div class="${properties.kcHeaderContainerClass!}">
                 <div class="py-4 pr-4 flex flex-col justify-center">
                     <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>
-                <div class="flex-1 flex flex-col justify-center px-4 border-l border-gray-500 leading-tight font-light text-2xl lg:text-4xl">
+                <div class="${properties.kcHeaderTitleContainerClass!}">
                     <#if client?? && client.baseUrl?has_content>
-                        <a class="hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",((client.name?has_content)?string(client.name, realm.displayNameHtml))))?no_esc}</a>
+                        <a class="no-underline hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",((client.name?has_content)?string(client.name, realm.displayNameHtml))))?no_esc}</a>
                     <#else>
                         <h2>${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</h2>
                     </#if>
@@ -186,7 +187,7 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer class="mt-8 mb-0 xl:mb-8 mx-0 xl:mx-8 p-8 lg:p-10 flex flex-col bg-gray-300">
+    <footer class="${properties.kcFooterClass!}">
         <div class="mb-4 text-base lg:text-2xl font-bold">
             &copy; ${.now?string('yyyy')} NOI Techpark
         </div>
