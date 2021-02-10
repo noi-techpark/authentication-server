@@ -253,7 +253,7 @@ ol {
 
 .image-noi {
     width: auto;
-    height: 40px;
+    height: 34px;
 }
 
 @screen sm {
@@ -320,6 +320,7 @@ ol {
     @apply left-0;
     @apply bg-white;
     @apply hidden;
+    @apply list-none;
 }
 
 @screen lg {
@@ -331,6 +332,12 @@ ol {
 .mobile-languages-open {
     @apply block;
 }
+
+.mobile-language-select-button {
+    @apply border;
+    @apply border-black;
+}
+
 
 /* OTP Page */
 

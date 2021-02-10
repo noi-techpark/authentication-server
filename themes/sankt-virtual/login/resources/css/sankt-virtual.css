@@ -25,7 +25,27 @@
     }
 }
 
+#kc-content-wrapper {
+    border-width: 0;
+    padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+    #kc-content-wrapper {
+      border-width: 3px;
+      padding: 4rem;
+    }
+}
+
 .form-label {
     color: black;
     font-weight: normal;
+}
+
+.mobile-language-select-button {
+    border-color: white;
+}
+
+.mobile-languages {
+    color: black;
 }
