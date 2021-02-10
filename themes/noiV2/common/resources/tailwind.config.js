@@ -14,6 +14,7 @@ module.exports = {
       '../../**/*.html',
       '../../**/*.ftl',
       '../../**/theme.properties',
+      '../../../sankt-virtual/login/theme.properties'
     ]
   },
   theme: {
@@ -65,22 +66,7 @@ module.exports = {
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
-      ],
-      serif: [
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'Times',
-        'serif',
-      ],
-      mono: [
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        '"Courier New"',
-        'monospace',
-      ],
+      ]
     },
     minWidth: {
       '0': '0',
