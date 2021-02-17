@@ -1,0 +1,170 @@
+:root {
+    --pf-global--primary-color--100: #647f42;
+    --pf-global--primary-color--200: #43631e;
+    --pf-global--primary-color--light-100: #B2C117;
+    --pf-global--primary-color--dark-100: #647f42;
+
+    --pf-global--link--Color: #647f42;
+    --pf-global--link--Color--hover: #43631e;
+    --pf-global--link--Color--light: #c4cc4d; 
+    --pf-global--link--Color--light--hover: #B2C117;
+    --pf-global--link--Color--dark: #43631e;
+    --pf-global--link--Color--dark--hover: #293C12;
+
+    --pf-global--FontFamily--sans-serif: "Source Sans Pro", sans-serif;
+    --pf-global--FontFamily--heading--sans-serif: var(--pf-global--FontFamily--sans-serif);
+    --pf-global--FontSize--3xl: 3rem;
+
+    --pf-global--spacer--xs: 0.5rem;
+    --pf-global--spacer--sm: 1rem;
+    --pf-global--spacer--md: 1.5rem;
+    --pf-global--spacer--lg: 2rem;
+    --pf-global--spacer--xl: 3rem;
+    --pf-global--spacer--2xl: 4rem;
+    --pf-global--spacer--3xl: 6rem;
+    --pf-global--spacer--4xl: 8rem;
+}
+
+/* PAGE CONTENT */
+
+.pf-c-page {
+    --pf-c-page--BackgroundColor: var(--pf-global--BackgroundColor--light-200);
+    --pf-c-page__main-section--BackgroundColor: var(--pf-global--BackgroundColor--light-200);
+}
+
+.pf-c-page__main-section {
+    background-color: transparent;
+}
+
+/* PAGE HEADER */
+
+.pf-c-page__header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    background-color: var(--pf-global--BackgroundColor--light-100);
+}
+
+.pf-c-page__header, .pf-c-page__sidebar.pf-m-dark, .pf-c-page__main-section[class*="pf-m-dark-"] {
+    --pf-global--Color--100: var(--pf-global--Color--100);
+    --pf-global--Color--200: var(--pf-global--Color--200);
+    --pf-global--BorderColor--100: var(--pf-global--BorderColor--100);
+    --pf-global--primary-color--100: var(--pf-global--primary-color--100);
+    --pf-global--link--Color: var(--pf-global--link--Color);
+    --pf-global--link--Color--hover: black;
+    --pf-global--BackgroundColor--100: var(--pf-global--BackgroundColor--light-100);
+}
+
+.pf-c-page__header .pf-c-button, .pf-c-page__sidebar.pf-m-dark .pf-c-button, .pf-c-page__main-section[class*="pf-m-dark-"] .pf-c-button {
+    --pf-c-button--m-primary--Color: var(--pf-c-button--m-primary--Color);
+    --pf-c-button--m-primary--hover--Color: var(--pf-c-button--m-primary--hover--Color);
+    --pf-c-button--m-primary--focus--Color: var(--pf-c-button--m-primary--focus--Color);
+    --pf-c-button--m-primary--active--Color: var(--pf-c-button--m-primary--active--Color);
+    --pf-c-button--m-primary--BackgroundColor: var(--pf-c-button--m-primary--BackgroundColor);
+    --pf-c-button--m-primary--hover--BackgroundColor: var(--pf-c-button--m-primary--hover--BackgroundColor);
+    --pf-c-button--m-primary--focus--BackgroundColor: var(--pf-c-button--m-primary--focus--BackgroundColor);
+    --pf-c-button--m-primary--active--BackgroundColor: var(--pf-c-button--m-primary--active--BackgroundColor);
+}
+
+@media screen and (max-width: 768px) {
+    #page-heading {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 2rem;
+    }
+}
+
+/* NAVIGATION LEFT */
+.pf-c-page__sidebar {
+    border-right: 1px solid black;
+}
+
+/* Hide user name in header bar on desktop */
+
+@media screen and (min-width: 768px) {
+    #loggedInUser {
+        display: none;
+    }
+}
+
+/* BUTTONS */
+
+.pf-c-button {
+    --pf-c-button--BorderRadius: 0;
+    --pf-c-button--m-primary--BackgroundColor: white;
+    --pf-c-button--m-primary--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-primary--hover--BackgroundColor: var(--pf-global--Color--100);
+    --pf-c-button--m-primary--hover--Color: white;
+    --pf-c-button--m-primary--focus--BackgroundColor: var(--pf-global--Color--100);
+    --pf-c-button--m-primary--focus--Color: white;
+    --pf-c-button--m-primary--active--BackgroundColor: var(--pf-global--Color--100);
+    --pf-c-button--m-primary--active--Color: white;
+    --pf-c-button--m-secondary--BackgroundColor: transparent;
+    --pf-c-button--m-secondary--BorderColor: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--hover--BackgroundColor: transparent;
+    --pf-c-button--m-secondary--hover--BorderColor: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--hover--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--focus--BackgroundColor: transparent;
+    --pf-c-button--m-secondary--focus--BorderColor: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--focus--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--active--BackgroundColor: transparent;
+    --pf-c-button--m-secondary--active--BorderColor: var(--pf-global--Color--100);
+    --pf-c-button--m-secondary--active--Color: var(--pf-global--Color--100);
+
+    --pf-c-button--m-plain--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-plain--hover--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-plain--focus--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-plain--active--Color: var(--pf-global--Color--100);
+    --pf-c-button--m-plain--disabled--Color: var(--pf-global--disabled-color--200);
+    --pf-c-button--m-plain--disabled--BackgroundColor: transparent;
+}
+
+.pf-c-button.pf-m-primary {
+    --pf-c-button--BorderColor: var(--pf-global--Color--100);
+}
+
+/* DROP DOWN */
+
+.pf-c-dropdown {
+    --pf-c-dropdown__toggle--m-plain--Color: var(--pf-global--Color--100);
+    --pf-c-dropdown__toggle--m-plain--hover--Color: var(--pf-global--Color--100);
+    --pf-c-dropdown__toggle--m-plain--disabled--Color: var(--pf-global--disabled-color--200);
+}
+
+/* Collabsible border left */
+
+.pf-c-data-list {
+    --pf-c-data-list__item--m-expanded--before--BackgroundColor: var(--pf-global--primary-color--100);
+}
+
+/* STACK */
+
+.pf-l-stack {
+    --pf-l-stack--m-gutter--MarginBottom: 4rem;
+    --pf-l-stack--m-gutter--md--MarginBottom: 4rem;
+}
+
+/* LISTS */
+.pf-c-data-list {
+    --pf-c-data-list__item-item--sm--BorderTopWidth: 1px;
+}
+
+/* WELCOME PAGE HEADER */
+
+.pf-c-content h1 {
+    font-size: var(--pf-global--FontSize--3xl);
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.pf-c-content {
+    --pf-c-content--h2--FontSize: 1.5rem;
+    --pf-c-content--h2--FontWeight: bold;
+    --pf-c-content--h2--MarginBottom: 
+}
+
+.pf-c-title.pf-m-2xl {
+    padding-bottom: 1rem;
+}

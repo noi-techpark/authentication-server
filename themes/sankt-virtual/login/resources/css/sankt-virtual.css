@@ -1,0 +1,51 @@
+:root {
+    --color-st-virtual-red: #bf0131;
+}
+
+.bg-sankt-virtual {
+    background-color: var(--color-st-virtual-red);
+}
+
+.sankt-virtual-border {
+    border: .7rem solid var(--color-st-virtual-red);
+}
+
+.sankt-virtual-shadow {
+    box-shadow: rgb(0 0 0 / 16%) 0 3px 6px;
+}
+
+#kc-content {
+    margin: 0;
+    background-color: white;
+}
+
+@media (min-width: 1024px) {
+    #kc-content {
+      margin: 0;
+    }
+}
+
+#kc-content-wrapper {
+    border-width: 0;
+    padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+    #kc-content-wrapper {
+      border-width: 3px;
+      padding: 4rem;
+    }
+}
+
+.form-label {
+    color: black;
+    font-weight: normal;
+}
+
+.mobile-language-select-button {
+    border-color: white;
+}
+
+.mobile-languages {
+    color: black;
+}

@@ -16,8 +16,8 @@ services:
       JGROUPS_PRIVATE_ADDRESS: ${JGROUPS_PRIVATE_ADDRESS}
       PROXY_ADDRESS_FORWARDING: 'true'
       KEYCLOAK_FRONTEND_URL: ${FRONTEND_URL}
-      KEYCLOAK_USER: ${ADMIN_NAME}
-      KEYCLOAK_PASSWORD: ${ADMIN_PASSWORD}
+      #KEYCLOAK_USER: ${ADMIN_NAME}
+      #KEYCLOAK_PASSWORD: ${ADMIN_PASSWORD}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/auth"]
       interval: 20s
