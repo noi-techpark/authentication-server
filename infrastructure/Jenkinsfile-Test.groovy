@@ -14,7 +14,7 @@ pipeline {
         DB_USER = 'authentication_server'
         DB_PASSWORD = credentials("authentication-server-${ENVIRONMENT}-db-password")
 
-        FRONTEND_URL = 'https://auth.opendatahub.testingmachine.eu/auth'
+        FRONTEND_URL = 'https://auth.opendatahub.testingmachine.eu/auth/'
         ADMIN_NAME = 'admin'
         ADMIN_PASSWORD = credentials("authentication-server-${ENVIRONMENT}-admin-password")
     }
