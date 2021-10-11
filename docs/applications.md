@@ -7,6 +7,7 @@ If you want to configure different tools and applications to provide the authent
 
 - [Jenkins](#jenkins)
 - [Grafana](#grafana)
+- [Nextcloud](#nextcloud)
 
 ## Jenkins
 
@@ -112,3 +113,84 @@ In addition, for each folder or dashboard, you have the possibility to assign us
 > *Note!* Make sure to remove the default roles from a newly created folder, so that users cannot see all dashboards as configured in the initial setup of a folder.
 
 ![Keycloak Grafana Foler/Dashboard Permissions](images/grafana-folder-dashboard-permissions.png)
+
+## Nextcloud
+### Installation
+First you have to install the Social Login plugin. In this documentation v.4.3.2 was used.
+
+Configure like this:
+
+![screen-oauth2-config](https://user-images.githubusercontent.com/20355953/111910446-adf66900-8a61-11eb-81f0-9a4d36d0bfec.png)
+
+Select:
+- Allow users to connect social logins with their account
+- Update user profile every login
+- Automatically create groups if they do not exist
+
+Add custom OAuth2
+
+- Internal name: noi-auth
+- API Base URL: https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/
+- Authorize url (can be relative to base URL): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/auth
+- Token url (can be relative to base URL): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/token
+- Profile url (can be relative to base URL): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/userinfo
+- Logout URL (optional): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/logout
+- Client Id: it.bz.opendatahub.cloud
+- Client Secret: secret from keykloak
+- Scope (optional): roles
+- Profile Fields (optional, comma-separated): left blank
+- Groups claim (optional): left blank
+- Button style: free to be select
+- Default group: None
+
+### Issues
+#### Provider API returned an unexpected response after login
+
+This code change resolved the problem:
+
+nextcloud/apps/sociallogin/lib/Provider/CustomOAuth2.php (marked with added by qbus)
+
+        $response = $this->apiRequest($profileUrl);
+        if (!isset($response->identifier) && isset($response->id)) {
+            $response->identifier = $response->id;
+        }
+        /** added by qbus */
+        if (!isset($response->identifier) && isset($response->preferred_username)) {
+            $response->identifier = $response->preferred_username;
+        }
+        /** stop added by qbus */
+
+        if (!isset($response->identifier) && isset($response->data->id)) {
+            $response->identifier = $response->data->id;
+        }
+        if (!isset($response->identifier) && isset($response->user_id)) {
+            $response->identifier = $response->user_id;
+        }
+
+        $data = new Data\Collection($response);
+
+        if (!$data->exists('identifier')) {
+            throw new UnexpectedApiResponseException('Provider API returned an unexpected response.');
+        }
+
+Also discussed here: https://github.com/zorn-v/nextcloud-social-login/issues/242#issuecomment-803287703
+
+#### Internal server error on first login
+
+Internal Server Error
+
+The server was unable to complete your request.
+
+
+This problem can be caused by a softlink in filesystem:
+
+/var/www/nextcloud -> /var/www/nextcloud-20.0.8
+
+After renaming /var/www/nextcloud-20.0.8 to /var/www/nextcloud everything worked fine
+
+
+
+
+
+
+
