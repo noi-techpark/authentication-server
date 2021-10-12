@@ -1,7 +1,0 @@
----
-- name: Add variable JGROUPS_PRIVATE_ADDRESS to .env file
-  lineinfile: 
-    state: present
-    insertafter: EOF
-    dest: /var/docker/{{ docker_deployment_project_name }}/releases/{{ docker_deployment_release_name }}/.env
-    line: "JGROUPS_PRIVATE_ADDRESS={{ inventory_hostname }}"
