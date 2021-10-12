@@ -6,3 +6,5 @@ ARG JENKINS_USER_ID=1000
 RUN groupmod -g $JENKINS_GROUP_ID node && usermod -u $JENKINS_USER_ID -g $JENKINS_GROUP_ID node
 
 USER node
+
+ENV NODE_ENV=production
