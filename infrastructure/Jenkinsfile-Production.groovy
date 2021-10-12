@@ -14,7 +14,6 @@ pipeline {
         DB_USER = 'authentication_server'
         DB_PASSWORD = credentials("authentication-server-${ENVIRONMENT}-db-password")
 
-        DNS_QUERY = 'cluster.auth.opendatahub.bz.it'
         FRONTEND_URL = 'https://auth.opendatahub.bz.it/auth/'
         ADMIN_NAME = 'admin'
         ADMIN_PASSWORD = credentials("authentication-server-${ENVIRONMENT}-admin-password")
@@ -36,7 +35,6 @@ pipeline {
                     echo 'DB_USER=${DB_USER}' >> .env
                     echo 'DB_PASSWORD=${DB_PASSWORD}' >> .env
 
-                    echo 'DNS_QUERY=${DNS_QUERY}' >> .env
                     echo 'FRONTEND_URL=${FRONTEND_URL}' >> .env
                     echo 'ADMIN_NAME=${ADMIN_NAME}' >> .env
                     echo 'ADMIN_PASSWORD=${ADMIN_PASSWORD}' >> .env

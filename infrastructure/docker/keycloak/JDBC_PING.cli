@@ -1,0 +1,34 @@
+embed-server --server-config=standalone-ha.xml --std-out=echo
+batch
+/subsystem=jgroups/stack=udp/protocol=PING:remove()
+
+/subsystem=jgroups/stack=tcp/protocol=MPING:remove()
+
+/subsystem=jgroups/stack=tcp:remove()
+/subsystem=jgroups/stack=tcp:add()
+/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp)
+/subsystem=jgroups/stack=tcp/transport=TCP/property=external_addr:add(value=${env.JGROUPS_PRIVATE_ADDRESS:127.0.0.1})
+
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING:add()
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=datasource_jndi_name:add(value=java:jboss/datasources/KeycloakDS)
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=info_writer_sleep_time:add(value=500)
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=initialize_sql:add(value="CREATE TABLE IF NOT EXISTS JGROUPSPING (own_addr varchar(200) NOT NULL, cluster_name varchar(200) NOT NULL, ping_data BYTEA DEFAULT NULL, PRIMARY KEY (own_addr, cluster_name) )")
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=insert_single_sql:add(value="INSERT INTO JGROUPSPING (own_addr, cluster_name, ping_data) values (?, ?, ?)")
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=delete_single_sql:add(value="DELETE FROM JGROUPSPING WHERE own_addr=? AND cluster_name=?")
+/subsystem=jgroups/stack=tcp/protocol=JDBC_PING/property=select_all_pingdata_sql:add(value="SELECT ping_data FROM JGROUPSPING WHERE cluster_name=?")
+
+/subsystem=jgroups/stack=tcp/protocol=MERGE3:add()
+/subsystem=jgroups/stack=tcp:add-protocol(type="FD_SOCK",socket-binding="jgroups-tcp-fd")
+/subsystem=jgroups/stack=tcp/protocol=FD:add()
+/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add()
+/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add()
+/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add()
+/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add()
+/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add()
+/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS/property=max_join_attempts:add(value=5)
+/subsystem=jgroups/stack=tcp/protocol=MFC:add()
+/subsystem=jgroups/stack=tcp/protocol=FRAG2:add()
+
+/subsystem=jgroups/channel=ee:write-attribute(name="stack", value=$keycloak_jgroups_transport_stack)
+run-batch
+stop-embedded-server
