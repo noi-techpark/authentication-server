@@ -92,8 +92,8 @@ npm run watch
 Or you can run it also inside a Docker container:
 
 ```bash
-docker run --rm -it -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm install
-docker run --rm -it -v $PWD:/code -w /code/themes/noi/common/resources node:12 npm run watch
+docker run --rm -it -v $PWD:/code -w /code/themes/noiV2/common/resources node:12 npm install
+docker run --rm -it -v $PWD:/code -w /code/themes/noiV2/common/resources node:12 npm run watch
 ```
 
 ## Setup and configuration
