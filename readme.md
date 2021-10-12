@@ -84,7 +84,7 @@ All catched emails can be visited at [http://localhost:8025/](http://localhost:8
 If you want to make some adjustments to the theme, you can run the following commands, so that all CSS files will be regenerated on the fly:
 
 ```bash
-cd themes/noi/common/resources
+cd themes/noiV2/common/resources
 npm install
 npm run watch
 ```
