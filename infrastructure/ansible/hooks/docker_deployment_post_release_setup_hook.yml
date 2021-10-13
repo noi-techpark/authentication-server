@@ -1,7 +1,7 @@
 ---
-- name: Add variable KEYCLOAK_HOSTNAME to .env file
+- name: Add variable HOSTNAME to .env file
   lineinfile: 
     state: present
     insertafter: EOF
     dest: /var/docker/{{ docker_deployment_project_name }}/releases/{{ docker_deployment_release_name }}/.env
-    line: "KEYCLOAK_HOSTNAME={{ inventory_hostname }}"
+    line: "HOSTNAME={{ inventory_hostname }}"
