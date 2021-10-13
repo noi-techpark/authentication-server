@@ -10,6 +10,7 @@ RUN sed -i -e "s%<staticMaxAge>2592000</staticMaxAge>%<staticMaxAge>-1</staticMa
 # Build
 FROM base as build
 
+COPY infrastructure/docker/keycloak/JDBC_PING.cli /opt/jboss/tools/cli/jgroups/discovery/JDBC_PING.cli
 COPY themes/noi /opt/jboss/keycloak/themes/noi
 COPY themes/sankt-virtual /opt/jboss/keycloak/themes/sankt-virtual
 COPY themes/noiV2 /opt/jboss/keycloak/themes/noiV2
