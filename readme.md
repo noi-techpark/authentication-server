@@ -11,6 +11,7 @@ A basic explanation of the terms and standards used by Keycloak can be found in 
 - [Deployment](#deployment)
 - [Applications / Clients](#applications-clients)
 - [Information](#information)
+- [Identity broker](#identity-broker)
 
 ## Getting started
 
@@ -116,6 +117,11 @@ For a detailed installation instruction of the production servers, you can check
 ## Applications / Clients
 
 If you want to configure different tools and applications to provide the authentication using the authentication server, you have to make different configurations and adjustments. Detailed information about different tools can be found [here](#/docs/applications.md).
+
+## Identity broker
+
+Learn how you can configure a keycloak installation as an identity broker.
+More details can be found [here](#/docs/indentity-broker.md)
 
 ## Information
 
