@@ -17,7 +17,7 @@
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
     <link href="${url.resourcesPath}/css/style.css" rel="stylesheet" />
-    
+
     <#if properties.stylesCommon?has_content>
         <#list properties.stylesCommon?split(' ') as style>
             <link href="${url.resourcesCommonPath}/${style}" rel="stylesheet" />
@@ -49,11 +49,7 @@
                     <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>
                 <div class="${properties.kcHeaderTitleContainerClass!}">
-                    <#if client?? && client.baseUrl?has_content>
-                        <a class="no-underline hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",((client.name?has_content)?string(client.name, realm.displayNameHtml))))?no_esc}</a>
-                    <#else>
-                        <h2>${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</h2>
-                    </#if>
+                    <h2>${properties.loginTitle}</h2>
                 </div>
                 <!-- Desktop Navigation -->
                 <nav role="navigation" class="hidden lg:flex items-center">
@@ -77,7 +73,7 @@
                 </nav>
             </div>
         </div>
-        
+
         <div id="kc-content">
             <div id="kc-content-wrapper">
                 <div class="${properties.kcFormCardClass!}">
@@ -127,7 +123,7 @@
                             </#if>
                         </#if>
                     </header>
-                
+
 
                     <#-- App-initiated actions should not see warning messages about the need to complete the action -->
                     <#-- during login.                                                                               -->
