@@ -1,0 +1,54 @@
+name: ci authentication-server
+
+
+on:
+  push:
+    branches: [ master, development, optimized-cluster-setup ]
+    paths:
+      - "!README.md"
+  pull_request:
+    branches: [ master, development, optimized-cluster-setup ]
+    paths:
+      - "!README.md"
+      
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    env:
+      DOCKER_PROJECT_NAME: authentication-server
+      DOCKER_IMAGE: app
+      # used to be DOCKER_TAG = "$BUILD_NUMBER" in Jenkins, but no BUILD_NUMBER in GithubActions
+      DOCKER_TAG: latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Configure
+        run: |
+          rm -f .env
+          cp .env.example .env
+          echo 'COMPOSE_PROJECT_NAME=${DOCKER_PROJECT_NAME}' >> .env
+          echo 'DOCKER_IMAGE=${DOCKER_IMAGE}' >> .env
+          echo 'DOCKER_TAG=${DOCKER_TAG}' >> .env
+
+      - name: Assets
+        run: |
+          docker build --pull -t ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER} infrastructure/docker/node
+          docker run --rm -v $PWD:/code -w /code/themes/noiV2/common/resources ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER} npm install
+          docker run --rm -v $PWD:/code -w /code/themes/noiV2/common/resources ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER} npm run build
+    
+      - name: Build Keycloak extensions
+        run: |
+          docker build --pull -t ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} infrastructure/docker/maven
+          docker run --rm -v $PWD:/code -w /code/registration-event-listener ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER} mvn -B -U clean install
+          
+      - name: Build
+        run: docker-compose -f infrastructure/docker-compose.build.yml build
+        
+      - name: Delte images
+        run: |
+          docker image rm -f ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER}
+          docker image rm -f ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER}
