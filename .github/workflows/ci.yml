@@ -1,18 +1,7 @@
-name: ci authentication-server
+name: CI
 
+on: push
 
-on:
-  push:
-    branches: [ master, development, optimized-cluster-setup ]
-    paths:
-      - "!README.md"
-  pull_request:
-    branches: [ master, development, optimized-cluster-setup ]
-    paths:
-      - "!README.md"
-      
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 jobs:
   build:
@@ -49,7 +38,7 @@ jobs:
       - name: Build
         run: docker-compose -f infrastructure/docker-compose.build.yml build
         
-      - name: Delte images
+      - name: Delete images
         run: |
           docker image rm -f ${DOCKER_PROJECT_NAME}-node:${BUILD_NUMBER}
           docker image rm -f ${DOCKER_PROJECT_NAME}-maven:${BUILD_NUMBER}
