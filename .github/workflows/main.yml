@@ -21,6 +21,7 @@ jobs:
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:
+          working-directory: themes/noiV2/common/resources
           node-version: ${{ env.NODE_VERSION }}
       - name: Build Keycloak registration event listener
         uses: noi-techpark/github-actions/maven-build@v2
