@@ -1,0 +1,32 @@
+name: CI/CD
+
+on:
+  push:
+  pull_request:
+
+env:
+  PROJECT_NAME: authentication-server
+  DOCKER_IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.event.repository.name }}-app
+  DOCKER_TAG: ${{ github.sha }}
+  JAVA_VERSION: '11'
+  NODE_VERSION: '16.x'
+
+jobs:
+  # Test
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Build frontend assets
+        uses: noi-techpark/github-actions/npm-build@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Build Keycloak registration event listener
+        uses: noi-techpark/github-actions/maven-build@v2
+        with:
+          working-directory: registration-event-listener
+          java-version: ${{ env.JAVA_VERSION }}
+          build-command: mvn -B -U clean install
+      - name: Build images
+        uses: noi-techpark/github-actions/docker-build@v2
