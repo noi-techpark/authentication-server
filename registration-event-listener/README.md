@@ -17,8 +17,8 @@ docker run --rm -v $PWD:/code -w /code maven:3-openjdk-11 mvn clean install
 
 ## How to add the jar in Keycloak?
 
-Copy the jar in the target folder to the `/opt/jboss/keycloak/standalone/deployments/` folder.
-Or when using Docker mount the file `./registration-event-listener-0.0.1-SNAPSHOT.jar:/opt/jboss/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar`
+Copy the jar in the target folder to the `/opt/keycloak/providers/` folder.
+Or when using Docker mount the file `./registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar:/opt/keycloak/providers/registration-event-listener-0.0.1-SNAPSHOT.jar`
 
 ## How to configure the event listener in Keycloak?
 
