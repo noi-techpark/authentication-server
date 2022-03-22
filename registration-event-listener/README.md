@@ -25,7 +25,7 @@ Or when using Docker mount the file `./registration-event-listener/target/regist
 Set the event listener
 
 * Open up Keycloak administration console and select your realm
-* Go to events in the left side bar under Manage
+* Go to events in the left sidebar under Manage
 * Open the config [tab]
 * click in the input box next to event listeners, a dropdown with all available event listeners is shown
 * select our registration_event_listener
