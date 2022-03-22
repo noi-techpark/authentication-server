@@ -1,11 +1,8 @@
-FROM jboss/keycloak:15.0.2 as base
+FROM quay.io/keycloak/keycloak:17.0.0 as base
 
 # Dev
 FROM base as dev
-
-RUN sed -i -e "s%<staticMaxAge>2592000</staticMaxAge>%<staticMaxAge>-1</staticMaxAge>%" /opt/jboss/keycloak/standalone/configuration/standalone-ha.xml && \
-    sed -i -e "s%<cacheThemes>true</cacheThemes>%<cacheThemes>false</cacheThemes>%" /opt/jboss/keycloak/standalone/configuration/standalone-ha.xml && \
-    sed -i -e "s%<cacheTemplates>true</cacheTemplates>%<cacheTemplates>false</cacheTemplates>%" /opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
 
 # Build
 FROM base as build
