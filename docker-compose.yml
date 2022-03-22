@@ -7,7 +7,6 @@ services:
       dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: dev
     volumes:
-      - ./themes/noi:/opt/keycloak/themes/noi
       - ./themes/sankt-virtual:/opt/keycloak/themes/sankt-virtual
       - ./themes/noiV2:/opt/keycloak/themes/noiV2
     environment:
