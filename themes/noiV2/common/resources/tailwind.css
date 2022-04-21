@@ -115,7 +115,7 @@ ol {
 
 .form-input:focus {
     @apply outline-none;
-    @apply border-primary-500;
+    @apply border-focus-500;
 }
 
 .form-label {
@@ -123,8 +123,12 @@ ol {
     @apply font-bold;
 }
 
+.form-input-group:focus-within .form-label {
+    @apply text-focus-500;
+  }
+
 .control-label {
-    @apply text-primary-500;
+    /* @apply text-primary-500; */
     @apply font-bold;
 }
 
