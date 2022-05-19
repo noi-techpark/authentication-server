@@ -49,11 +49,7 @@
                     <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>
                 <div class="${properties.kcHeaderTitleContainerClass!}">
-                    <#if client?? && client.name?has_content>
-                            <a class="no-underline hover:underline" href="${client.baseUrl}">${kcSanitize(msg("loginTitleHtml",((client.name?has_content)?string(client.name, realm.displayNameHtml))))?no_esc}</a>
-                    <#else>
-                        <h2>Login</h2>
-                    </#if>
+                    <h2>Login</h2>
                 </div>
                 <!-- Desktop Navigation -->
                 <nav role="navigation" class="hidden lg:flex items-center">
