@@ -1,4 +1,4 @@
-FROM keycloak/keycloak:18.0.0 as base
+FROM quay.io/keycloak/keycloak:19.0.1 as base
 
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
@@ -24,4 +24,4 @@ FROM base as prod
 COPY --from=build /opt/keycloak/ /opt/keycloak/
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start"]
+CMD ["start", "--optimized"]
