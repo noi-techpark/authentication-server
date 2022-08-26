@@ -15,7 +15,7 @@ FROM base as build
 
 COPY themes/sankt-virtual /opt/keycloak/themes/sankt-virtual
 COPY themes/noiV2 /opt/keycloak/themes/noiV2
-COPY registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar /opt/keycloak/standalone/deployments/registration-event-listener-0.0.1-SNAPSHOT.jar
+COPY registration-event-listener/target/registration-event-listener-0.0.1-SNAPSHOT.jar /opt/keycloak/providers/registration-event-listener-0.0.1-SNAPSHOT.jar
 
 RUN /opt/keycloak/bin/kc.sh build
 
