@@ -74,8 +74,8 @@ jobs:
       - name: Deploy high availability application
         uses: noi-techpark/github-actions/docker-ha-deploy@v2
         env:
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_TERRAFORM_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
         with:
           terraform-general-config-file: 'test/general.tfvars'
           terraform-all-config-file: 'test/all.tfvars'
@@ -129,8 +129,8 @@ jobs:
       - name: Deploy high availability application
         uses: noi-techpark/github-actions/docker-ha-deploy@v2
         env:
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_TERRAFORM_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
         with:
           terraform-general-config-file: 'prod/general.tfvars'
           terraform-all-config-file: 'prod/all.tfvars'
