@@ -6,10 +6,6 @@ terraform {
   }
 }
 
-variable "target_group_arn" {
-  type = string
-}
-
 variable "target_group_one_ids" {
   type = map(string)
 }
