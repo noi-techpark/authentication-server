@@ -5,6 +5,12 @@ terraform {
       version = "~> 4.0"
     }
   }
+
+  backend "s3" {
+    bucket = "it.bz.opendatahub.auth-terraform"
+    key    = var.backend_key
+    region = "eu-west-1"
+  }
 }
 
 provider "aws" {
