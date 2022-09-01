@@ -49,7 +49,7 @@
                     <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>
                 <div class="${properties.kcHeaderTitleContainerClass!}">
-                    <h2>${properties.loginTitle}</h2>
+                    <h2>Login</h2>
                 </div>
                 <!-- Desktop Navigation -->
                 <nav role="navigation" class="hidden lg:flex items-center">
