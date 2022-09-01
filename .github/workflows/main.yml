@@ -73,10 +73,11 @@ jobs:
           docker-password: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy high availability application
         uses: noi-techpark/github-actions/docker-ha-deploy@v2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
         with:
           terraform-working-directory: 'infrastructure/terraform/test'
-          terraform-aws-access-key-id: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
-          terraform-aws-secret-access-key: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
           ansible-hosts: 'test'
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           docker-username: 'noi-techpark-bot'
@@ -124,10 +125,11 @@ jobs:
           docker-password: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy high availability application
         uses: noi-techpark/github-actions/docker-ha-deploy@v2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
         with:
           terraform-working-directory: 'infrastructure/terraform/prod'
-          terraform-aws-access-key-id: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
-          terraform-aws-secret-access-key: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
           ansible-hosts: 'prod'
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           docker-username: 'noi-techpark-bot'
