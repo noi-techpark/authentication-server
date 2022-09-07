@@ -1,5 +1,0 @@
-[groupone]
-auth01.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-
-[grouptwo]
-auth02.testingmachine.eu ansible_ssh_common_args='-o StrictHostKeyChecking=no'
