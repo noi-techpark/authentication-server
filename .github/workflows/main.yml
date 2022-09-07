@@ -103,10 +103,10 @@ jobs:
           X_DB_PORT: "5432"
           X_DB_DATABASE: "authentication_server"
           X_DB_USER: "authentication_server"
-          X_DB_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
+          X_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
           X_FRONTEND_URL: "https://auth.opendatahub.bz.it/auth/"
           X_ADMIN_NAME: "admin"
-          X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
+          X_ADMIN_PASSWORD: ${{ secrets.PROD_ADMIN_PASSWORD }}
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:
