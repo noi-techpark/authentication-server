@@ -61,7 +61,7 @@ jobs:
           X_FRONTEND_URL: "https://authupgrade.opendatahub.testingmachine.eu/auth/"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
-          X_DNS_QUERY: "authupgradexx.testingmachine.eu"
+          X_DNS_QUERY: "authupgrade01.testingmachine.eu,authupgrade02.testingmachine.eu"
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:
