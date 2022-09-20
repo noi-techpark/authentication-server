@@ -61,8 +61,7 @@ jobs:
           X_FRONTEND_URL: "https://authupgrade.opendatahub.testingmachine.eu/auth/"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
-          X_CLUSTER_S3_REGION_NAME: "eu-west-1"
-          X_CLUSTER_S3_BUCKET_NAME: "authentication-server-cluster-upgrade"
+          X_DNS_QUERY: "authupgrade01.testingmachine.eu,authupgrade02.testingmachine.eu"
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:
@@ -121,8 +120,7 @@ jobs:
           X_FRONTEND_URL: "https://auth.opendatahub.testingmachine.eu/auth/"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
-          X_CLUSTER_S3_REGION_NAME: "eu-west-1"
-          X_CLUSTER_S3_BUCKET_NAME: "authentication-server-cluster-test"
+          X_DNS_QUERY: "auth01.testingmachine.eu,auth02.testingmachine.eu"
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:
@@ -181,8 +179,7 @@ jobs:
           X_FRONTEND_URL: "https://auth.opendatahub.bz.it/auth/"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.PROD_ADMIN_PASSWORD }}
-          X_CLUSTER_S3_REGION_NAME: "eu-west-1"
-          X_CLUSTER_S3_BUCKET_NAME: "authentication-server-cluster-prod"
+          X_DNS_QUERY: "auth01.opendatahub.bz.it,auth02.opendatahub.bz.it"
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:

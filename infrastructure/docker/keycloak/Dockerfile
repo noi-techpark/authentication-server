@@ -2,7 +2,7 @@ FROM quay.io/keycloak/keycloak:19.0.1 as base
 
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
-ENV KC_CACHE_STACK=ec2
+ENV KC_CACHE_STACK=kubernetes
 ENV KC_DB=postgres
 ENV KC_HTTP_RELATIVE_PATH=/auth
 
