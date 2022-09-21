@@ -9,6 +9,7 @@ services:
       target: prod
     environment:
       KC_LOG_LEVEL: info
+      KC_CACHE_STACK: udp
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres/keycloak
       KC_DB_USERNAME: keycloak
@@ -18,7 +19,6 @@ services:
       KC_PROXY: 'passthrough'
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: password
-      JAVA_OPTS_APPEND: "-Djgroups.s3.region_name=us-west-2 -Djgroups.s3.bucket_name=cluster -Djgroups.s3.endpoint=http://minio:9000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
       interval: 20s
@@ -27,7 +27,6 @@ services:
       start_period: 30s
     depends_on:
       - postgres
-      - minio
     networks:
       - internal
       - proxy
@@ -44,6 +43,7 @@ services:
     image: authentication-server-keycloak
     environment:
       KC_LOG_LEVEL: info
+      KC_CACHE_STACK: udp
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres/keycloak
       KC_DB_USERNAME: keycloak
@@ -51,7 +51,6 @@ services:
       KC_HOSTNAME_STRICT: 'false'
       KC_HTTP_ENABLED: 'true'
       KC_PROXY: 'passthrough'
-      JAVA_OPTS_APPEND: "-Djgroups.s3.region_name=us-west-2 -Djgroups.s3.bucket_name=cluster -Djgroups.s3.endpoint=http://minio:9000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
       interval: 20s
@@ -60,7 +59,6 @@ services:
       start_period: 30s
     depends_on:
       - postgres
-      - minio
       - keycloak01
     networks:
       - internal
@@ -86,18 +84,6 @@ services:
       - internal
     labels:
       - traefik.enable=false
-
-  minio:
-    image: bitnami/minio
-    ports:
-      - 9000:9000
-      - 9001:9001
-    volumes:
-      - ./storage/minio:/data
-    environment:
-      MINIO_ROOT_USER: admin
-      MINIO_ROOT_PASSWORD: password
-      MINIO_DEFAULT_BUCKETS: "cluster:public"
 
   mailhog:
     image: mailhog/mailhog

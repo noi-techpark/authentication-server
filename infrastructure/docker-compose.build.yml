@@ -7,3 +7,5 @@ services:
       context: ../
       dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: prod
+    environment:
+      KC_CACHE_STACK: ec2
