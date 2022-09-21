@@ -15,7 +15,7 @@ services:
       KC_PROXY: 'passthrough'
       KEYCLOAK_ADMIN: ${ADMIN_NAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
-      JAVA_OPTS_APPEND: "-Djgroups.dns.query=${DNS_QUERY}"
+      JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
       interval: 20s

@@ -24,7 +24,7 @@
 
         <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
         <maven-dependency-plugin.version>3.3.0</maven-dependency-plugin.version>
-        <native-s3-ping.version>1.0.0.Final</native-s3-ping.version>
+        <jgroups-aws.version>1.1.0.Final</jgroups-aws.version>
         <aws.sdk.version>1.12.305</aws.sdk.version>
     </properties>
 
@@ -44,9 +44,9 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>org.jgroups.aws.s3</groupId>
-            <artifactId>native-s3-ping</artifactId>
-            <version>${native-s3-ping.version}</version>
+            <groupId>org.jgroups.aws</groupId>
+            <artifactId>jgroups-aws</artifactId>
+            <version>${jgroups-aws.version}</version>
         </dependency>
     </dependencies>
 

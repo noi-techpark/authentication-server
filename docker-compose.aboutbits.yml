@@ -18,6 +18,7 @@ services:
       KC_PROXY: 'passthrough'
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: password
+      JAVA_OPTS_APPEND: "-Djgroups.s3.region_name=us-west-2 -Djgroups.s3.bucket_name=cluster -Djgroups.s3.endpoint=http://minio:9000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
       interval: 20s
@@ -26,6 +27,7 @@ services:
       start_period: 30s
     depends_on:
       - postgres
+      - minio
     networks:
       - internal
       - proxy
@@ -38,37 +40,39 @@ services:
       - traefik.http.services.auth.loadbalancer.server.port=8080
       # - traefik.http.services.auth.loadbalancer.sticky.cookie=true
 
-  # keycloak02:
-  #   image: authentication-server-keycloak
-  #   environment:
-  #     KC_LOG_LEVEL: info
-  #     KC_DB: postgres
-  #     KC_DB_URL: jdbc:postgresql://postgres/keycloak
-  #     KC_DB_USERNAME: keycloak
-  #     KC_DB_PASSWORD: password
-  #     KC_HOSTNAME_STRICT: 'false'
-  #     KC_HTTP_ENABLED: 'true'
-  #     KC_PROXY: 'passthrough'
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
-  #     interval: 20s
-  #     timeout: 10s
-  #     retries: 5
-  #     start_period: 30s
-  #   depends_on:
-  #     - postgres
-  #     - keycloak01
-  #   networks:
-  #     - internal
-  #     - proxy
-  #   labels:
-  #     - traefik.enable=true
-  #     - traefik.http.routers.auth2.entrypoints=http,https
-  #     - traefik.http.routers.auth2.rule=Host(`auth.proxy.test`)
-  #     - traefik.http.routers.auth2.tls=true
-  #     - traefik.http.routers.auth2.service=auth
-  #     - traefik.http.services.auth.loadbalancer.server.port=8080
-  #     # - traefik.http.services.auth.loadbalancer.sticky.cookie=true
+  keycloak02:
+    image: authentication-server-keycloak
+    environment:
+      KC_LOG_LEVEL: info
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: password
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HTTP_ENABLED: 'true'
+      KC_PROXY: 'passthrough'
+      JAVA_OPTS_APPEND: "-Djgroups.s3.region_name=us-west-2 -Djgroups.s3.bucket_name=cluster -Djgroups.s3.endpoint=http://minio:9000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      - postgres
+      - minio
+      - keycloak01
+    networks:
+      - internal
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.auth2.entrypoints=http,https
+      - traefik.http.routers.auth2.rule=Host(`auth.proxy.test`)
+      - traefik.http.routers.auth2.tls=true
+      - traefik.http.routers.auth2.service=auth
+      - traefik.http.services.auth.loadbalancer.server.port=8080
+      # - traefik.http.services.auth.loadbalancer.sticky.cookie=true
 
   postgres:
     image: postgres:12
@@ -82,6 +86,18 @@ services:
       - internal
     labels:
       - traefik.enable=false
+
+  minio:
+    image: bitnami/minio
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - ./storage/minio:/data
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+      MINIO_DEFAULT_BUCKETS: "cluster:public"
 
   mailhog:
     image: mailhog/mailhog
