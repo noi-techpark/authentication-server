@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     environment:
       KC_LOG_LEVEL: info
+      KC_CACHE_STACK: ec2
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://${DB_ADDR}:${DB_PORT}/${DB_DATABASE}
       KC_DB_USERNAME: ${DB_USER}
