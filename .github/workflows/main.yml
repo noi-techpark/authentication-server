@@ -41,7 +41,7 @@ jobs:
   # Deploy upgrade
   deploy-upgrade:
     runs-on: ubuntu-20.04
-    if: github.ref == 'refs/heads/upgrade-v19'
+    if: github.ref == 'refs/heads/upgrade-v20'
     needs: test
     concurrency: deploy-upgrade
     steps:
