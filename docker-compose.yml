@@ -8,6 +8,7 @@ services:
       target: dev
     environment:
       KC_LOG_LEVEL: info
+      KC_CACHE_STACK: udp
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres/keycloak
       KC_DB_USERNAME: keycloak
