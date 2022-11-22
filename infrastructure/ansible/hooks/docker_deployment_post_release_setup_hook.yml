@@ -4,4 +4,4 @@
     state: present
     insertafter: EOF
     dest: /var/docker/{{ docker_deployment_project_name }}/releases/{{ docker_deployment_release_name }}/.env
-    line: "HOSTNAME={{ inventory_hostname }}"
+    line: "HOSTNAME={{ internal_domain_name }}"
