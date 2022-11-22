@@ -15,8 +15,7 @@ A basic explanation of the terms and standards used by Keycloak can be found in 
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running
-on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -93,8 +92,8 @@ npm run watch
 Or you can run it also inside a Docker container:
 
 ```bash
-docker run --rm -it -v $PWD:/code -w /code/themes/noiV2/common/resources node:12 npm install
-docker run --rm -it -v $PWD:/code -w /code/themes/noiV2/common/resources node:12 npm run watch
+docker run --rm -it -v $PWD:/code -w /code/themes/noiV2/common/resources node:16 npm install
+docker run --rm -it -v $PWD:/code -w /code/themes/noiV2/common/resources node:16 npm run watch
 ```
 
 ## Setup and configuration

@@ -5,27 +5,24 @@ services:
     image: ${DOCKER_IMAGE}:${DOCKER_TAG}
     restart: unless-stopped
     environment:
-      DB_VENDOR: POSTGRES
-      DB_ADDR: ${DB_ADDR}
-      DB_PORT: ${DB_PORT}
-      DB_DATABASE: ${DB_DATABASE}
-      DB_SCHEMA: public
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
-      JGROUPS_DISCOVERY_PROPERTIES: datasource_jndi_name=java:jboss/datasources/KeycloakDS,info_writer_sleep_time=500,initialize_sql="CREATE TABLE IF NOT EXISTS JGROUPSPING ( own_addr varchar(200) NOT NULL, cluster_name varchar(200) NOT NULL, created timestamp default current_timestamp, ping_data BYTEA, constraint PK_JGROUPSPING PRIMARY KEY (own_addr, cluster_name))"
-      PROXY_ADDRESS_FORWARDING: 'true'
-      HOSTNAME: ${HOSTNAME}
-      KEYCLOAK_FRONTEND_URL: ${FRONTEND_URL}
-      #KEYCLOAK_USER: ${ADMIN_NAME}
-      #KEYCLOAK_PASSWORD: ${ADMIN_PASSWORD}
+      KC_LOG_LEVEL: info
+      KC_CACHE_STACK: ec2
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://${DB_ADDR}:${DB_PORT}/${DB_DATABASE}
+      KC_DB_USERNAME: ${DB_USER}
+      KC_DB_PASSWORD: ${DB_PASSWORD}
+      KC_HOSTNAME_STRICT: 'false'
+      KC_HTTP_ENABLED: 'true'
+      KC_PROXY: 'passthrough'
+      KEYCLOAK_ADMIN: ${ADMIN_NAME}
+      KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/auth"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
       interval: 20s
       timeout: 10s
       retries: 5
       start_period: 30s
     ports:
       - 8080:8080
-      - 7600:7600
-      - 57600:57600
+      - 7800:7800

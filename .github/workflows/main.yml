@@ -9,7 +9,7 @@ env:
   DOCKER_IMAGE: ghcr.io/${{ github.repository }}/${{ github.event.repository.name }}-app
   DOCKER_TAG: ${{ github.sha }}
   JAVA_VERSION: '11'
-  NODE_VERSION: '16.x'
+  NODE_VERSION: '16'
 
 jobs:
   # Test
@@ -23,6 +23,12 @@ jobs:
         with:
           working-directory: themes/noiV2/common/resources
           node-version: ${{ env.NODE_VERSION }}
+      - name: Build native S3 ping plugin
+        uses: noi-techpark/github-actions/maven-build@v2
+        with:
+          working-directory: native-s3-ping
+          java-version: ${{ env.JAVA_VERSION }}
+          build-command: mvn -B -U clean install
       - name: Build Keycloak registration event listener
         uses: noi-techpark/github-actions/maven-build@v2
         with:
@@ -31,6 +37,66 @@ jobs:
           build-command: mvn -B -U clean install
       - name: Build images
         uses: noi-techpark/github-actions/docker-build@v2
+
+  # Deploy upgrade
+  deploy-upgrade:
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/upgrade-v20'
+    needs: test
+    concurrency: deploy-upgrade
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Create .env file
+        uses: noi-techpark/github-actions/env-file@v2
+        env:
+          X_COMPOSE_PROJECT_NAME: ${{ env.PROJECT_NAME }}
+          X_DOCKER_IMAGE: ${{ env.DOCKER_IMAGE }}
+          X_DOCKER_TAG: ${{ env.DOCKER_TAG }}
+          X_DB_ADDR: "test-pg-bdp.co90ybcr8iim.eu-west-1.rds.amazonaws.com"
+          X_DB_PORT: "5432"
+          X_DB_DATABASE: "authentication_server_upgrade"
+          X_DB_USER: "authentication_server"
+          X_DB_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
+          X_FRONTEND_URL: "https://authupgrade.opendatahub.testingmachine.eu/auth/"
+          X_ADMIN_NAME: "admin"
+          X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
+          X_CLUSTER_S3_REGION_NAME: "eu-west-1"
+          X_CLUSTER_S3_BUCKET_NAME: "authentication-server-cluster-upgrade"
+      - name: Build frontend assets
+        uses: noi-techpark/github-actions/npm-build@v2
+        with:
+          working-directory: themes/noiV2/common/resources
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Build native S3 ping plugin
+        uses: noi-techpark/github-actions/maven-build@v2
+        with:
+          working-directory: native-s3-ping
+          java-version: ${{ env.JAVA_VERSION }}
+          build-command: mvn -B -U clean install
+      - name: Build Keycloak registration event listener
+        uses: noi-techpark/github-actions/maven-build@v2
+        with:
+          working-directory: registration-event-listener
+          java-version: ${{ env.JAVA_VERSION }}
+          build-command: mvn -B -U clean install
+      - name: Build and push images
+        uses: noi-techpark/github-actions/docker-build-and-push@v2
+        with:
+          docker-username: ${{ github.actor }}
+          docker-password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy high availability application
+        uses: noi-techpark/github-actions/docker-ha-deploy@v2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_TERRAFORM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_TERRAFORM_SECRET_ACCESS_KEY }}
+        with:
+          terraform-working-directory: 'infrastructure/terraform/upgrade'
+          ansible-hosts: 'upgrade'
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          docker-username: 'noi-techpark-bot'
+          docker-password: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          project-name: ${{ env.PROJECT_NAME }}
 
   # Deploy test
   deploy-test:
@@ -55,11 +121,19 @@ jobs:
           X_FRONTEND_URL: "https://auth.opendatahub.testingmachine.eu/auth/"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
+          X_CLUSTER_S3_REGION_NAME: "eu-west-1"
+          X_CLUSTER_S3_BUCKET_NAME: "authentication-server-cluster-test"
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:
           working-directory: themes/noiV2/common/resources
           node-version: ${{ env.NODE_VERSION }}
+      - name: Build native S3 ping plugin
+        uses: noi-techpark/github-actions/maven-build@v2
+        with:
+          working-directory: native-s3-ping
+          java-version: ${{ env.JAVA_VERSION }}
+          build-command: mvn -B -U clean install
       - name: Build Keycloak registration event listener
         uses: noi-techpark/github-actions/maven-build@v2
         with:
@@ -107,6 +181,8 @@ jobs:
           X_FRONTEND_URL: "https://auth.opendatahub.bz.it/auth/"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.PROD_ADMIN_PASSWORD }}
+          X_CLUSTER_S3_REGION_NAME: "eu-west-1"
+          X_CLUSTER_S3_BUCKET_NAME: "authentication-server-cluster-prod"
       - name: Build frontend assets
         uses: noi-techpark/github-actions/npm-build@v2
         with:

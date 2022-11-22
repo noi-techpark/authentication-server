@@ -11,7 +11,7 @@ import org.keycloak.models.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 public class AdminNotificationEventListenerProvider implements EventListenerProvider {
 
@@ -44,7 +44,7 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
 
             RealmModel realm = this.model.getRealm(event.getRealmId());
 
-            Optional<GroupModel> keycloakGroup = this.model.getGroups(realm).stream()
+            Optional<GroupModel> keycloakGroup = realm.getGroupsStream()
                     .filter(groupModel -> groupToNotify.getName().equals(groupModel.getName()))
                     .findFirst();
 
@@ -53,8 +53,8 @@ public class AdminNotificationEventListenerProvider implements EventListenerProv
                 return;
             }
 
-            UserModel newRegisteredUser = this.session.users().getUserById(event.getUserId(), realm);
-            List<UserModel> usersToNotify = this.session.users().getGroupMembers(realm, keycloakGroup.get());
+            UserModel newRegisteredUser = this.session.users().getUserById(realm, event.getUserId());
+            List<UserModel> usersToNotify = this.session.users().getGroupMembersStream(realm, keycloakGroup.get()).collect(Collectors.toList());
 
             String emailPlainContent = "New user registration\n\n" +
                     "Email: " + newRegisteredUser.getEmail() + "\n" +

@@ -3,8 +3,8 @@ package it.bz.noi.keycloak.registrationlistener;
 import java.util.Set;
 
 public class EmailNotificationGroup {
-    private String name;
-    private Set<String> clients;
+    private final String name;
+    private final Set<String> clients;
 
     public EmailNotificationGroup(String name, Set<String> clients) {
         this.name = name;
