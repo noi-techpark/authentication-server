@@ -1,6 +1,6 @@
 [upgrade]
-authupgrade01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
-authupgrade02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+authupgrade01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'  internal_domain_name='authupgrade01-internal.testingmachine.eu'
+authupgrade02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'  internal_domain_name='authupgrade02-internal.testingmachine.eu'
 
 [test]
 auth01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
@@ -11,11 +11,11 @@ auth01.opendatahub.bz.it ansible_user='noi-techpark-bot' ansible_ssh_common_args
 auth02.opendatahub.bz.it ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [groupone]
-authupgrade01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+authupgrade01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'  internal_domain_name='authupgrade01-internal.testingmachine.eu'
 auth01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 auth01.opendatahub.bz.it ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [grouptwo]
-authupgrade02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+authupgrade02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'  internal_domain_name='authupgrade02-internal.testingmachine.eu'
 auth02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 auth02.opendatahub.bz.it ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
