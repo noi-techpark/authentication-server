@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Authentication Server
 
 A central authentication server for all services build with the open source identity and access management tool Keycloak [https://www.keycloak.org/](https://www.keycloak.org/).

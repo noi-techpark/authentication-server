@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Registration Event Listener
 
 This is a custom event listener for Keycloak events. Its goal is to notify an admin about new user registrations via email.

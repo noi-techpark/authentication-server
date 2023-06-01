@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: authentication-server
+Upstream-Contact: NOI Techpark <digital@noi.bz.it>
+Source: https://github.com/noi-techpark/authentication-server
+
+Files: .github/* infrastructure/* .gitignore LICENSE.md .env.example .gitattributes docs/images/* native-s3-ping/.gitignore registration-event-listener/.gitignore themes/**/*.properties themes/**/*.ico themes/**/*.svg themes/**/*.json themes/noiV2/common/.gitignore themes/noiV2/login/template.ftl themes/README.txt registration-event-listener/src/main/resources/META-INF/services/org.keycloak.events.EventListenerProviderFactory
+Copyright: (c) NOI Techpark <digital@noi.bz.it>
+License: CC0-1.0

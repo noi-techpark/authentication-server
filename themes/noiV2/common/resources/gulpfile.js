@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+//
+// SPDX-License-Identifier: CC0-1.0
+
 const { src, dest, series, watch } = require('gulp');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
