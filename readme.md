@@ -6,6 +6,8 @@ SPDX-License-Identifier: CC0-1.0
 
 # Authentication Server
 
+![REUSE Compliance](https://github.com/noi-techpark/authentication-server/actions/workflows/reuse.yml/badge.svg)
+
 A central authentication server for all services build with the open source identity and access management tool Keycloak [https://www.keycloak.org/](https://www.keycloak.org/).
 
 A basic explanation of the terms and standards used by Keycloak can be found in the documentation about [OAuth 2.0 and OpenID Connect](docs/oauth2-and-openid-connect.md).
