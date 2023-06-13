@@ -134,7 +134,7 @@ More details can be found [here](#/docs/indentity-broker.md)
 
 ### Support
 
-For support, please contact [info@opendatahub.bz.it](mailto:info@opendatahub.bz.it).
+For support, please contact [info@opendatahub.com](mailto:info@opendatahub.com).
 
 ### Contributing
 
