@@ -77,9 +77,9 @@ services:
       GF_AUTH_GENERIC_OAUTH_CLIENT_ID: "grafana"
       GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: ""
       GF_AUTH_GENERIC_OAUTH_SCOPES: "openid profile email roles"
-      GF_AUTH_GENERIC_OAUTH_AUTH_URL: "https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/auth"
-      GF_AUTH_GENERIC_OAUTH_TOKEN_URL: "https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/token"
-      GF_AUTH_GENERIC_OAUTH_API_URL: "https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/userinfo"
+      GF_AUTH_GENERIC_OAUTH_AUTH_URL: "https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/auth"
+      GF_AUTH_GENERIC_OAUTH_TOKEN_URL: "https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/token"
+      GF_AUTH_GENERIC_OAUTH_API_URL: "https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/userinfo"
       GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: "contains(roles[*], 'Admin') && 'Admin' || contains(roles[*], 'Editor') && 'Editor' || 'Viewer'"
 
       GF_SMTP_ENABLED: "true"
@@ -136,11 +136,11 @@ Select:
 Add custom OAuth2
 
 - Internal name: noi-auth
-- API Base URL: https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/
-- Authorize url (can be relative to base URL): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/auth
-- Token url (can be relative to base URL): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/token
-- Profile url (can be relative to base URL): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/userinfo
-- Logout URL (optional): https://auth.opendatahub.bz.it/auth/realms/noi/protocol/openid-connect/logout
+- API Base URL: https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/
+- Authorize url (can be relative to base URL): https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/auth
+- Token url (can be relative to base URL): https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/token
+- Profile url (can be relative to base URL): https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/userinfo
+- Logout URL (optional): https://auth.opendatahub.com/auth/realms/noi/protocol/openid-connect/logout
 - Client Id: it.bz.opendatahub.cloud
 - Client Secret: secret from keykloak
 - Scope (optional): roles
