@@ -195,7 +195,7 @@
             <div class="mr-10">
                 NOI SPA<br />
                 Techpark Südtirol / Alto Adige<br />
-                <a href="mailto:info@davinci.bz.it" class="hover:underline">info@opendatahub.bz.com</a>
+                <a href="mailto:info@davinci.bz.it" class="hover:underline">info@opendatahub.com</a>
             </div>
             <div class="mt-4 lg:mt-0">
                 A.-Volta-Straße 13/A - 39100 Bozen/South Tyrol - Italy<br />
