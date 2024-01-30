@@ -14,12 +14,25 @@ A basic explanation of the terms and standards used by Keycloak can be found in 
 
 ## Table of contents
 
-- [Getting started](#getting-started)
-- [Setup and configuration](#setup-and-configuration)
-- [Deployment](#deployment)
-- [Applications / Clients](#applications-clients)
-- [Information](#information)
-- [Identity broker](#identity-broker)
+- [Authentication Server](#authentication-server)
+  - [Table of contents](#table-of-contents)
+  - [Getting started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Source code](#source-code)
+    - [Setup](#setup)
+    - [Start and stop the containers](#start-and-stop-the-containers)
+    - [SMTP Server](#smtp-server)
+    - [Themes](#themes)
+  - [Setup and configuration](#setup-and-configuration)
+  - [Deployment](#deployment)
+  - [Applications / Clients](#applications--clients)
+  - [Identity broker](#identity-broker)
+  - [Information](#information)
+    - [Support](#support)
+    - [Contributing](#contributing)
+    - [Documentation](#documentation)
+    - [License](#license)
+    - [REUSE](#reuse)
 
 ## Getting started
 
@@ -134,7 +147,7 @@ More details can be found [here](#/docs/indentity-broker.md)
 
 ### Support
 
-For support, please contact [info@opendatahub.com](mailto:info@opendatahub.com).
+For support, please contact [help@opendatahub.com](mailto:help@opendatahub.com).
 
 ### Contributing
 
