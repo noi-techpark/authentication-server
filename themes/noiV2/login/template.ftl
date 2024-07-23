@@ -261,10 +261,20 @@
                         }
                         
                         document.addEventListener("DOMContentLoaded", function(event) {
+                            // login username trim
                             let username = document.getElementById("username");
-                            username.addEventListener("change", (event) => {
-                                username.value = username.value.replaceAll(" ", "")
-                            });
+                            if(username) {
+                                username.addEventListener("change", (event) => {
+                                    username.value = username.value.replaceAll(" ", "")
+                                });
+                            }
+                            // register email trim
+                            let email = document.getElementById("email");
+                            if(email) {
+                                email.addEventListener("change", (event) => {
+                                    email.value = email.value.replaceAll(" ", "")
+                                });
+                            }
                         });
                     </script>
                     </body>
