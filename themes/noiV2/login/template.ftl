@@ -125,38 +125,8 @@
                             </#if>
                         </#if>
                     </header>
-                    <#if realm.password && social.providers??>
-                        <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
 
-            
-                            <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
-                                <#list social.providers as p>
-                                    <a id="social-${p.alias}" class="${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
-                                            type="button" href="${p.loginUrl}">
-                                        <#if p.iconClasses?has_content>
-                                            <i class="${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
-                                            <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
-                                        <#else>
-                                            <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
-                                        </#if>
-                                    </a>
-                                </#list>
-                            </ul>
-                        </div>
-                        <hr/>
-                        <h4>${msg("identity-provider-login-label")}</h4>
-                    </#if>
-
-                    <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
-                        <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post">
-                            <div class="${properties.kcFormGroupClass!}">
-                                <input type="hidden" name="tryAnotherWay" value="on"/>
-                                <a href="#" id="try-another-way"
-                                onclick="document.forms[' kc-select-try-another-way-form'].submit();return false;">
-                ${msg("doTryAnotherWay")}</a>
-                </div>
-                </form>
-        </#if>
+                    <#nested "socialProviders">
 
         <#-- App-initiated actions should not see warning messages about the need to complete the action -->
             <#-- during login. -->
