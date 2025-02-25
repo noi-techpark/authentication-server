@@ -55,7 +55,7 @@ jobs:
           X_COMPOSE_PROJECT_NAME: ${{ env.PROJECT_NAME }}
           X_DOCKER_IMAGE: ${{ env.DOCKER_IMAGE }}
           X_DOCKER_TAG: ${{ env.DOCKER_TAG }}
-          X_DB_ADDR: "test-pg-bdp.co90ybcr8iim.eu-west-1.rds.amazonaws.com"
+          X_DB_ADDR: "test-pg-misc.co90ybcr8iim.eu-west-1.rds.amazonaws.com"
           X_DB_PORT: "5432"
           X_DB_DATABASE: "authentication_server_upgrade"
           X_DB_USER: "authentication_server"
@@ -115,7 +115,7 @@ jobs:
           X_COMPOSE_PROJECT_NAME: ${{ env.PROJECT_NAME }}
           X_DOCKER_IMAGE: ${{ env.DOCKER_IMAGE }}
           X_DOCKER_TAG: ${{ env.DOCKER_TAG }}
-          X_DB_ADDR: "test-pg-bdp.co90ybcr8iim.eu-west-1.rds.amazonaws.com"
+          X_DB_ADDR: "test-pg-misc.co90ybcr8iim.eu-west-1.rds.amazonaws.com"
           X_DB_PORT: "5432"
           X_DB_DATABASE: "authentication_server"
           X_DB_USER: "authentication_server"
