@@ -21,4 +21,4 @@ auth02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args
 auth02.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.opendatahub.com'
 
 [noi]
-noi-keycloak.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+noi-keycloak.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='noi-keycloak.testingmachine.eu'
