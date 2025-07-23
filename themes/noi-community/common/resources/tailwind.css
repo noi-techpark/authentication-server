@@ -1,0 +1,401 @@
+/*
+ * SPDX-FileCopyrightText: Tailwind Labs, Inc.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-size: 16px;
+}
+
+a {
+    @apply underline;
+}
+
+ul {
+    @apply list-disc;
+}
+
+ol {
+    @apply list-decimal;
+}
+
+#kc-content {
+    @apply flex;
+    @apply flex-col;
+    @apply flex-grow;
+    @apply items-center;
+    @apply mx-0;
+    @apply p-2;
+    @apply bg-gray-300;
+}
+
+@screen lg {
+    #kc-content {
+        @apply mt-8;
+        @apply p-8;
+    }
+}
+
+@screen xl {
+    #kc-content {
+        @apply mx-8;
+    }
+}
+
+#kc-content-wrapper {
+    @apply w-full;
+    @apply max-w-2xl;
+    @apply border-3;
+    @apply border-black;
+    @apply my-8;
+    @apply p-8;
+    @apply bg-white;
+}
+
+@screen lg {
+    #kc-content-wrapper {
+        @apply p-16;
+    }
+}
+
+#kc-info {
+    @apply flex;
+    @apply justify-center;
+}
+
+#kc-info-wrapper {
+    @apply w-full;
+    @apply max-w-2xl;
+    @apply mt-8;
+    @apply bg-white;
+}
+
+#kc-form-login {
+    @apply space-y-8;
+}
+
+#kc-register-form {
+    @apply space-y-8;
+}
+
+/* FORMS */
+
+.form-input-group {
+    @apply flex;
+    @apply flex-col;
+}
+
+.form-input-group-error > .form-input {
+    @apply border-red-700;
+}
+
+.form-input-group-error > .form-label {
+    @apply text-red-700;
+}
+
+.form-input[aria-invalid='true'] {
+    @apply border-red-700;
+}
+
+.form-input-wrapper {
+    @apply flex;
+    @apply flex-row;
+}
+
+.form-input-wrapper > .required {
+    @apply text-primary-500;
+}
+
+.form-input {
+    @apply w-full;
+    @apply py-1;
+    @apply border-b;
+    @apply border-black;
+    @apply text-2xl;
+}
+
+.form-input:focus {
+    @apply outline-none;
+    @apply border-focus-500;
+}
+
+.form-label {
+    @apply text-primary-500;
+    @apply font-bold;
+}
+
+.form-input-group:focus-within .form-label {
+    @apply text-focus-500;
+  }
+
+.control-label {
+    /* @apply text-primary-500; */
+    @apply font-bold;
+}
+
+.inline-form-input {
+    @apply appearance-none;
+    @apply mt-2;
+    @apply border-2;
+    @apply border-black;
+    @apply w-full;
+    @apply py-2;
+    @apply px-2;
+    @apply leading-tight;
+}
+
+.inline-form-input:focus {
+    @apply outline-none;
+    @apply border-green-700;
+}
+
+.inline-form-input:disabled {
+    @apply border-none;
+    @apply px-0;
+    @apply bg-transparent;
+}
+
+.inline-form-label {
+    @apply block;
+    @apply mb-1;
+    @apply pr-4;
+    @apply text-xs;
+    @apply text-black;
+    @apply font-bold;
+}
+
+.inline-form-label-error {
+    @apply text-red-700;
+}
+
+@screen lg {
+    .inline-form-label {
+        @apply mb-0;
+    }
+}
+
+.form-setting {
+    @apply flex;
+    @apply flex-col;
+}
+
+@screen lg {
+    .form-setting {
+        @apply flex-row;
+        @apply justify-between
+    }
+}
+
+/* ALERTS */
+
+.alert {
+    @apply flex;
+    @apply mb-4;
+    @apply border-l-4;
+    @apply p-4;
+}
+
+.alert-warning {
+    @apply bg-yellow-50;
+    @apply border-yellow-400;
+    @apply text-yellow-700;
+}
+
+.alert-error {
+    @apply bg-red-50;
+    @apply border-red-400;
+    @apply text-red-700;
+}
+
+.alert-info {
+    @apply bg-blue-50;
+    @apply border-blue-400;
+    @apply text-blue-700;
+}
+
+.alert-success {
+    @apply bg-green-50;
+    @apply border-green-400;
+    @apply text-green-700;
+}
+
+/* BUTTONS */
+
+.btn {
+    @apply px-4;
+    @apply py-2;
+    @apply border-3;
+    @apply uppercase;
+    @apply no-underline;
+}
+
+.btn-black {
+    @apply border-black;
+    @apply bg-white;
+}
+
+.btn-black:hover {
+    @apply bg-black;
+    @apply text-white;
+}
+
+.btn-black-filled {
+    @apply border-black;
+    @apply bg-black;
+    @apply text-white;
+}
+
+.btn-black-filled:hover {
+    @apply bg-white;
+    @apply text-black;
+}
+
+.vertical-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.image-noi {
+    width: auto;
+    height: 34px;
+}
+
+@screen sm {
+    .image-noi {
+        height: 50px;
+    }
+}
+
+@screen xl {
+    .image-noi {
+        height: 65px;
+    }
+}
+
+.side-menu-item {
+    @apply my-1;
+    @apply list-none;
+}
+
+.side-menu-item > a {
+    @apply no-underline;
+}
+
+.side-menu-item:hover {
+    @apply font-bold;
+}
+
+.side-menu-item-active {
+    @apply font-bold;
+}
+
+.side-menu-item > a {
+    @apply flex;
+    @apply p-2;
+}
+
+.mobile-nav {
+    @apply hidden;
+    @apply mb-4;
+    @apply border-b;
+    @apply border-black;
+    @apply flex-col;
+    @apply items-stretch;
+    @apply bg-gray-300;
+    @apply px-2;
+    @apply pt-2;
+}
+
+@screen lg {
+    .mobile-nav {
+        @apply hidden;
+    }
+}
+
+.mobile-nav-open {
+    @apply flex;
+}
+
+.mobile-languages {
+    @apply z-10;
+    @apply shadow;
+    @apply absolute;
+    @apply right-0;
+    @apply left-0;
+    @apply bg-white;
+    @apply hidden;
+    @apply list-none;
+}
+
+@screen lg {
+    .mobile-languages {
+        @apply hidden;
+    }
+}
+
+.mobile-languages-open {
+    @apply block;
+}
+
+.mobile-language-select-button {
+    @apply border;
+    @apply border-black;
+}
+
+
+/* OTP Page */
+
+#kc-totp-settings {
+    @apply space-y-4;
+}
+
+#kc-totp-supported-apps {
+    @apply ml-4;
+}
+
+/* Error page */
+#kc-error-message {
+    @apply space-y-4;
+}
+
+/* Content area account theme */
+
+.content-area {
+    @apply flex;
+    @apply flex-col;
+    @apply flex-grow;
+}
+
+/* Social logins */
+
+
+.eurac-social-icon {
+    display: block;
+    @apply w-full;
+}
+
+.eurac-social-icon::after {
+    content: 'Eurac Research / unibz';
+    font-style: normal;
+    text-transform: none;
+}
+
+.microsoft-social-icon {
+    display: block;
+    @apply w-full;
+}
+
+.microsoft-social-icon::after {
+    content: 'NOI Techpark';
+    font-style: normal;
+    text-transform: none;
+}
+
+.kc-social-icon-text {
+    @apply sr-only;
+}
