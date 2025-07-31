@@ -1,3 +1,5 @@
+FROM curlimages/curl AS curlstage
+
 FROM quay.io/keycloak/keycloak:21.1.0 AS base
 
 ENV KC_HEALTH_ENABLED=true
@@ -13,6 +15,7 @@ CMD ["start-dev"]
 # Build
 FROM base AS build
 
+COPY --from=curlstage /usr/bin/curl /usr/bin/curl
 COPY themes/sankt-virtual /opt/keycloak/themes/sankt-virtual
 COPY themes/noiV2 /opt/keycloak/themes/noiV2
 COPY themes/noi-community /opt/keycloak/themes/noi-community
