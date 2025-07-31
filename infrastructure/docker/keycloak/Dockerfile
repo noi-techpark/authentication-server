@@ -1,5 +1,3 @@
-FROM curlimages/curl AS curlstage
-
 FROM quay.io/keycloak/keycloak:21.1.0 AS base
 
 ENV KC_HEALTH_ENABLED=true
@@ -25,7 +23,6 @@ RUN /opt/keycloak/bin/kc.sh build
 
 # Prod
 FROM base AS prod
-COPY --from=curlstage /usr/bin/curl /usr/bin/curl
 COPY --from=build /opt/keycloak/ /opt/keycloak/
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
