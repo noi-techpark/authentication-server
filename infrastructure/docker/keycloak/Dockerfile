@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:21.1.0 AS base
+FROM quay.io/keycloak/keycloak:22.0.1 AS base
 
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
