@@ -13,9 +13,7 @@ CMD ["start-dev"]
 # Build
 FROM base AS build
 
-USER 0  # temp root
 RUN microdnf install -y curl && microdnf clean all
-USER 1000 # back to kc user
 
 COPY themes/sankt-virtual /opt/keycloak/themes/sankt-virtual
 COPY themes/noiV2 /opt/keycloak/themes/noiV2
