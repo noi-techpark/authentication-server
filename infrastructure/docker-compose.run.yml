@@ -17,7 +17,7 @@ services:
       KC_SHOW_CONFIG: 'true'
       #JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/auth/health"]
       interval: 20s
       timeout: 10s
       retries: 5
