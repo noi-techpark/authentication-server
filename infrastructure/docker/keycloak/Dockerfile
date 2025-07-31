@@ -15,7 +15,6 @@ CMD ["start-dev"]
 # Build
 FROM base AS build
 
-COPY --from=curlstage /usr/bin/curl /usr/bin/curl
 COPY themes/sankt-virtual /opt/keycloak/themes/sankt-virtual
 COPY themes/noiV2 /opt/keycloak/themes/noiV2
 COPY themes/noi-community /opt/keycloak/themes/noi-community
@@ -26,6 +25,7 @@ RUN /opt/keycloak/bin/kc.sh build
 
 # Prod
 FROM base AS prod
+COPY --from=curlstage /usr/bin/curl /usr/bin/curl
 COPY --from=build /opt/keycloak/ /opt/keycloak/
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
