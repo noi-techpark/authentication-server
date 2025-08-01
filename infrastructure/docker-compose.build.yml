@@ -7,3 +7,4 @@ services:
       target: prod
     environment:
       KC_CACHE_STACK: local
+      #KC_FEATURES: 'hostname:v2'

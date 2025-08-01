@@ -9,7 +9,6 @@ services:
       KC_DB_URL: jdbc:postgresql://${DB_ADDR}:${DB_PORT}/${DB_DATABASE}
       KC_DB_USERNAME: ${DB_USER}
       KC_DB_PASSWORD: ${DB_PASSWORD}
-      KC_FEATURES: 'hostname:v2'
       KC_HOSTNAME_STRICT: 'false'
       KC_HOSTNAME_STRICT_HTTPS: 'false'
       KC_HTTP_ENABLED: 'true'
@@ -17,7 +16,6 @@ services:
       #KC_HOSTNAME_URL: ${FRONTEND_URL}
       #KC_HOSTNAME_ADMIN_URL: ${FRONTEND_URL}
       KC_HOSTNAME: ${FRONTEND_URL}
-      #KC_FRONTEND_URL: ${FRONTEND_URL}
       KEYCLOAK_ADMIN: ${ADMIN_NAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       KC_SHOW_CONFIG: 'true'
