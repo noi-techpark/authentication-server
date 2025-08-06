@@ -181,6 +181,7 @@ jobs:
           X_DB_USER: "keycloak_noi"
           X_DB_PASSWORD: ${{ secrets.TEST_DB_KEYCLOAKNOI_PASSWORD }}
           X_FRONTEND_URL: "https://auth.noi.testingmachine.eu/auth/"
+          X_HOST_DOMAIN: "auth.noi.testingmachine.eu"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_KEYCLOAKNOI_PASSWORD }}
       - name: Build frontend assets

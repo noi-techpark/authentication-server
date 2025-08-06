@@ -5,6 +5,6 @@ services:
       context: ../
       dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: prod
-    environment:
+    #environment:
       #KC_CACHE_STACK: local
       #KC_FEATURES: 'hostname:v2'
