@@ -16,10 +16,14 @@ services:
       #KC_PROXY: 'passthrough'
       #KC_HOSTNAME_URL: ${FRONTEND_URL}
       #KC_HOSTNAME_ADMIN_URL: ${FRONTEND_URL}
-      KC_HOSTNAME: ${HOST_DOMAIN}
+      KC_HOSTNAME: ${FRONTEND_URL}
       KEYCLOAK_ADMIN: ${ADMIN_NAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       KC_SHOW_CONFIG: 'true'
+      #KC_CLUSTER: 'true'
+      #KC_CLUSTER_CONFIG_FILE: '/opt/keycloak/config/jgroups.xml'
+      #KC_CACHE: 'dist' 
+      #KC_CACHE_STACK: 'jdbc-ping' overwritten with cluster config file
       #JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
     healthcheck:
       #test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
@@ -30,4 +34,4 @@ services:
       start_period: 30s
     ports:
       - 8080:8080
-      #- 7800:7800
+      - 7800:7800
