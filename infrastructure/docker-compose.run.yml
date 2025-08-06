@@ -15,6 +15,7 @@ services:
       KC_HTTP_RELATIVE_PATH: '/auth'
       KC_HOSTNAME: ${FRONTEND_URL}
       KC_HOSTNAME_STRICT: 'true'
+      KC_PROXY_HEADERS: 'forwarded'
       #KC_HOSTNAME_STRICT_HTTPS: 'false'
       
       #KC_PROXY: 'edge'
