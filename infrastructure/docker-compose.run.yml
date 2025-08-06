@@ -3,24 +3,30 @@ services:
     image: ${DOCKER_IMAGE}:${DOCKER_TAG}
     restart: unless-stopped
     environment:
-      KC_LOG_LEVEL: info
-      #KC_CACHE_STACK: ec2
+      KC_LOG_LEVEL: info      
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://${DB_ADDR}:${DB_PORT}/${DB_DATABASE}
       KC_DB_USERNAME: ${DB_USER}
       KC_DB_PASSWORD: ${DB_PASSWORD}
+      KC_HEALTH_ENABLED: 'true'
+      KC_METRICS_ENABLED: 'true'      
+      KC_HTTP_ENABLED: 'true'
+      KC_HTTP_ENABLE_FORWARD_HEADERS: 'true'
+      KC_HTTP_RELATIVE_PATH: '/auth'
+      KC_HOSTNAME: ${FRONTEND_URL}
       KC_HOSTNAME_STRICT: 'true'
       #KC_HOSTNAME_STRICT_HTTPS: 'false'
-      KC_HTTP_ENABLED: 'true'
-      KC_PROXY: 'edge'
+      
+      #KC_PROXY: 'edge'
       #KC_PROXY: 'passthrough'
       #KC_HOSTNAME_URL: ${FRONTEND_URL}
-      #KC_HOSTNAME_ADMIN_URL: ${FRONTEND_URL}
-      KC_HOSTNAME: ${FRONTEND_URL}
+      #KC_HOSTNAME_ADMIN_URL: ${FRONTEND_URL}      
       KEYCLOAK_ADMIN: ${ADMIN_NAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       KC_SHOW_CONFIG: 'true'
-      #KC_CLUSTER: 'true'
+      KC_CACHE: 'ispn'
+      KC_CACHE_STACK: 'jdbc-ping'
+      KC_CLUSTER: 'true'
       #KC_CLUSTER_CONFIG_FILE: '/opt/keycloak/config/jgroups.xml'
       #KC_CACHE: 'dist' 
       #KC_CACHE_STACK: 'jdbc-ping' overwritten with cluster config file
