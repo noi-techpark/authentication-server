@@ -97,9 +97,9 @@
                         </a>
                     </#list>
                 </ul>
+                <hr/>
+                <h4>${msg("identity-provider-login-label")}</h4>
             </div>
-            <hr/>
-            <h4>${msg("identity-provider-login-label")}</h4>
         </#if>
 
         <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
