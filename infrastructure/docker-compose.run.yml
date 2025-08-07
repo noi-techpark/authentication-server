@@ -32,7 +32,7 @@ services:
       #KC_CACHE: 'dist' 
       #KC_CACHE_STACK: 'jdbc-ping' overwritten with cluster config file
       #JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
-      JAVA_OPTS_APPEND: "-Dorg.jgroups.level=DEBUG -Dorg.infinispan.level=DEBUG"
+      JAVA_OPTS_APPEND: "Djgroups.external_addr=${HOSTNAME}"
     healthcheck:
       #test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
       test: "{ printf >&3 'GET /auth/realms/master/.well-known/openid-configuration HTTP/1.0\r\nHost: localhost\r\n\r\n'; cat <&3; } 3<>/dev/tcp/localhost/8080 | head -1 | grep 200"      
@@ -42,4 +42,4 @@ services:
       start_period: 30s
     ports:
       - 8080:8080
-      - 7800:7800
+      - 7800:7800      
