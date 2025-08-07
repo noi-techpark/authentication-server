@@ -15,7 +15,8 @@ services:
       KC_HTTP_RELATIVE_PATH: '/auth'
       KC_HOSTNAME: ${FRONTEND_URL}
       KC_HOSTNAME_STRICT: 'true'
-      KC_PROXY_HEADERS: 'forwarded'
+      #KC_PROXY_HEADERS: 'forwarded'
+      KC_PROXY_HEADERS: 'xforwarded'
       #KC_HOSTNAME_STRICT_HTTPS: 'false'
       
       #KC_PROXY: 'edge'
@@ -32,7 +33,7 @@ services:
       #KC_CACHE: 'dist' 
       #KC_CACHE_STACK: 'jdbc-ping' overwritten with cluster config file
       #JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
-      JAVA_OPTS_APPEND: "Djgroups.external_addr=${HOSTNAME}"
+      JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME}"
       JGROUPS_BIND_ADDR: ${HOSTNAME}
     healthcheck:
       #test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
