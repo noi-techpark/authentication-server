@@ -3,45 +3,34 @@ services:
     image: ${DOCKER_IMAGE}:${DOCKER_TAG}
     restart: unless-stopped
     environment:
-      KC_LOG_LEVEL: info      
+      KC_LOG_LEVEL: info
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://${DB_ADDR}:${DB_PORT}/${DB_DATABASE}
       KC_DB_USERNAME: ${DB_USER}
       KC_DB_PASSWORD: ${DB_PASSWORD}
       KC_HEALTH_ENABLED: 'true'
-      KC_METRICS_ENABLED: 'true'      
+      KC_METRICS_ENABLED: 'true'
       KC_HTTP_ENABLED: 'true'
       KC_HTTP_ENABLE_FORWARD_HEADERS: 'true'
       KC_HTTP_RELATIVE_PATH: '/auth'
-      KC_HOSTNAME: ${FRONTEND_URL}
+      KC_HOSTNAME: ${HOST_DOMAIN}
       KC_HOSTNAME_STRICT: 'true'
-      #KC_PROXY_HEADERS: 'forwarded'
       KC_PROXY_HEADERS: 'xforwarded'
-      #KC_HOSTNAME_STRICT_HTTPS: 'false'
-      
-      #KC_PROXY: 'edge'
-      #KC_PROXY: 'passthrough'
-      #KC_HOSTNAME_URL: ${FRONTEND_URL}
-      #KC_HOSTNAME_ADMIN_URL: ${FRONTEND_URL}      
       KEYCLOAK_ADMIN: ${ADMIN_NAME}
       KEYCLOAK_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       KC_SHOW_CONFIG: 'true'
       KC_CACHE: 'ispn'
       KC_CACHE_STACK: 'jdbc-ping'
       KC_CLUSTER: 'true'
-      #KC_CLUSTER_CONFIG_FILE: '/opt/keycloak/config/jgroups.xml'
-      #KC_CACHE: 'dist' 
-      #KC_CACHE_STACK: 'jdbc-ping' overwritten with cluster config file
-      #JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME} -Djgroups.s3.region_name=${CLUSTER_S3_REGION_NAME} -Djgroups.s3.bucket_name=${CLUSTER_S3_BUCKET_NAME}"
-      JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME}"
-      JGROUPS_BIND_ADDR: ${HOSTNAME}
+      JAVA_OPTS_APPEND: "-Djgroups.external_addr=${HOSTNAME}"      
     healthcheck:
       #test: ["CMD", "curl", "-f", "http://localhost:8080/auth/health"]
-      test: "{ printf >&3 'GET /auth/realms/master/.well-known/openid-configuration HTTP/1.0\r\nHost: localhost\r\n\r\n'; cat <&3; } 3<>/dev/tcp/localhost/8080 | head -1 | grep 200"      
+      test: "{ printf >&3 'GET /auth/realms/master/.well-known/openid-configuration HTTP/1.0\r\nHost: localhost\r\n\r\n'; cat <&3; } 3<>/dev/tcp/localhost/8080 | head -1 | grep 200"
       interval: 20s
       timeout: 10s
       retries: 5
       start_period: 30s
     ports:
       - 8080:8080
-      - 7800:7800      
+      - 7800:7800
+      - 9000:9000
