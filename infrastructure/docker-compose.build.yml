@@ -6,4 +6,4 @@ services:
       dockerfile: infrastructure/docker/keycloak/Dockerfile
       target: prod
     environment:
-      KC_CACHE_STACK: ec2
+      KC_CACHE_STACK: local
