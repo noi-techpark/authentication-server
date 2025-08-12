@@ -121,6 +121,7 @@ jobs:
           X_DB_USER: "authentication_server"
           X_DB_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
           X_FRONTEND_URL: "https://auth.opendatahub.testingmachine.eu/auth/"
+          X_HOST_DOMAIN: "auth.opendatahub.testingmachine.eu"
           X_ADMIN_NAME: "admin"
           X_ADMIN_PASSWORD: ${{ secrets.TEST_ADMIN_PASSWORD }}
           X_CLUSTER_S3_REGION_NAME: "eu-west-1"
