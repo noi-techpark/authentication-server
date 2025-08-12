@@ -80,7 +80,7 @@
             </div>
         </#if>
     <#elseif section = "socialProviders" >
-        <#if  realm.password && social.providers??>
+        <#if  realm.password && social.providers?has_content>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountSectionClass!}">
 
 
