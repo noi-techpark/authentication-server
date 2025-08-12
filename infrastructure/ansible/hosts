@@ -8,7 +8,7 @@ auth01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args
 
 [prod]
 auth01.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth01-internal.opendatahub.com'
-auth02.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.opendatahub.com'
+#auth02.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.opendatahub.com'
 
 [groupone]
 authupgrade01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='authupgrade01-internal.testingmachine.eu'
@@ -18,4 +18,4 @@ auth01.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='
 [grouptwo]
 authupgrade02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='authupgrade02-internal.testingmachine.eu'
 #auth02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.testingmachine.eu'
-auth02.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.opendatahub.com'
+#auth02.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.opendatahub.com'
