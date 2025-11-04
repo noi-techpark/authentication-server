@@ -15,6 +15,7 @@ FROM base AS build
 
 COPY themes/sankt-virtual /opt/keycloak/themes/sankt-virtual
 COPY themes/noiV2 /opt/keycloak/themes/noiV2
+COPY themes/noi-community /opt/keycloak/themes/noi-community
 #COPY native-s3-ping/target/native-s3-ping-jar-with-dependencies.jar /opt/keycloak/providers/native-s3-ping-jar-with-dependencies.jar
 COPY registration-event-listener/target/registration-event-listener.jar /opt/keycloak/providers/registration-event-listener.jar
 
