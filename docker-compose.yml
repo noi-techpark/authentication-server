@@ -23,6 +23,7 @@ services:
     volumes:
       - ./themes/sankt-virtual:/opt/keycloak/themes/sankt-virtual
       - ./themes/noiV2:/opt/keycloak/themes/noiV2
+      - ./themes/noi-community:/opt/keycloak/themes/noi-community
       - ./native-s3-ping/target/native-s3-ping-jar-with-dependencies.jar:/opt/keycloak/providers/native-s3-ping-jar-with-dependencies.jar
       - ./registration-event-listener/target/registration-event-listener.jar:/opt/keycloak/providers/registration-event-listener.jar
     healthcheck:
