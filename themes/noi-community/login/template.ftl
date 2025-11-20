@@ -48,13 +48,13 @@
         <div>
             <div class="${properties.kcHeaderContainerClass!}">
                 <div class="py-2 md:py-4 pr-4 flex flex-col justify-center">
-                    <a href="https://opendatahub.com"><img src="${url.resourcesPath}/img/NOI_OPENDATAHUB_NEW_BK_nospace-01.svg" alt="Open Data Hub" class="image-noi" /></a>
+                    <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>
                 <div class="${properties.kcHeaderTitleContainerClass!}">
                     <h2>Login</h2>
-                </div>                
+                </div>
                 <!-- Desktop Navigation -->
-                <nav role="navigation" class="hidden lg:flex items-center lg:px-4">
+                <nav role="navigation" class="hidden lg:flex items-center">
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                         <div class="group relative block">
                             <button class="relative border border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
@@ -73,9 +73,6 @@
                         </div>
                     </#if>
                 </nav>
-                <div class="px-4 py-2 md:py-4 pr-4 flex flex-col justify-center border-l border-gray-500 leading-tight">
-                    <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
-                </div>                
             </div>
         </div>
 
@@ -214,7 +211,7 @@
                             <div class="mr-10">
                                 NOI SPA<br />
                                 Techpark Südtirol / Alto Adige<br />
-                                <a href="mailto:help@opendatahub.com" class="hover:underline">help@opendatahub.com</a>
+                                <a href="mailto:community@noi.bz.it" class="hover:underline">community@noi.bz.it</a>
                             </div>
                             <div class="mt-4 lg:mt-0">
                                 A.-Volta-Straße 13/A - 39100 Bozen/South Tyrol - Italy<br />
