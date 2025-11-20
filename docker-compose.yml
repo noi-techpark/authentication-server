@@ -21,7 +21,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: password
     volumes:
-      - ./themes/sankt-virtual:/opt/keycloak/themes/sankt-virtual
+      # - ./themes/sankt-virtual:/opt/keycloak/themes/sankt-virtual
       - ./themes/noiV2:/opt/keycloak/themes/noiV2
       - ./themes/noi-community:/opt/keycloak/themes/noi-community
       - ./native-s3-ping/target/native-s3-ping-jar-with-dependencies.jar:/opt/keycloak/providers/native-s3-ping-jar-with-dependencies.jar
