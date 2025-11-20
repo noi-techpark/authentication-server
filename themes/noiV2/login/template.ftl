@@ -48,13 +48,13 @@
         <div>
             <div class="${properties.kcHeaderContainerClass!}">
                 <div class="py-2 md:py-4 pr-4 flex flex-col justify-center">
-                    <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
+                    <a href="https://opendatahub.com"><img src="${url.resourcesPath}/img/NOI_OPENDATAHUB_NEW_BK_nospace-01.svg" alt="Open Data Hub" class="image-noi" /></a>
                 </div>
                 <div class="${properties.kcHeaderTitleContainerClass!}">
                     <h2>Login</h2>
                 </div>                
                 <!-- Desktop Navigation -->
-                <nav role="navigation" class="hidden lg:flex items-center px-4">
+                <nav role="navigation" class="hidden lg:flex items-center lg:px-4">
                     <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                         <div class="group relative block">
                             <button class="relative border border-black pl-4 pr-4 py-2 text-left group-hover:bg-black group-hover:text-white uppercase cursor-pointer">
@@ -74,7 +74,7 @@
                     </#if>
                 </nav>
                 <div class="px-4 py-2 md:py-4 pr-4 flex flex-col justify-center border-l border-gray-500 leading-tight">
-                    <a href="https://opendatahub.com"><img src="${url.resourcesPath}/img/NOI_OPENDATAHUB_NEW_BK_nospace-01.svg" alt="Open Data Hub" class="image-noi" /></a>
+                    <a href="https://noi.bz.it"><img src="${url.resourcesPath}/img/noi.svg" alt="NOI Techpark" class="image-noi" /></a>
                 </div>                
             </div>
         </div>
