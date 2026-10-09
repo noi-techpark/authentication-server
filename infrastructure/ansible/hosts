@@ -10,6 +10,13 @@ auth02.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args
 auth01.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth01-internal.opendatahub.com'
 auth02.opendatahub.com ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth02-internal.opendatahub.com'
 
+# Scaleway (noi-techpark/infrastructure: terraform/scaleway/digital/keycloak). The servers
+# are prepared by that repo's ansible/playbooks/auth-scw.yml. internal_domain_name is the
+# node's address on the keycloak private network, where the nodes cluster (jgroups, 7800).
+[scwtest]
+auth01.scw.opendatahub.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='172.16.40.10'
+auth02.scw.opendatahub.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='172.16.40.11'
+
 [groupone]
 authupgrade01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='authupgrade01-internal.testingmachine.eu'
 auth01.testingmachine.eu ansible_user='noi-techpark-bot' ansible_ssh_common_args='-o StrictHostKeyChecking=no' internal_domain_name='auth01-internal.testingmachine.eu'
