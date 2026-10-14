@@ -176,7 +176,7 @@ jobs:
   # in digital/db.
   deploy-scaleway-test:
     runs-on: ubuntu-22.04
-    if: github.ref == 'refs/heads/scaleway-test'
+    if: github.ref == 'refs/heads/feat/scaleway-test'
     needs: test
     concurrency: deploy-scaleway-test
     steps:
