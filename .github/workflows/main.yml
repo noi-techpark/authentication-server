@@ -172,7 +172,7 @@ jobs:
   # Deploy test on Scaleway (auth.scw.opendatahub.testingmachine.eu)
   # Infrastructure: noi-techpark/infrastructure, terraform/scaleway/digital/keycloak and
   # terraform/scaleway/digital/db (instance "authentication-server", migrated from AWS RDS).
-  # Database host and port are repository variables, set from `terraform output endpoints`
+  # Database host, port and password are repository secrets, set from `terraform output`
   # in digital/db.
   deploy-scaleway-test:
     runs-on: ubuntu-22.04
@@ -188,8 +188,8 @@ jobs:
           X_COMPOSE_PROJECT_NAME: ${{ env.PROJECT_NAME }}
           X_DOCKER_IMAGE: ${{ env.DOCKER_IMAGE }}
           X_DOCKER_TAG: ${{ env.DOCKER_TAG }}
-          X_DB_ADDR: ${{ vars.SCW_TEST_DB_ADDR }}
-          X_DB_PORT: ${{ vars.SCW_TEST_DB_PORT }}
+          X_DB_ADDR: ${{ secrets.SCW_TEST_DB_ADDR }}
+          X_DB_PORT: ${{ secrets.SCW_TEST_DB_PORT }}
           X_DB_DATABASE: "authentication_server"
           X_DB_USER: "authentication_server"
           X_DB_PASSWORD: ${{ secrets.SCW_TEST_DB_PASSWORD }}
